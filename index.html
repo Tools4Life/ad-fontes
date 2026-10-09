@@ -223,6 +223,18 @@ button.vn:hover{text-decoration:underline}
   #sync{display:none}
   #menuBtn{margin-left:auto}
 }
+/* verse highlights */
+:root{--h-yellow:#FCEBB0;--h-green:#D6EBDD;--h-blue:#DCE5F6;--h-pink:#F6DCE3}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){--h-yellow:#3B3518;--h-green:#18301F;--h-blue:#1C2744;--h-pink:#3A1E27}}
+:root[data-theme="dark"]{--h-yellow:#3B3518;--h-green:#18301F;--h-blue:#1C2744;--h-pink:#3A1E27}
+.verse[class*="hl-"]{margin-inline:-8px;padding-inline:8px;border-radius:8px}
+.verse.hl-yellow{background:var(--h-yellow)}.verse.hl-green{background:var(--h-green)}.verse.hl-blue{background:var(--h-blue)}.verse.hl-pink{background:var(--h-pink)}
+.h-yellow{--c:var(--h-yellow)}.h-green{--c:var(--h-green)}.h-blue{--c:var(--h-blue)}.h-pink{--c:var(--h-pink)}
+.hlrow{display:flex;align-items:center;gap:8px;margin:0 0 12px;flex-wrap:wrap}
+.hlrow .tags{margin-right:4px}
+.sw{width:32px;height:32px;border-radius:50%;border:1px solid var(--rule);background:var(--c,transparent);cursor:pointer;padding:0;font-family:var(--f-ui);font-size:13px;color:var(--muted)}
+.sw[aria-pressed="true"]{outline:2px solid var(--accent);outline-offset:2px}
+.hdot{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);border:1px solid var(--rule);margin-right:6px;vertical-align:middle}
 /* menu */
 .menu-btn{flex-shrink:0;width:38px;height:38px;display:grid;place-items:center;background:transparent;border:1px solid var(--rule);border-radius:9px;cursor:pointer;color:var(--ink);padding:0}
 .menu-btn svg,.dx svg,.ditem svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -372,6 +384,7 @@ const Sync={db:null,uid:null,ref:null,marks:null,timer:null,pending:null,
   status(t,cls){const el=$('#sync');el.textContent=t;el.className='sync'+(cls?' '+cls:'');const a=$('#acctTitle'),b=$('#acctSub');if(a){a.textContent=Auth.email?'Account':'Sign in to sync';b.textContent=Auth.email?Auth.email+' · '+t:'Keep notes, bookmarks and your place in step across devices'}},
   async init(){
     try{(store.get('marks')||[]).forEach(m=>MARKS[m.id]=m)}catch(e){}
+    if(CH)refreshMarks();
     this.status('Sign in to sync');
     const {db,id:uid}=await Auth.ready();
     if(!db||!uid){this.status('This device');return}
@@ -411,7 +424,7 @@ const Sync={db:null,uid:null,ref:null,marks:null,timer:null,pending:null,
   },
   async saveMark(m){
     const id=m.id;m.at=Date.now();
-    const empty=!m.bm&&!(m.note||'').trim();
+    const empty=!m.bm&&!m.hl&&!(m.note||'').trim();
     if(empty)delete MARKS[id];else MARKS[id]=m;
     store.set('marks',Object.values(MARKS));refreshMarks();
     if(!this.marks)return;
@@ -420,34 +433,38 @@ const Sync={db:null,uid:null,ref:null,marks:null,timer:null,pending:null,
     catch(e){this.status(e&&e.code==='quota_exceeded'?'Storage full':'Not saved','busy')}
   }
 };
-const strip=m=>({book:m.book,chap:String(m.chap),v:m.v,bm:!!m.bm,note:String(m.note||'').slice(0,20000),at:m.at||Date.now()});
+const strip=m=>({book:m.book,chap:String(m.chap),v:m.v,bm:!!m.bm,hl:HLS.includes(m.hl)?m.hl:'',note:String(m.note||'').slice(0,20000),at:m.at||Date.now()});
 function topVerse(){const vs=[...document.querySelectorAll('.verse')];const y=(document.querySelector('.bar')||{}).offsetHeight||0;const v=vs.find(el=>el.getBoundingClientRect().bottom>y+10);return v?+v.id.slice(1):1}
 let scrollT=null;window.addEventListener('scroll',()=>{clearTimeout(scrollT);scrollT=setTimeout(()=>{if(Sync.ref&&CH){localAt=Date.now();store.set('state',Object.assign({at:localAt},prefs()));Sync.pushState(prefs(),localAt)}},2500)},{passive:true});
 function refreshMarks(){
-  document.querySelectorAll('.verse').forEach(el=>{const v=+el.id.slice(1);const b=el.querySelector('button.vn');if(b)b.innerHTML=vnInner(v);const g=el.querySelector('.marg');if(g){g.innerHTML=margInner(v);wireMarg(g)}});
+  document.querySelectorAll('.verse').forEach(el=>{const v=+el.id.slice(1);HLS.forEach(c=>el.classList.toggle('hl-'+c,hlOf(v)===c));const b=el.querySelector('button.vn');if(b)b.innerHTML=vnInner(v);const g=el.querySelector('.marg');if(g){g.innerHTML=margInner(v);wireMarg(g)}});
   const p=$('#panel');
   if(SEL&&SEL.lang==='mine'){const ta=$('#myNote');if(!ta||document.activeElement!==ta)showMyNote(SEL.v,true)}
   else if(!SEL&&p.querySelector('#myList'))p.querySelector('#myList').innerHTML=myListHTML();
 }
 const markId=v=>`${S.book}.${S.chap}.${v}`;
+const HLS=['yellow','green','blue','pink'];
+const hlOf=v=>{const m=MARKS[markId(v)];return m&&HLS.includes(m.hl)?m.hl:''};
 function vnInner(v){const m=MARKS[markId(v)];return `<span>${v}</span>${m&&m.bm?'<span class="bm" aria-label="bookmarked"></span>':''}${m&&(m.note||'').trim()?'<span class="nt" aria-label="has your note"></span>':''}`}
 function myListHTML(){
   const all=Object.values(MARKS).sort((a,b)=>(b.at||0)-(a.at||0));
-  if(!all.length)return `<p class="empty" style="font-size:14px">Tap a verse number to bookmark it or write your own note. They sync to your account across devices.</p>`;
+  if(!all.length)return `<p class="empty" style="font-size:14px">Tap a verse number to bookmark it, highlight it, or write your own note. They sync to your account across devices.</p>`;
   return all.slice(0,40).map(m=>{const nm=(INDEX&&INDEX.books.find(b=>b.code===m.book)||{}).name||m.book;
-    return `<button data-mark="${esc(m.id)}"><span class="r">${m.bm?'★ ':''}${esc(nm)} ${esc(m.chap)}:${esc(m.v)}</span>${(m.note||'').trim()?`<span class="x">${esc(m.note.trim())}</span>`:''}</button>`}).join('');
+    return `<button data-mark="${esc(m.id)}"><span class="r">${HLS.includes(m.hl)?`<i class="hdot h-${m.hl}"></i>`:''}${m.bm?'★ ':''}${esc(nm)} ${esc(m.chap)}:${esc(m.v)}</span>${(m.note||'').trim()?`<span class="x">${esc(m.note.trim())}</span>`:''}</button>`}).join('');
 }
 function showMyNote(v,quiet){
   SEL={lang:'mine',v};markSel();
   const id=markId(v);const m=MARKS[id]||{id,book:S.book,chap:String(S.chap),v,bm:false,note:''};
   const V=CH.verses.find(x=>x.v===v);
-  $('#panel').innerHTML=`<div class="ph"><span>${esc(BOOK.name)} ${esc(S.chap)}:${v} · your note</span><span><button data-back>Chapter study</button> <button data-close>Close</button></span></div>
+  $('#panel').innerHTML=`<div class="ph"><span>${esc(BOOK.name)} ${esc(S.chap)}:${v} · your notes</span><span><button data-back>Chapter study</button> <button data-close>Close</button></span></div>
   <p class="bsb" style="font-size:15px;color:var(--muted)">${esc(V?enText(V,S.tr1):'')}</p>
   <div class="mynote"><div class="row"><button class="chip" id="bmBtn" aria-pressed="${!!m.bm}">${m.bm?'Bookmarked':'Bookmark this verse'}</button><span class="tags" id="noteState">${Sync.ref?'Saves to your account as you type':'Saves on this device'}</span></div>
+  <div class="hlrow" role="group" aria-label="Highlight this verse"><span class="tags">Highlight</span>${HLS.map(c=>`<button class="sw h-${c}" data-hl="${c}" aria-label="${c}" aria-pressed="${m.hl===c}"></button>`).join('')}<button class="sw none" data-hl="" aria-label="No highlight" aria-pressed="${!HLS.includes(m.hl)}">✕</button></div>
   <label class="tags" for="myNote">Your note (private to you)</label>
   <textarea id="myNote" placeholder="Observations, questions, cross-references…">${esc(m.note||'')}</textarea></div>`;
   wirePanel();
   $('#bmBtn').onclick=()=>{const cur=Object.assign({},MARKS[id]||m,{note:$('#myNote').value});cur.bm=!cur.bm;Sync.saveMark(cur);$('#bmBtn').setAttribute('aria-pressed',cur.bm);$('#bmBtn').textContent=cur.bm?'Bookmarked':'Bookmark this verse'};
+  $('#panel').querySelectorAll('[data-hl]').forEach(b=>b.onclick=()=>{const cur=Object.assign({},MARKS[id]||m,{note:$('#myNote').value});cur.hl=b.dataset.hl;Sync.saveMark(cur);$('#panel').querySelectorAll('[data-hl]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.hl===cur.hl)))});
   let t=null;const ta=$('#myNote');
   const commit=()=>{clearTimeout(t);const cur=Object.assign({},MARKS[id]||m);if((cur.note||'')===ta.value)return;cur.note=ta.value;Sync.saveMark(cur);$('#noteState').textContent='Saved'};
   ta.oninput=()=>{clearTimeout(t);$('#noteState').textContent='Typing…';t=setTimeout(commit,1000)};
@@ -558,7 +575,7 @@ function verseHTML(V){
     const inner=S.lit?`<span>${esc(w.h)}${kq}</span><span class="g">${esc(w.g)}</span>`:`${esc(w.h)}${kq}`;
     return `<button class="w${has}" data-v="${V.v}" data-n="${w.n}" aria-label="${esc(w.t)} — ${esc(w.g)}">${inner}</button>`+(w.mk?`<span class="pmk" title="${w.mk==='ס'?'setumah (closed paragraph)':'petuchah (open paragraph)'}">${esc(w.mk)}</span>`:'');
   }).join(S.lit?'':' ');
-  let h=`<article class="verse" id="v${V.v}"><aside class="marg" aria-label="Notes for verse ${V.v}">${margInner(V.v)}</aside><button class="vn" data-mine="${V.v}" aria-label="Bookmark or note verse ${V.v}">${vnInner(V.v)}</button><div class="vbody"><div class="heb${S.lit?' inter':''}" lang="he">${words}</div>`;
+  let h=`<article class="verse${hlOf(V.v)?' hl-'+hlOf(V.v):''}" id="v${V.v}"><aside class="marg" aria-label="Notes for verse ${V.v}">${margInner(V.v)}</aside><button class="vn" data-mine="${V.v}" aria-label="Bookmark, highlight or note verse ${V.v}">${vnInner(V.v)}</button><div class="vbody"><div class="heb${S.lit?' inter':''}" lang="he">${words}</div>`;
   if(S.bsb){[S.tr1,S.tr2].filter(Boolean).filter((c,i,a)=>a.indexOf(c)===i).forEach(c=>{const x=enText(V,c);h+=`<div class="bsb"><span class="lab">${esc(trLabel(c))}</span>${x?esc(x):'<span class="tags">Not in this translation.</span>'}</div>`})}
   if(S.lxx&&V.lxx.length){
     h+=`<div class="lxx" lang="grc"><span class="lab">LXX</span>${V.lxx.map((g,i)=>`<button class="gw" data-v="${V.v}" data-i="${i}">${esc(g.g)}</button>`).join(' ')}</div>`;
@@ -577,7 +594,7 @@ function showGuide(){SEL=null;markSel();const L=(BOOK&&BOOK.translations)||[];
   $('#panel').innerHTML=`<div class="ph"><span>Guide</span><span><button data-back>Chapter study</button> <button data-close>Close</button></span></div><div class="guide">
   <p>Ad Fontes shows the Hebrew text first, with the evidence needed to read it closely. Everything comes from the text and open scholarly data; anything interpretive is labeled.</p>
   <h4>Reading the page</h4><ul><li><b>Hebrew line</b>: the Masoretic Text (Leningrad Codex), read right to left.</li><li><b>Literal</b>: a word-by-word gloss under each Hebrew word, in Hebrew order. &lt;angle brackets&gt; mark Hebrew elements English leaves out; [square brackets] mark words English must add.</li><li><b>English</b>: pick a translation, and optionally a second one to compare.</li><li><b>LXX</b>: the Septuagint, the ancient Greek translation, with notes where it differs from the Hebrew.</li><li><b>Chapter / Pericope</b>: read the whole chapter, or the paragraphs marked in the Hebrew manuscript itself (ס and פ).</li></ul>
-  <h4>Reading options</h4><p>On a phone or tablet they are in the menu; on a computer they are in the top bar.</p><h4>Tapping</h4><ul><li><b>A Hebrew or Greek word</b>: its parts, full grammar, dictionary entry, and every place it occurs. Tap a grammar term like <i>Hiphil</i> for a plain explanation.</li><li><b>A word with a dot</b>: it also has a study note.</li><li><b>A verse number</b>: bookmark the verse or write your own private note.</li></ul>
+  <h4>Reading options</h4><p>On a phone or tablet they are in the menu; on a computer they are in the top bar.</p><h4>Tapping</h4><ul><li><b>A Hebrew or Greek word</b>: its parts, full grammar, dictionary entry, and every place it occurs. Tap a grammar term like <i>Hiphil</i> for a plain explanation.</li><li><b>A word with a dot</b>: it also has a study note.</li><li><b>A verse number</b>: bookmark the verse, highlight it in a color, or write your own private note.</li></ul>
   <h4>The labels</h4><ul><li>${pill('data')} read directly from the text or the datasets.</li><li>${pill('consensus')} broad agreement across scholarly traditions.</li><li>${pill('debated')} a live disagreement; the positions are listed, not judged.</li><li><b>Confidence</b> (high, moderate, low) is shown on everything written for this reader.</li></ul>
   <h4>Syncing</h4><p>Open the menu (☰) and tap Sign in to keep bookmarks, notes and your place in step between your phone and computer.</p>
   <h4>The menu</h4><p>Everything except the text lives in the menu (☰, top right): Chapter study, My notes &amp; bookmarks, Reading options, Appearance, your account, this guide, and Request a chapter.</p><h4>More chapters</h4><p>Menu → <b>Request a chapter</b>. Pick the book and chapter, tap <b>Open Claude</b>, and paste the request into the new chat. Claude builds the chapter and publishes it; it appears in the chapter list after a reload.</p>
@@ -612,10 +629,10 @@ function wireMenu(){
 async function exportNotes(){
   const name=c=>{const b=INDEX&&INDEX.books.find(x=>x.code===c);return b?b.name:c};
   const order=c=>{const i=INDEX?INDEX.books.findIndex(x=>x.code===c):-1;return i<0?999:i};
-  const L=Object.values(MARKS).filter(m=>m&&(m.bm||(m.note||'').trim())).sort((a,b)=>order(a.book)-order(b.book)||(+a.chap)-(+b.chap)||(+a.v)-(+b.v));
+  const L=Object.values(MARKS).filter(m=>m&&(m.bm||HLS.includes(m.hl)||(m.note||'').trim())).sort((a,b)=>order(a.book)-order(b.book)||(+a.chap)-(+b.chap)||(+a.v)-(+b.v));
   const d=new Date(),day=d.toISOString().slice(0,10);
   let t=`Ad Fontes: my notes and bookmarks\nSaved ${d.toLocaleString()}\n${L.length} verse${L.length===1?'':'s'}\n`;
-  L.forEach(m=>{t+=`\n${name(m.book)} ${m.chap}:${m.v}${m.bm?'  [bookmarked]':''}${m.at?'  (last changed '+new Date(m.at).toLocaleDateString()+')':''}\n`;if((m.note||'').trim())t+=m.note.trim()+'\n'});
+  L.forEach(m=>{t+=`\n${name(m.book)} ${m.chap}:${m.v}${m.bm?'  [bookmarked]':''}${HLS.includes(m.hl)?'  [highlighted '+m.hl+']':''}${m.at?'  (last changed '+new Date(m.at).toLocaleDateString()+')':''}\n`;if((m.note||'').trim())t+=m.note.trim()+'\n'});
   t+=`\n---\nData (for restoring):\n${JSON.stringify(L)}\n`;
   const fn=`ad-fontes-notes-${day}.txt`,file=new File([t],fn,{type:'text/plain'});
   try{if(mq.matches&&navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:fn});return}}catch(e){if(e&&e.name==='AbortError')return}
