@@ -162,7 +162,11 @@ chap = dict(
 book = json.load(open(OUT, encoding='utf-8')) if os.path.exists(OUT) else dict(code=BK, name=BSBNAME, testament='OT', lxxCode=LXXBK, chapters={}, lex={}, lxxLex={}, morph={})
 book['chapters'][str(CH)] = chap
 book['translations'] = [dict(code=c, name=n, note=d) for c, n, d in TRANS if any(c in x for x in tr_text.values())]
-book['lex'].update(lex)
+for k, v in lex.items():
+    # never let an affix-only entry overwrite a full entry built for another chapter
+    if v.get('affix') and k in book['lex'] and not book['lex'][k].get('affix'):
+        continue
+    book['lex'][k] = v
 book['lxxLex'].update(lxx_lex)
 book['morph'].update(morph)
 json.dump(book, open(OUT, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))

@@ -1,0 +1,488 @@
+{
+ "title": "Deuteronomy 8",
+ "paragraphs": [
+  {
+   "start": 1,
+   "end": 18,
+   "marker": "פ",
+   "markerName": "petuchah (open)",
+   "label": "8:1–18"
+  },
+  {
+   "start": 19,
+   "end": 20,
+   "marker": "פ",
+   "markerName": "petuchah (open)",
+   "label": "8:19–20"
+  }
+ ],
+ "paragraphNote": "Pericope units here are the Masoretic paragraph breaks marked in the Leningrad Codex itself (ס = setumah, a closed/minor break; פ = petuchah, an open/major break). They are scribal, not authorial, but older than chapters and verse numbers. The previous unit ends at 7:26 with a petuchah, so 8:1 begins a new one. The chapter has only two units: one long paragraph (vv1–18) and a two-verse warning (vv19–20), each closed by a petuchah, so 9:1 (\"Hear, O Israel\") also starts fresh. The whole chapter falls inside the Jewish Torah portion <i>Eikev</i> (7:12–11:25).",
+ "sections": [
+  {
+   "id": "context",
+   "title": "Where this chapter sits",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p>Chapters 5–11 of Deuteronomy are general exhortation that precedes the detailed laws of chapters 12–26. Chapter 7 dealt with the peoples already in the land; chapter 8 turns to Israel's own past and future: the forty years in the wilderness (vv2–6, 15–16) and the prosperity expected in the land (vv7–13). Its single concern is that plenty will produce forgetting (vv11, 14, 19). Chapter 9 then attacks the opposite error, that Israel will receive the land because of its own righteousness (9:4–6).</p><p><b>Closest relative in the book (data):</b> 6:10–12 has the same sequence in miniature: houses and vineyards Israel did not make, \"you will eat and be satisfied\" (וְאָכַלְתָּ וְשָׂבָעְתָּ, 6:11; cf. 8:10, 12), then \"take heed to yourself lest you forget YHWH, who brought you out of the land of Egypt, from the house of slaves\" (6:12; cf. 8:11, 14).</p>"
+  },
+  {
+   "id": "structure",
+   "title": "Structure visible in the text",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p><b>Repeated vocabulary that frames the long paragraph (vv1–18):</b></p><ul><li><b>Commandment \"which I command you today\":</b> v1 and v11.</li><li><b>The oath \"to your fathers\":</b> v1 (the land) and v18 (the covenant).</li><li><b>\"Remember\" (זכר):</b> v2 and v18. <b>\"Forget\" (שׁכח):</b> v11, v14 and twice in v19.</li><li><b>Humble / test / manna / \"which your fathers did not know\":</b> vv2–3 and again vv15–16.</li><li><b>\"Eat and be satisfied\":</b> v10 (followed by \"you shall bless\") and v12 (followed by pride and forgetting).</li><li><b>\"Strength\" (כֹּחַ) and \"make wealth\" (עָשָׂה חַיִל):</b> v17 (\"my strength made me this wealth\") answered word for word in v18 (\"he gives you strength to make wealth\").</li></ul><p><b>Blocks:</b> v1 opening command; vv2–6 the wilderness as discipline; vv7–10 the good land (אֶרֶץ six times in vv7–9); v11 the warning; vv12–17 one long \"lest\" (פֶּן) sentence describing prosperity, pride and forgetting, with four participles describing YHWH (vv14–16: who brought you out, who led you, who brought water, who fed you); v18 the corrective; vv19–20 the threat.</p><p><b>Concentric proposals (debated, moderate):</b> N. Lohfink (<i>Das Hauptgebot</i>, 1963) and later writers read vv1–18 as a ring structure, usually with the warning of v11 or the land description of vv7–10 at the center. The proposals agree on the outer frames listed above and differ on the inner divisions.</p>"
+  },
+  {
+   "id": "grammar",
+   "title": "Grammar features across the chapter",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p><b>Singular and plural \"you\" (<i>Numeruswechsel</i>).</b> Plural (2mp) forms cluster at the edges: v1 has six (תִּשְׁמְרוּן, תִּחְיוּן, וּרְבִיתֶם, וּבָאתֶם, וִירִשְׁתֶּם, אֲבֹתֵיכֶם, though \"commanding you\" in the same verse is singular), v19 has two (בָכֶם, תֹּאבֵדוּן) and v20 four. Everything from v2 to v19a is singular. Explanations are debated: separate literary layers, a rhetorical shift between Israel as one body and as many individuals, or no significance. See the date panel.</p><p><b>Paragogic nun.</b> Eight verbs carry an extra final nun: תִּשְׁמְרוּן, תִּחְיוּן (v1), יָדְעוּן (v3, v16), יִרְבְּיֻן (v13), תֹּאבֵדוּן (v19, v20), תִשְׁמְעוּן (v20). On imperfects the form is common in Deuteronomy. On a <i>perfect</i> it is very rare: in STEPBible's tagging the only cases are יָדְעוּן here (v3, v16) and צָקוּן in Isa 26:16. Its function (emphasis, archaism, style) is debated.</p><p><b>Infinitive + finite verb of the same root:</b> v19 twice, שָׁכֹחַ תִּשְׁכַּח (\"if you do at all forget\") and אָבֹד תֹּאבֵדוּן (\"you will surely perish\"). The second phrase appears elsewhere only at 4:26 and 30:18, both also in testimony formulas.</p><p><b>Weqatal chain.</b> After the opening command, the instructions are carried by consecutive perfects: וְזָכַרְתָּ (v2), וְיָדַעְתָּ (v5), וְשָׁמַרְתָּ (v6), וְאָכַלְתָּ וְשָׂבָעְתָּ וּבֵרַכְתָּ (v10), וְזָכַרְתָּ (v18). The same form can be read as instruction (\"you shall\") or as prediction (\"you will\"); context decides, and in v10 the choice matters (see the word note).</p><p><b>Hiphil causatives in v3:</b> וַיַּרְעִבֶךָ (\"he made you hungry\") and וַיַּאֲכִלְךָ (\"he made you eat\"). The same subject causes the hunger and supplies the food. The Hiphil of רעב occurs only here and Prov 10:3.</p><p><b>Articular participles (vv14–16):</b> הַמּוֹצִיאֲךָ, הַמּוֹלִיכֲךָ, הַמּוֹצִיא, הַמַּאֲכִלְךָ. They describe YHWH by what he did, in a string of the kind found in hymns (e.g., Ps 136). They hang grammatically on \"YHWH your God\" in v14, so vv12–16 form one sentence.</p>"
+  },
+  {
+   "id": "wilderness",
+   "title": "The wilderness as a test",
+   "tag": "debated",
+   "conf": "high",
+   "body": "<p><b>Data:</b> the purpose clauses in vv2–3 and v16 name three aims: to humble (ענה Piel), to test (נסה Piel), and \"to know what was in your heart\" (v2); then \"to make you know\" (v3) and \"to do you good in your end\" (v16). The pairing \"humble… test\" occurs in Deuteronomy only in this chapter (vv2, 16). Exod 16:4 already ties manna to testing: \"that I may test them, whether they will walk in my law or not.\"</p><p><b>\"To know what was in your heart\" (debated).</b> The infinitive לָדַעַת has YHWH as its implied subject. Readers explain this in several ways (not adjudicated):</p><ol><li><b>Accommodated language:</b> the text speaks of YHWH in human terms; the test reveals Israel to itself.</li><li><b>Real knowing by experience:</b> the narrative presents YHWH as learning through the outcome (cf. Gen 22:12, \"now I know\").</li><li><b>Revealing:</b> the point is that the heart is made known. The LXX takes this line with a passive, διαγνωσθῇ, \"that the things in your heart might be discerned.\"</li></ol><p><b>\"Discipline\" (v5).</b> יסר covers both instruction and correction (see the word note). The analogy is explicitly human: \"as a man disciplines his son.\"</p>"
+  },
+  {
+   "id": "manna",
+   "title": "Manna and \"not by bread alone\" (v3)",
+   "tag": "debated",
+   "conf": "high",
+   "body": "<p><b>Manna in the Hebrew Bible (data):</b> מָן occurs 14 times: Exod 16 (5), Num 11:6–9 (3), Deut 8:3, 16, Josh 5:12 (2, the day it stopped), Ps 78:24, Neh 9:20. Exod 16:15 connects the name with the question מָן הוּא, \"what is it?\" (popular etymology; background only). Note that v3 says <i>you</i> had not known it and your fathers had not known it; the stress is on its novelty.</p><p><b>What manna was (not adjudicated):</b> (a) a supernatural provision, as narrated; (b) a natural substance, often identified with the sweet honeydew excreted by scale insects on tamarisk in Sinai (F. S. Bodenheimer, <i>Biblical Archaeologist</i> 1947), enlarged in tradition; (c) a narrative or theological construct whose historical basis cannot be recovered.</p><p><b>\"Every <i>going-out</i> of YHWH's mouth.\"</b> The Hebrew has no word for \"word\": it says כָּל־מוֹצָא פִי־יְהוָה. Elsewhere מוֹצָא with \"lips/mouth\" refers to what a person has spoken or vowed (Num 30:12; Deut 23:23; Jer 17:16; Ps 89:34). The main readings (not adjudicated):</p><ol><li><b>Decree that provides:</b> Israel lived on manna, which existed only because YHWH ordered it; human life depends on whatever YHWH commands into being, not on bread as such.</li><li><b>Instruction:</b> humans need YHWH's spoken commands (the commandment of vv1, 6, 11) as well as food.</li><li><b>Both together:</b> the manna episode teaches dependence on YHWH's command in both senses.</li></ol><p><b>Later use (data):</b> the LXX supplies ῥήματι (\"word\") and θεοῦ (\"God\"). Matt 4:4 quotes the verse in the LXX's wording. Luke 4:4 in the critical text has only \"man shall not live by bread alone\"; Byzantine/TR manuscripts add \"but by every word of God.\"</p>"
+  },
+  {
+   "id": "land",
+   "title": "The land of vv7–10",
+   "tag": "consensus",
+   "conf": "moderate",
+   "body": "<p><b>Water (data):</b> v7 lists three kinds: נַחֲלֵי מָיִם (wadis/streams), עֲיָנֹת (springs) and תְּהֹמֹת (deep waters, the same noun as the \"deep\" of Gen 1:2), \"going out in the valley and in the hill country.\" The contrast is with the wilderness, \"where there was no water\" (v15), and implicitly with Egypt's river irrigation (cf. 11:10–11).</p><p><b>The seven products of v8 (data):</b> wheat, barley, vine, fig, pomegranate, olive (\"olive of oil\") and honey. Rabbinic law calls these the <i>seven species</i> and limits the first-fruits offering to them (Mishnah Bikkurim 1:3).</p><p><b>Honey (debated):</b> דְּבַשׁ can be bee honey (Judg 14:8–9) or a fruit syrup. Rabbinic tradition read the honey of v8 as date syrup, which fits an agricultural list. Bee-keeping is attested archaeologically in Iron Age Israel: an apiary of some 30 or more clay-cylinder hives at Tel Rehov (10th–9th c. BCE; A. Mazar).</p><p><b>Iron and copper (v9):</b> the central hill country of Cisjordan has little workable ore. Iron ore occurs in the Ajlun region east of the Jordan (Mugharat el-Wardeh), and major copper mining and smelting operated in the Arabah at Faynan and Timna, including in the 10th c. BCE (E. Ben-Yosef and others). Readers take v9 as (a) referring to these areas within the larger promised territory, (b) idealized praise of the land, or (c) in \"stones of iron\", a description of hard black basalt (confidence low).</p><p><b>Debated framing:</b> whether this lyrical description works as a counterpart to treaty-style \"land grant\" language, or simply as rhetoric contrasting land and wilderness.</p>"
+  },
+  {
+   "id": "date",
+   "title": "Setting and date of composition",
+   "tag": "debated",
+   "conf": "high",
+   "body": "<p>The text sets the speech on the plains of Moab before the crossing. For when it was written, the general positions are those described for Deuteronomy as a whole (Mosaic authorship; a 7th-c. Judean core linked to Josiah's reform; northern roots; layered growth into the exile). Points specific to chapter 8:</p><ul><li><b>Number change:</b> the plural framing (v1; vv19b–20) is assigned by some to a later, often exilic, editorial layer, with the singular body (vv2–19a) as older. Others treat the alternation as rhetoric within a single composition.</li><li><b>\"You will perish like the nations\" (vv19–20):</b> read by some as written after the fall of Israel (722 BCE) or Judah (586 BCE); by others as standard treaty-curse language that needs no such date.</li><li><b>Hosea 13:4–6</b> runs closely parallel (see Connections). Critical scholars usually hold that Hosea (8th c.) influenced Deuteronomy and use this to support a northern background; on Mosaic authorship the dependence runs the other way.</li></ul>"
+  },
+  {
+   "id": "intertext",
+   "title": "Connections to other passages",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p><b>Inside Deuteronomy:</b> 6:10–12 (the same sequence of plenty, satisfaction and warning against forgetting); 4:9, 23; 6:12; 11:16 (\"take heed to yourself lest…\"); 9:4 (\"do not say in your heart\"; cf. 8:17); 29:5 (clothes did not wear out); 31:20 and 32:13–15 (Israel eats, grows fat and abandons YHWH; 32:13 also has oil \"from the flinty rock,\" חַלְמִישׁ).</p><p><b>Wilderness narratives:</b> Exod 16 (manna, with the testing motive at 16:4); Exod 17:1–7 and Num 20:2–13 (water from the rock); Num 21:4–9 (the \"seraph\" snakes); Ps 114:8 (flint turned into a spring).</p><p><b>Hosea 13:4–6</b> (closest prophetic parallel): \"I knew you in the wilderness… according to their pasture they were satisfied; they were satisfied, and their heart was lifted up (וַיָּרָם לִבָּם); therefore they forgot me.\" The same sequence of wilderness, satisfaction, raised heart, forgetting.</p><p><b>Ezekiel 28:4–5</b> (the prince of Tyre): \"by your wisdom… you have made wealth for yourself (עָשִׂיתָ לְּךָ חָיִל)… and your heart is lifted up because of your wealth.\" The same idiom as v17 and the same result as v14.</p><p><b>Nehemiah 9:20–21</b> retells vv3–4 and v9 together: manna, \"they lacked nothing,\" clothes did not wear out, \"their feet did not swell\" (בָּצֵק; these two verses are the verb's only occurrences).</p><p><b>Greek New Testament:</b> Matt 4:4 and Luke 4:4 quote v3; in the same scene Matt 4:7 and Luke 4:12 quote Deut 6:16 with the same verb ἐκπειράζω that the LXX uses in 8:2, 16. 1 Cor 10:1–11 treats the wilderness events as examples. John 6:31, 49 refers to the manna. Heb 12:5–11 develops the father–son discipline image (quoting Prov 3:11–12, not Deut 8:5).</p><p><b>Jewish practice:</b> the Talmud (b. Berakhot 48b) derives the obligation of Grace after Meals (<i>Birkat ha-Mazon</i>) from v10.</p>"
+  },
+  {
+   "id": "lxx",
+   "title": "The Septuagint of this chapter",
+   "tag": "consensus",
+   "conf": "moderate",
+   "body": "<p>Greek Deuteronomy usually tracks a Hebrew text close to the MT. In this chapter the differences are of four kinds:</p><ul><li><b>Shorter text:</b> v2 has no \"these forty years\"; v3 has no \"which you did not know\" (it keeps \"which your fathers did not know\").</li><li><b>Additions:</b> v1 \"the Lord <i>your God</i>\"; v7 \"a good land <i>and a broad one</i>\"; v9 \"<i>your</i> bread\"; v15 \"<i>that</i> great wilderness\"; v17 \"this <i>great</i> power\"; v18 \"<i>the Lord</i> swore\"; v19 \"<i>heaven and earth</i>\" as witnesses (from 4:26; 30:19; 31:28); v20 \"<i>the rest of</i> the nations.\"</li><li><b>Interpretive renderings:</b> v2 passive \"be discerned\"; v3 \"every <i>word</i>… of <i>God</i>\"; v4 feet \"callused\"; v15 \"biting snake\"; v17 a prohibition (\"do not say\") where MT continues the \"lest\" sentence.</li><li><b>Number:</b> v1 plural \"commandments\" and plural \"you\" for MT's singular.</li></ul><p>Whether an omission or addition reflects a different Hebrew original or the translator (or later Greek copyists) must be argued case by case. Each note below is my own comparison, with a confidence level.</p><p><b>Edition:</b> the Greek shown is Rahlfs (1935) via the CATSS morphology. The Göttingen <i>Deuteronomium</i> (J. W. Wevers, 1977) and its apparatus were not consulted, so Greek manuscripts that agree with the MT in vv2–3 may exist.</p>"
+  },
+  {
+   "id": "textcrit",
+   "title": "Text-critical notes",
+   "tag": "data",
+   "conf": "high",
+   "body": "<ul><li><b>v2, ketiv/qere:</b> the consonants written (ketiv) are מצותו, \"his commandment\" (singular). The reading instruction (qere) is מִצְוֹתָיו, \"his commandments\" (plural). The same ketiv/qere occurs at 7:9. The LXX plural τὰς ἐντολὰς agrees with the qere.</li><li><b>v3, maqqef:</b> STEPBible records that the Leningrad Codex writes אֶת without the connecting maqqef before הַמָּן, while other Masoretic editions have it. There is no difference in meaning.</li><li><b>Not included here:</b> Dead Sea Scrolls and Samaritan Pentateuch readings. These are not in the open datasets this page uses.</li></ul>"
+  }
+ ],
+ "words": {
+  "1.2": {
+   "title": "כָּל־הַמִּצְוָה — \"all the commandment\"",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p><b>Data:</b> singular, with the article. Deuteronomy often uses the singular הַמִּצְוָה for the whole body of instruction (e.g., 5:31; 6:1, 25; 7:11; 11:8, 22; 30:11). The LXX and most English versions make it plural (\"all the commandments\").</p><p><b>Usage:</b> the singular presents the law as one demand rather than a list. Whether it refers to the whole legal corpus or specifically to the core requirement of loyalty (e.g., the Shema, 6:4–5) is debated.</p>"
+  },
+  "1.7": {
+   "title": "תִּשְׁמְרוּן לַעֲשׂוֹת — \"take care to do\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>A Qal imperfect 2mp with paragogic nun, followed by an infinitive: literally \"you shall keep to do.\" The pairing שׁמר + עשׂה is one of Deuteronomy's standing formulas (e.g., 5:1, 32; 6:3, 25). The imperfect here is prescriptive. Note that the purpose clause promises the three outcomes of life, increase and possession.</p>"
+  },
+  "2.1": {
+   "title": "וְזָכַרְתָּ — \"and you shall remember\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p><b>Usage:</b> \"remember\" in Deuteronomy is an instruction with practical consequences, not only recall. It is directed at the Egyptian slavery (5:15; 15:15; 16:12; 24:18, 22), the wilderness (8:2; 9:7), what YHWH did to Pharaoh (7:18) or Miriam (24:9), and Amalek (25:17).</p><p><b>Pattern in this chapter:</b> \"remember\" opens the review (v2) and the corrective (v18); \"forget\" (שׁכח) marks the danger (vv11, 14, 19). Deuteronomy has 14 occurrences of שׁכח; four are in this chapter.</p>"
+  },
+  "2.10": {
+   "title": "אַרְבָּעִים שָׁנָה — \"forty years\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>The phrase appears in v2 and v4. Numbers 14:33–34 explains the forty years as a year for each day of spying. Deuteronomy 8 presents the same period as instruction rather than punishment. Both are in the text; it does not choose between them.</p><p><b>LXX:</b> v2 has no equivalent for \"these forty years\" in Rahlfs' text; v4 has \"behold, forty years.\"</p>"
+  },
+  "2.14": {
+   "title": "עַנֹּתְךָ — \"to humble you\"",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p><b>Root:</b> ענה II (Piel), \"to make low, afflict, humble, oppress.\" Its range is broad and often harsh: the Egyptians \"afflicted\" Israel (Exod 1:11–12; Deut 26:6); it is used of forcing a woman (Deut 22:24, 29; 21:14); and of self-denial by fasting (Lev 16:29, 31).</p><p><b>Here:</b> YHWH is the subject (vv2, 3, 16), and the means is hunger followed by food. The Piel of ענה occurs seven times in Deuteronomy; three are in this chapter.</p><p><b>LXX:</b> κακόω, \"ill-treat, afflict,\" the same verb it uses for the Egyptian oppression.</p>"
+  },
+  "2.15": {
+   "title": "נַסֹּתְךָ — \"to test you\"",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p><b>Usage:</b> Piel of נסה, \"to try, test, prove.\" With God as subject, the test is of loyalty or obedience: Abraham (Gen 22:1), Israel at Marah (Exod 15:25), with the manna (Exod 16:4), at Sinai (Exod 20:20), through false prophets (Deut 13:3). With Israel as subject the same verb means testing YHWH, which is forbidden (Deut 6:16; Exod 17:2, 7, Massah).</p><p><b>Data:</b> 36 Piel occurrences; 8 in Deuteronomy (4:34; 6:16 twice; 8:2, 16; 13:3; 28:56; 33:8).</p><p><b>LXX:</b> ἐκπειράζω, which occurs only five times in the LXX: Deut 6:16 (twice), 8:2, 8:16 and Ps 78:18 (LXX 77:18).</p>"
+  },
+  "2.16": {
+   "title": "לָדַעַת — \"to know\"",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p>The implied subject is YHWH, and the object is \"what was in your heart, whether you would keep his commandments or not.\" For the ways readers relate this to divine knowledge, see the passage panel \"The wilderness as a test.\" Gen 22:12 (\"now I know that you fear God\") is the closest narrative parallel. The LXX renders it with a passive verb (διαγνωσθῇ), shifting the focus to the heart being revealed.</p>"
+  },
+  "3.2": {
+   "title": "וַיַּרְעִבֶךָ — \"he let you hunger\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>Hiphil of רעב, \"cause to be hungry.\" The Hiphil occurs only twice: here and Prov 10:3 (\"YHWH does not let the righteous go hungry\"). English versions differ: \"suffered thee to hunger\" (KJV, permissive) or \"caused you to hunger\" (causative). The Hiphil allows both; the parallel verbs in v3 (\"humbled you… fed you\") favor active agency.</p><p><b>LXX:</b> ἐλιμαγχόνησεν, \"weakened you by hunger,\" a verb that occurs only here in the LXX.</p>"
+  },
+  "3.5": {
+   "title": "הַמָּן — \"the manna\"",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p>14 occurrences in the Hebrew Bible. Descriptions: like coriander seed, white, tasting like wafers with honey (Exod 16:31); like bdellium, ground and baked into cakes, tasting like cakes baked with oil (Num 11:7–8). It stopped the day after Israel ate the produce of Canaan (Josh 5:12). For the debated identifications, see the passage panel.</p><p><b>LXX:</b> μαννα here and in Numbers; Exodus 16 instead transliterates μαν.</p>"
+  },
+  "3.10": {
+   "title": "יָדְעוּן — \"(your fathers) had known\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>A Qal perfect 3cp with paragogic nun. This is one of only three perfects with paragogic nun in the Hebrew Bible according to STEPBible's tagging (Deut 8:3, 8:16; Isa 26:16). The usual form would be יָדְעוּ. Grammars treat the nun on perfects as archaic or dialectal; its function here is debated.</p>"
+  },
+  "3.17": {
+   "title": "לֹא עַל־הַלֶּחֶם לְבַדּוֹ — \"not on bread alone\"",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p><b>Grammar:</b> עַל + noun with יִחְיֶה means \"live on, live by\" (the basis of life; cf. Gen 27:40, \"by your sword you shall live\"). לְבַדּוֹ is \"by itself, alone.\" The verse contrasts two sources of life, using the same verb (יִחְיֶה) and subject (הָאָדָם) twice.</p><p><b>\"Bread\" (לֶחֶם):</b> both \"bread\" and \"food\" in general; v9 uses it in the wider sense (\"you will eat food\").</p><p><b>הָאָדָם:</b> \"humankind, a human being,\" not just Israel. The saying is phrased as a general truth drawn from Israel's particular experience.</p>"
+  },
+  "3.24": {
+   "title": "מוֹצָא פִי־יְהוָה — \"what goes out of YHWH's mouth\"",
+   "tag": "debated",
+   "conf": "high",
+   "body": "<p><b>Data:</b> מוֹצָא, \"going out, source, issue,\" occurs 27 times. It is used of a place of exit (Ezek 42:11), a spring (Isa 41:18; 58:11; 2 Kgs 2:21), sunrise (Ps 19:6), and with \"lips\" or \"mouth\" for what someone says or vows (Num 30:12; Deut 23:23; Jer 17:16; Ps 89:34). There is no noun \"word\" in the Hebrew.</p><p><b>Readings:</b> YHWH's creative decree (here, the order that produced the manna), YHWH's instruction, or both. See the passage panel on manna.</p><p><b>LXX:</b> παντὶ ῥήματι τῷ ἐκπορευομένῳ διὰ στόματος θεοῦ, \"every word that goes out through the mouth of God.\" Matt 4:4 follows this wording.</p>"
+  },
+  "4.3": {
+   "title": "בָלְתָה — \"wore out\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>בלה, \"become old, wear out,\" is used of garments (Josh 9:13; Isa 50:9; 51:6; Ps 102:26). The claim reappears in Deut 29:5 (sandals as well as clothes) and Neh 9:21.</p><p><b>Interpretation (debated):</b> a miracle as narrated; hyperbole for sufficient provision; or later rabbinic expansions (e.g., clothes that grew with the children) that go beyond the text.</p>"
+  },
+  "4.7": {
+   "title": "בָצֵקָה — \"swelled\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>The verb בצק occurs only twice: here and in Neh 9:21, which is a retelling of this verse. Its meaning \"swell\" is supported by the noun בָּצֵק, \"dough\" (Exod 12:34, 39), i.e., something that rises.</p><p><b>LXX:</b> ἐτυλώθησαν, \"became callused,\" a verb found only here in the LXX. The translator chose a different symptom of long walking.</p>"
+  },
+  "5.6": {
+   "title": "יְיַסֵּר — \"disciplines\"",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p><b>Usage:</b> the Piel of יסר covers verbal instruction and physical correction. In Deuteronomy: YHWH \"disciplined\" Israel from heaven by letting it hear his voice (4:36); parents and elders \"discipline\" a rebellious son or a man who defamed his wife (21:18; 22:18). Proverbs uses it of parental correction (19:18; 29:17). Rehoboam's \"I will discipline you with scorpions\" (1 Kgs 12:11, 14) shows its harsh end.</p><p><b>Data:</b> 32 Piel occurrences; Deuteronomy has five (4:36; 8:5 twice; 21:18; 22:18). The noun מוּסָר (\"discipline, instruction\") is common in Proverbs.</p><p><b>Tense:</b> the second occurrence is a participle (מְיַסְּרֶךָּ, \"is disciplining you\"), presenting the process as ongoing. The LXX uses a future, παιδεύσει.</p>"
+  },
+  "7.6": {
+   "title": "אֶרֶץ טוֹבָה — \"a good land\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>\"Good land\" is a Deuteronomic formula (1:35; 3:25; 4:21–22; 6:18; 8:7, 10; 9:6; 11:17). In vv7–9 the noun אֶרֶץ is repeated six times, each time introducing a new feature. (An often-cited comparison, not a claim of dependence: the Egyptian <i>Tale of Sinuhe</i> praises the Levantine land of Yaa with a similar list of figs, grapes, wine, honey, olives and grain.)</p>"
+  },
+  "7.12": {
+   "title": "תְּהֹמֹת — \"deeps\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>תְּהוֹם (36 occurrences) is the primeval \"deep\" of Gen 1:2 and the source of the flood (Gen 7:11; 8:2). It is also used for groundwater as a blessing: \"blessings of the deep that lies below\" (Gen 49:25; Deut 33:13). Here, in the plural with springs, it means subterranean water sources that emerge in valleys and hills.</p><p><b>Debated, background only:</b> a link with Babylonian Tiamat has been proposed for תְּהוֹם in Gen 1. It plays no role in this verse's usage.</p>"
+  },
+  "8.1": {
+   "title": "The seven products of the land",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p><b>Data:</b> wheat (חִטָּה), barley (שְׂעֹרָה), vine (גֶּפֶן), fig tree (תְּאֵנָה), pomegranate (רִמּוֹן), olive (זֵית שֶׁמֶן, \"olive of oil\") and honey (דְּבַשׁ). The two grains, three fruit trees and olive are the staple crops of the Levantine highland economy.</p><p>Rabbinic law calls them the \"seven species\" (שִׁבְעַת הַמִּינִים) and restricts first-fruits to them (m. Bikkurim 1:3). For \"honey,\" see the passage panel on the land.</p>"
+  },
+  "9.4": {
+   "title": "מִסְכֵּנֻת — \"scarcity\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>A noun found only here in the Hebrew Bible. It is related to מִסְכֵּן, \"poor man\" (Eccl 4:13; 9:15–16), a word of Aramaic/Akkadian background (cf. Akkadian <i>muškēnu</i>, a class of dependent persons; background only). Meaning from context: \"poverty, want.\" The LXX renders μετὰ πτωχείας, \"with poverty.\"</p><p><b>Parallel:</b> \"you will lack nothing\" (לֹא תֶחְסַר) in the same verse echoes the wilderness summary of 2:7 (\"you have lacked nothing\").</p>"
+  },
+  "9.14": {
+   "title": "\"Stones of iron… copper\"",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p><b>Text:</b> \"a land whose stones are iron, and out of whose hills you will dig copper.\" נְחֹשֶׁת is copper or bronze; \"brass\" (KJV) is anachronistic.</p><p><b>Geography:</b> see the passage panel on the land for the ore sources in Transjordan and the Arabah. Readings: real mineral wealth within the wider territory; idealized praise; or basalt described as \"iron\" (confidence low).</p><p><b>LXX:</b> μεταλλεύσεις, \"you will mine,\" a verb found elsewhere only in Wisdom (4:12; 16:25).</p>"
+  },
+  "10.3": {
+   "title": "וּבֵרַכְתָּ — \"and you shall bless\"",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p><b>Grammar:</b> the third verb in a weqatal chain: \"you will eat, and be satisfied, and bless.\" Weqatal can express instruction or prediction.</p><p><b>Readings:</b> (a) a command to bless YHWH after eating; this is how rabbinic law read it, deriving Grace after Meals from this verse (b. Berakhot 48b); (b) a description of the proper response, set against v12, where the same \"eat and be satisfied\" leads instead to pride.</p><p><b>Usage:</b> with a human subject and God as object, ברך Piel means to praise or acknowledge (\"bless YHWH,\" Ps 103:1–2), not to confer benefit.</p>"
+  },
+  "11.1": {
+   "title": "הִשָּׁמֶר לְךָ פֶּן — \"take heed to yourself, lest\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>A Niphal imperative + reflexive לְךָ + פֶּן, a fixed warning formula. In Deuteronomy: 4:9, 23; 6:12; 8:11; 11:16; 12:13, 19, 30; 15:9. Deut 6:12 is nearly identical: \"take heed lest you forget YHWH.\"</p><p><b>Here:</b> the forgetting is defined as not keeping \"his commandments, his judgments and his statutes\" (לְבִלְתִּי שְׁמֹר, \"so as not to keep\"). Forgetting is measured by conduct.</p>"
+  },
+  "12.1": {
+   "title": "פֶּן — the long \"lest\" sentence (vv12–17)",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>The conjunction פֶּן in v12 governs everything through v17. The sequence: you eat and are satisfied, build good houses and live in them (v12); herds, flocks, silver, gold and everything increase (v13); your heart is lifted up and you forget YHWH (v14), who is described with four participles (vv14–16); and you say in your heart \"my strength…\" (v17). The prosperity in vv12–13 is not itself condemned; the danger named is the inner shift of v14 and v17.</p><p><b>LXX:</b> v17 becomes an independent prohibition (μὴ εἴπῃς, \"do not say\").</p>"
+  },
+  "14.1": {
+   "title": "וְרָם לְבָבֶךָ — \"your heart is lifted up\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>The idiom \"heart rises/is high\" means pride or arrogance. Same verb + heart: Deut 17:20 (the king, \"that his heart may not be lifted up above his brothers\"), Hos 13:6, Ezek 31:10, Dan 11:12. With the synonym גבה: Ezek 28:5 (Tyre's heart lifted up because of its wealth), 2 Chr 26:16; 32:25.</p><p>Deut 17:20 and 8:14 together apply the same warning to the king and to the whole people.</p>"
+  },
+  "15.6": {
+   "title": "נָחָשׁ שָׂרָף — \"seraph snake\"",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p><b>Data:</b> שָׂרָף occurs 7 times: the snakes of Num 21:6, 8; this verse; the \"flying seraph\" of Isa 14:29 and 30:6 (both in Negev or Philistine settings); and the seraphim of Isa 6:2, 6.</p><p><b>Readings:</b> (a) from the root שׂרף \"burn,\" a snake whose bite burns (\"fiery,\" KJV) or whose color is fiery; (b) a term for a particular venomous species; (c) connected with winged uraeus cobras in Egyptian iconography, often cited for Isa 6 (K. R. Joines 1967; confidence moderate). Etymology is background only.</p><p><b>LXX:</b> ὄφις δάκνων, \"biting snake\"; at Num 21:6 it has \"deadly snakes\" (τοὺς ὄφεις τοὺς θανατοῦντας).</p>"
+  },
+  "15.8": {
+   "title": "צִמָּאוֹן — \"thirsty ground\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>3 occurrences: here, Isa 35:7 (\"the thirsty ground will become springs of water\") and Ps 107:33 (springs turned into thirsty ground). It is defined in the verse itself: \"where there was no water.\" The LXX reduces it to δίψα, \"thirst,\" making it one of the dangers in the list.</p>"
+  },
+  "15.16": {
+   "title": "צוּר הַחַלָּמִישׁ — \"the flint rock\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>חַלָּמִישׁ, very hard rock or flint, occurs 5 times: here; Deut 32:13 (\"oil from the flinty rock\"); Ps 114:8 (\"flint into a spring of water\"); Job 28:9 (miners attacking it); Isa 50:7 (\"I set my face like flint\"). The point is the improbability of water from such a source.</p><p><b>LXX:</b> πέτρας ἀκροτόμου, \"sheer rock,\" the same rendering used for חַלָּמִישׁ at Ps 114:8 (LXX 113:8) and Job 28:9.</p>"
+  },
+  "16.13": {
+   "title": "בְּאַחֲרִיתֶךָ — \"in your end\"",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p>אַחֲרִית, \"after-part, outcome, end, future\" (61 occurrences). It can mean the final outcome of a process (Prov 5:4; 14:12), a person's later life or posterity (Job 8:7; 42:12), or \"the latter days\" (Deut 4:30; 31:29).</p><p><b>Here (readings):</b> the outcome of the wilderness experience (in the land), or Israel's distant future. The LXX chooses the latter phrase: ἐπ᾿ ἐσχάτων τῶν ἡμερῶν σου, \"at the last of your days.\"</p>"
+  },
+  "17.3": {
+   "title": "כֹּחִי וְעֹצֶם יָדִי — \"my strength and the might of my hand\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>Two near-synonyms for power. עֹצֶם (\"might, bone-strength\") occurs only 3 times: here, Ps 139:15 (\"my frame\") and Job 30:21 (\"the might of your hand\"). \"Hand\" is the standard image of effective power. Note the pronouns: \"<i>my</i> strength… <i>my</i> hand… made <i>for me</i>.\" v18 answers with \"<i>he</i> is the one who gives <i>you</i> strength.\"</p>"
+  },
+  "17.6": {
+   "title": "עָשָׂה חַיִל — \"made wealth\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p><b>Usage:</b> חַיִל ranges over \"strength, ability, army, wealth.\" The phrase עָשָׂה חַיִל usually means \"act valiantly, show strength\" (Num 24:18; 1 Sam 14:48; Ps 60:12; 118:15–16; Prov 31:29). With \"for me/yourself\" and a context of possessions it means \"acquire wealth\": here, v18, and Ezek 28:4 (Tyre, \"you have made wealth for yourself… gold and silver\"). In Deut 11:4 חַיִל is Pharaoh's army.</p>"
+  },
+  "18.13": {
+   "title": "הָקִים בְּרִית — \"to establish/uphold his covenant\"",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p><b>Usage:</b> Hiphil of קום with \"covenant\": to set up a covenant (Gen 6:18; 9:9, 11; 17:7, 19) or to carry out/maintain an existing one (Exod 6:4; Lev 26:9; and here, \"his covenant that he swore to your fathers\"). Making (כָּרַת) a covenant and upholding (הֵקִים) it are distinct idioms; whether הֵקִים always presupposes an existing covenant is debated.</p><p><b>\"As at this day\" (כַּיּוֹם הַזֶּה):</b> a Deuteronomic phrase (2:30; 4:20, 38; 10:15; 29:28) meaning \"as is now the case.\" It locates the fulfillment in the narrator's present.</p>"
+  },
+  "19.3": {
+   "title": "שָׁכֹחַ תִּשְׁכַּח — \"if you do at all forget\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>An infinitive absolute + imperfect of the same root. After אִם (\"if\") the construction marks the condition firmly: \"if you really do forget.\" The chapter's last \"forget\" is defined by its outcome: walking after, serving, and bowing to other gods.</p>"
+  },
+  "19.15": {
+   "title": "הַעִדֹתִי בָכֶם — \"I testify against you\"",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p><b>Data:</b> the Hiphil of עוד with בְּ, \"warn, testify against.\" In Deuteronomy: 4:26; 8:19; 30:19; 31:28; 32:46. In 4:26, 30:19 and 31:28 heaven and earth are called as witnesses; here they are not (the LXX adds them). The perfect is performative: the act of saying it is the act of testifying.</p><p><b>Background (consensus):</b> ancient Near Eastern treaties invoke gods and natural elements as witnesses. Deuteronomy uses heaven and earth in that role.</p>"
+  },
+  "19.19": {
+   "title": "אָבֹד תֹּאבֵדוּן — \"you will surely perish\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>The same combination (infinitive absolute + imperfect 2mp with paragogic nun) occurs at 4:26 and 30:18, both also after a testimony formula. אבד ranges from \"be lost\" (Deut 22:3) to \"perish, be destroyed.\" v20 adds \"like the nations,\" using the Hiphil participle (מַאֲבִיד, \"is destroying\") of the same verb for what YHWH does to them.</p><p><b>Debated:</b> whether \"perish\" here means destruction of the people or loss of the land (4:26 adds \"from off the land\").</p>"
+  },
+  "20.8": {
+   "title": "עֵקֶב — \"because\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>As a conjunction, \"as a consequence of, because\": Gen 22:18; 26:5; Num 14:24; Deut 7:12; 8:20; 2 Sam 12:6, 10; Amos 4:12 (15 occurrences in all, including noun uses). The Torah portion <i>Eikev</i> opens with this word at 7:12 (blessing \"because you listen\"), and this verse closes chapter 8 with the reverse (perishing \"because you would not listen\").</p><p><b>LXX:</b> ἀνθ᾿ ὧν, \"in return for which.\"</p>"
+  }
+ },
+ "lxx": {
+  "1": [
+   {
+    "t": "\"All the <i>commandments</i>\" (πάσας τὰς ἐντολάς), plural, where MT has the collective singular כָּל־הַמִּצְוָה.",
+    "conf": "high"
+   },
+   {
+    "t": "Plural ὑμῖν (\"command <i>you</i>\" pl.) where MT has singular מְצַוְּךָ.",
+    "conf": "high"
+   },
+   {
+    "t": "Adds \"your God\": \"the Lord <i>your God</i> swore\" (κύριος ὁ θεὸς ὑμῶν).",
+    "conf": "high"
+   }
+  ],
+  "2": [
+   {
+    "t": "No equivalent for \"these forty years\" (זֶה אַרְבָּעִים שָׁנָה) in Rahlfs' text. Possibly a shorter Hebrew source or the translator avoiding repetition with v4; the Göttingen apparatus was not checked.",
+    "conf": "moderate"
+   },
+   {
+    "t": "ὅπως ἂν κακώσῃ σε, \"that he might ill-treat you\": κακόω for ענה, the verb used for Egypt's oppression.",
+    "conf": "high"
+   },
+   {
+    "t": "Passive: διαγνωσθῇ τὰ ἐν τῇ καρδίᾳ σου, \"that the things in your heart might be discerned,\" for MT's active \"to know what was in your heart.\" This removes YHWH as the one who comes to know.",
+    "conf": "high"
+   }
+  ],
+  "3": [
+   {
+    "t": "No equivalent for \"which you did not know\" (אֲשֶׁר לֹא־יָדַעְתָּ); only \"which your fathers did not know.\" The same text in v16 has only the fathers clause in both MT and LXX, so this may be harmonization.",
+    "conf": "moderate"
+   },
+   {
+    "t": "\"Every <i>word</i> (ῥήματι) that goes out through the mouth of <i>God</i> (θεοῦ)\": adds \"word\" and has θεοῦ for the divine name. Matt 4:4 follows this Greek.",
+    "conf": "high"
+   },
+   {
+    "t": "ἵνα ἀναγγείλῃ σοι, \"that he might announce to you,\" for the Hiphil \"to make you know.\"",
+    "conf": "high"
+   },
+   {
+    "t": "ψωμίζω, \"feed by morsels,\" for \"cause to eat\"; ἐλιμαγχόνησεν (unique in the LXX) for \"let you hunger.\"",
+    "conf": "high"
+   }
+  ],
+  "4": [
+   {
+    "t": "\"Your <i>feet</i> did not become <i>callused</i>\" (οἱ πόδες… οὐκ ἐτυλώθησαν) where MT has \"your foot did not swell.\"",
+    "conf": "high"
+   },
+   {
+    "t": "ἰδοὺ (\"behold\") for the demonstrative זֶה.",
+    "conf": "high"
+   }
+  ],
+  "5": [
+   {
+    "t": "\"So the Lord your God <i>will</i> discipline you\" (future παιδεύσει) for MT's participle \"is disciplining you.\"",
+    "conf": "high"
+   },
+   {
+    "t": "παιδεύω (\"train, educate, discipline\") for יסר; this is the LXX's regular equivalent.",
+    "conf": "high"
+   }
+  ],
+  "7": [
+   {
+    "t": "Adds \"<i>and broad</i>\" (καὶ πολλήν) after \"a good land.\"",
+    "conf": "high"
+   },
+   {
+    "t": "\"Springs <i>of the deeps</i>\" (πηγαὶ ἀβύσσων) combines MT's two nouns \"springs and deeps\" into one phrase.",
+    "conf": "high"
+   },
+   {
+    "t": "Plurals \"through the plains and through the mountains\" for MT's singular \"in the valley and in the hill country.\"",
+    "conf": "high"
+   }
+  ],
+  "8": [
+   {
+    "t": "Drops the conjunctions in the list and has plural \"vines\" (ἄμπελοι). \"Olive of oil\" kept literally (ἐλαίας ἐλαίου).",
+    "conf": "high"
+   }
+  ],
+  "9": [
+   {
+    "t": "μετὰ πτωχείας, \"with poverty,\" for the rare מִסְכֵּנֻת. Adds \"<i>your</i> bread.\"",
+    "conf": "high"
+   },
+   {
+    "t": "μεταλλεύσεις, \"you will mine,\" for תַּחְצֹב (\"you will hew/dig\").",
+    "conf": "high"
+   }
+  ],
+  "12": [
+   {
+    "t": "Keeps the \"lest\" construction with μή + participles: \"lest, having eaten and been filled…\"",
+    "conf": "high"
+   },
+   {
+    "t": "\"Fine houses\" (οἰκίας καλάς) for \"good houses.\"",
+    "conf": "high"
+   }
+  ],
+  "13": [
+   {
+    "t": "\"All that <i>will be</i> yours\" (πάντων ὅσων σοι ἔσται) for MT's nominal \"all that is yours.\"",
+    "conf": "high"
+   }
+  ],
+  "14": [
+   {
+    "t": "ὑψωθῇς τῇ καρδίᾳ, \"you be exalted in heart,\" makes the person the subject where MT has \"your heart is lifted up.\"",
+    "conf": "high"
+   }
+  ],
+  "15": [
+   {
+    "t": "Adds \"<i>that</i>\" (ἐκείνης) to \"great and terrible wilderness\" (cf. 1:19, where MT has הַהוּא).",
+    "conf": "high"
+   },
+   {
+    "t": "\"Biting snake\" (ὄφις δάκνων) for \"seraph snake\"; δίψα (\"thirst\") for \"thirsty ground.\"",
+    "conf": "high"
+   },
+   {
+    "t": "\"Brought you <i>a spring of water</i> from the sheer rock\" (πηγὴν ὕδατος) for MT's \"brought you water.\"",
+    "conf": "high"
+   }
+  ],
+  "16": [
+   {
+    "t": "ἐπ᾿ ἐσχάτων τῶν ἡμερῶν σου, \"at the last of your days,\" for בְּאַחֲרִיתֶךָ (\"in your end/afterward\").",
+    "conf": "high"
+   },
+   {
+    "t": "εὖ σε ποιήσῃ, \"do you good,\" a literal match for the Hiphil of יטב.",
+    "conf": "high"
+   }
+  ],
+  "17": [
+   {
+    "t": "A prohibition, μὴ εἴπῃς (\"do not say\"), where MT continues the \"lest\" sentence with a weqatal (\"and you say\").",
+    "conf": "high"
+   },
+   {
+    "t": "Adds \"great\": \"this <i>great</i> power\" (τὴν δύναμιν τὴν μεγάλην ταύτην). δύναμις renders חַיִל (\"wealth\") with its sense of power.",
+    "conf": "high"
+   }
+  ],
+  "18": [
+   {
+    "t": "\"<i>And</i> that he may establish\" (καὶ ἵνα): the added καί makes the covenant clause a second purpose rather than the purpose of the gift.",
+    "conf": "moderate"
+   },
+   {
+    "t": "Adds the subject: \"which <i>the Lord</i> swore.\"",
+    "conf": "high"
+   }
+  ],
+  "19": [
+   {
+    "t": "Adds \"<i>heaven and earth</i>\" (τόν τε οὐρανὸν καὶ τὴν γῆν) as the witnesses, as in MT 4:26; 30:19; 31:28. A harmonization, either in the Greek or its Hebrew source.",
+    "conf": "high"
+   },
+   {
+    "t": "The infinitive + finite constructions are reproduced with Greek cognate datives: λήθῃ ἐπιλάθῃ (\"with forgetting you forget\") and ἀπωλείᾳ ἀπολεῖσθε.",
+    "conf": "high"
+   }
+  ],
+  "20": [
+   {
+    "t": "\"Like <i>the rest of</i> the nations\" (τὰ λοιπὰ ἔθνη), adding λοιπά.",
+    "conf": "high"
+   },
+   {
+    "t": "ἀνθ᾿ ὧν (\"in return for which\") for עֵקֶב. Contrast 7:12, where the LXX rendered the same word ἡνίκα ἄν (\"whenever\").",
+    "conf": "high"
+   }
+  ]
+ }
+}
