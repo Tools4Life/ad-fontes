@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Ad Fontes">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<style>body{margin:0}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
+<title>Ad Fontes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=Noto+Serif+Hebrew:wght@400;500;700&display=swap">
+<style>
+/* Layout: study desk — the text column on the left, a sticky reference panel on the right (bottom sheet on phones). */
+:root{
+  --bg:#F3F4F1; --surface:#FFFFFF; --panel:#ECEEEA; --ink:#1C2220; --muted:#5B6560; --rule:#D3D8D2;
+  --accent:#28468A; --accent-soft:#E2E8F4; --hl:#FFF1C9;
+  --t-data:#2E6A4D; --t-data-bg:#E1EFE7; --t-cons:#28468A; --t-cons-bg:#E2E8F4; --t-deb:#93560F; --t-deb-bg:#F6EADB;
+  --f-heb:"Noto Serif Hebrew","SBL Hebrew","Ezra SIL","Times New Roman",serif;
+  --f-text:"Gentium Book Plus","Gentium Plus",Georgia,"Times New Roman",serif;
+  --f-ui:"IBM Plex Sans Condensed","Arial Narrow",system-ui,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#111513; --surface:#171C1A; --panel:#1B211E; --ink:#E3E8E2; --muted:#9BA49F; --rule:#2B3330;
+  --accent:#93ACE8; --accent-soft:#1D2740; --hl:#3A3417;
+  --t-data:#7FC6A2; --t-data-bg:#17291F; --t-cons:#93ACE8; --t-cons-bg:#1D2740; --t-deb:#E4AA5E; --t-deb-bg:#2F2415; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#111513; --surface:#171C1A; --panel:#1B211E; --ink:#E3E8E2; --muted:#9BA49F; --rule:#2B3330;
+  --accent:#93ACE8; --accent-soft:#1D2740; --hl:#3A3417;
+  --t-data:#7FC6A2; --t-data-bg:#17291F; --t-cons:#93ACE8; --t-cons-bg:#1D2740; --t-deb:#E4AA5E; --t-deb-bg:#2F2415; color-scheme:dark }
+
+*{box-sizing:border-box}
+html,body{background:var(--bg);color:var(--ink)}
+body{font-family:var(--f-text);font-size:17px;line-height:1.55}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+a{color:var(--accent)}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--rule)}
+.bar-in{max-width:1280px;margin:0 auto;padding:10px 16px;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+.brand{font-family:var(--f-ui);font-weight:600;letter-spacing:.08em;text-transform:uppercase;font-size:12px;color:var(--muted)}
+.ref{font-family:var(--f-text);font-size:22px;font-weight:700;display:flex;gap:6px;align-items:baseline}
+.ref select{font-family:var(--f-text);font-size:20px;font-weight:700;background:transparent;border:0;border-bottom:1px dashed var(--rule);color:var(--ink);padding:0 2px;cursor:pointer}
+.ctrls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-left:auto}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:6px;overflow:hidden;font-family:var(--f-ui);font-size:13px}
+.seg button{background:transparent;border:0;padding:5px 10px;cursor:pointer;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.chip{font-family:var(--f-ui);font-size:13px;border:1px solid var(--rule);background:transparent;border-radius:6px;padding:5px 10px;cursor:pointer;color:var(--muted)}
+.chip[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.notes-btn{display:none}
+
+/* main grid */
+.wrap{max-width:1280px;margin:0 auto;padding-inline:16px;padding-block:18px 60px;display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:28px;align-items:start}
+.text{min-width:0}
+.panel{position:sticky;top:calc(env(safe-area-inset-top,0px) + 70px);max-height:calc(100vh - 90px);overflow:auto;background:var(--surface);border:1px solid var(--rule);border-radius:10px;padding:18px 18px 24px}
+
+/* pericope strip */
+.units{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;align-items:center}
+.units .lbl{font-family:var(--f-ui);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.unitnote{font-size:14px;color:var(--muted);margin:0 0 18px;max-width:68ch}
+.unit-head{display:flex;align-items:center;gap:10px;margin:26px 0 6px;font-family:var(--f-ui);font-size:13px;color:var(--muted);letter-spacing:.04em}
+.unit-head::after{content:"";flex:1;border-top:1px solid var(--rule)}
+.unit-head .mk{font-family:var(--f-heb);font-size:18px;color:var(--ink)}
+
+/* verses */
+.verse{display:grid;grid-template-columns:34px minmax(0,1fr);gap:4px 10px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.vn{font-family:var(--f-ui);font-weight:600;font-size:14px;color:var(--accent);padding-top:10px;text-align:right;font-variant-numeric:tabular-nums}
+.vbody{min-width:0;display:grid;gap:8px}
+.heb{direction:rtl;font-family:var(--f-heb);font-size:27px;line-height:2.05;text-align:right}
+.heb.inter{display:flex;flex-wrap:wrap;gap:6px 4px;line-height:1.5}
+.w{background:transparent;border:0;padding:0 2px;margin:0;border-radius:4px;cursor:pointer;font-family:inherit;font-size:inherit;line-height:inherit;color:var(--ink);position:relative}
+.w:hover{background:var(--accent-soft)}
+.w.sel{background:var(--hl)}
+.w.has-note::after{content:"";position:absolute;left:50%;bottom:4px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--t-deb)}
+.heb.inter .w{display:flex;flex-direction:column;align-items:center;padding:2px 5px 4px}
+.heb.inter .w .g{direction:ltr;font-family:var(--f-ui);font-size:12px;line-height:1.25;color:var(--muted);max-width:11em;text-align:center}
+.heb.inter .w.has-note::after{bottom:auto;top:4px;left:auto;right:2px;margin:0}
+.heb .pmk{font-size:20px;color:var(--muted);padding-inline:6px}
+.kq{font-family:var(--f-ui);font-size:10px;letter-spacing:.05em;color:var(--t-deb);vertical-align:super;direction:ltr}
+.bsb{font-size:17px;max-width:68ch}
+.bsb .lab,.lxx .lab{font-family:var(--f-ui);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:8px}
+.lxx{font-size:17px;line-height:1.75}
+.gw{background:transparent;border:0;padding:0 1px;cursor:pointer;font-family:var(--f-text);font-size:17px;color:var(--ink);border-radius:3px}
+.gw:hover{background:var(--accent-soft)}
+.gw.sel{background:var(--hl)}
+.lxxn{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:4px}
+.lxxn li{font-size:14px;color:var(--muted);padding-left:12px;border-left:2px solid var(--rule)}
+
+/* panel */
+.ph{font-family:var(--f-ui);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.ph>span:last-child{display:flex;gap:6px;flex-shrink:0}
+.ph button{font-family:var(--f-ui);font-size:12px;text-transform:none;letter-spacing:0;border:1px solid var(--rule);background:transparent;border-radius:5px;padding:3px 8px;cursor:pointer;color:var(--muted)}
+.big-heb{font-family:var(--f-heb);font-size:40px;direction:rtl;text-align:right;line-height:1.5}
+.big-grk{font-family:var(--f-text);font-size:34px;line-height:1.3}
+.translit{font-family:var(--f-text);font-style:italic;color:var(--muted)}
+.translit b{font-weight:700;color:var(--ink);font-style:italic}
+.panel h3{font-family:var(--f-ui);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:20px 0 8px;font-weight:600}
+.panel h4{font-family:var(--f-text);font-size:19px;margin:0 0 6px;text-wrap:balance}
+.panel p{margin:0 0 10px}
+.panel ul,.panel ol{margin:0 0 10px;padding-left:20px}
+.panel li{margin-bottom:4px}
+.segrow{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;padding:10px 0;border-top:1px solid var(--rule)}
+.segrow:first-of-type{border-top:0}
+.seg-h{font-family:var(--f-heb);font-size:24px;direction:rtl;min-width:2.2em;text-align:right}
+.seg-main .seg-h{color:var(--accent)}
+.parse{display:flex;flex-wrap:wrap;gap:4px}
+.pp{font-family:var(--f-ui);font-size:12px;border:1px solid var(--rule);border-radius:4px;padding:1px 6px;background:var(--panel);cursor:default}
+.pp.term{cursor:pointer;border-color:var(--accent);color:var(--accent)}
+.code{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.hence{font-size:13px;color:var(--muted);margin-top:3px}
+.gloss-line{font-size:15px}
+.defn{font-size:15px;color:var(--ink)}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:6px 0 10px}
+.stat{background:var(--panel);border-radius:6px;padding:8px 10px}
+.stat .n{font-family:var(--f-ui);font-size:22px;font-weight:600;font-variant-numeric:tabular-nums}
+.stat .l{font-family:var(--f-ui);font-size:11px;color:var(--muted);line-height:1.2}
+.dist{display:grid;grid-template-columns:52px minmax(0,1fr) 34px;gap:2px 8px;align-items:center;font-family:var(--f-ui);font-size:12px;font-variant-numeric:tabular-nums}
+.dist .b{height:8px;background:var(--rule);border-radius:2px;overflow:hidden}
+.dist .b span{display:block;height:100%;background:var(--accent)}
+.dist .cur{color:var(--accent);font-weight:600}
+.dist .num{text-align:right;color:var(--muted)}
+.refs{display:flex;flex-wrap:wrap;gap:4px;font-family:var(--f-ui);font-size:12px;margin-top:6px}
+.refs span,.refs button{border:1px solid var(--rule);border-radius:4px;padding:1px 6px;background:transparent;font:inherit}
+.refs button{cursor:pointer;color:var(--accent);border-color:var(--accent)}
+.refs .here{background:var(--hl);border-color:var(--hl)}
+.refs .other{color:var(--muted);border-style:dashed}
+details summary{cursor:pointer;font-family:var(--f-ui);font-size:13px;color:var(--accent)}
+.tags{font-family:var(--f-ui);font-size:13px;color:var(--muted)}
+.note{border-top:2px solid var(--ink);padding-top:12px;margin-top:20px}
+.pill{display:inline-block;font-family:var(--f-ui);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:999px;font-weight:600;vertical-align:middle}
+.pill.data{color:var(--t-data);background:var(--t-data-bg)}
+.pill.consensus{color:var(--t-cons);background:var(--t-cons-bg)}
+.pill.debated{color:var(--t-deb);background:var(--t-deb-bg)}
+.conf{font-family:var(--f-ui);font-size:11px;color:var(--muted);margin-left:6px;letter-spacing:.04em}
+.variant{background:var(--t-deb-bg);border-radius:6px;padding:8px 10px;font-size:14px;margin-top:10px}
+.sec{border-top:1px solid var(--rule)}
+.sec>summary{list-style:none;padding:12px 0;display:flex;gap:8px;align-items:baseline;justify-content:space-between;font-family:var(--f-text);font-size:17px;color:var(--ink);font-weight:700}
+.sec>summary::-webkit-details-marker{display:none}
+.sec>summary .meta{flex-shrink:0}
+.sec[open]>summary{padding-bottom:6px}
+.sec .body{padding-bottom:12px;font-size:16px}
+.legend{display:grid;gap:6px;font-size:14px;margin:6px 0 14px}
+.legend div{display:flex;gap:8px;align-items:baseline}
+.foot{grid-column:1/-1;font-family:var(--f-ui);font-size:12px;color:var(--muted);border-top:1px solid var(--rule);padding-top:14px;line-height:1.6}
+.foot b{color:var(--ink);font-weight:600}
+.empty{color:var(--muted);font-size:15px}
+.backdrop{display:none}
+.ph [data-close]{display:none}
+@media (max-width:960px){.ph [data-close]{display:inline-block}}
+.loading{padding:40px 0;color:var(--muted);font-family:var(--f-ui)}
+.sync{font-family:var(--f-ui);font-size:12px;color:var(--muted);display:inline-flex;align-items:center;gap:6px}
+.sync::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--rule)}
+.sync.on::before{background:var(--t-data)}
+.sync.busy::before{background:var(--t-deb)}
+button.vn{background:transparent;border:0;cursor:pointer;padding:10px 4px 0 0;line-height:1.2;display:flex;flex-direction:column;align-items:flex-end;gap:3px}
+button.vn:hover{text-decoration:underline}
+.vn .bm{width:9px;height:12px;background:var(--accent);clip-path:polygon(0 0,100% 0,100% 100%,50% 72%,0 100%)}
+.vn .nt{width:12px;height:2px;background:var(--t-deb);border-radius:1px}
+.mynote textarea{width:100%;min-height:150px;font-family:var(--f-text);font-size:16px;line-height:1.5;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:10px 12px;resize:vertical}
+.mynote textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+.mynote .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0}
+.mylist{display:grid;gap:6px;margin:4px 0 8px}
+.mylist button{text-align:left;background:var(--panel);border:0;border-radius:6px;padding:8px 10px;cursor:pointer;display:grid;gap:2px}
+.mylist .r{font-family:var(--f-ui);font-size:13px;font-weight:600;color:var(--accent)}
+.signin{position:fixed;inset:0;z-index:60;background:color-mix(in srgb,var(--bg) 92%,transparent);display:flex;align-items:center;justify-content:center;padding:24px 16px}
+.signin[hidden]{display:none}
+.signin form{width:100%;max-width:380px;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:24px;display:grid;gap:12px}
+.signin h2{margin:0;font-family:var(--f-text);font-size:24px}
+.signin p{margin:0;color:var(--muted);font-size:15px}
+.signin input{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:11px 12px}
+.signin .err{color:var(--t-deb);font-family:var(--f-ui);font-size:14px;min-height:1.2em}
+.signin .btns{display:flex;gap:8px;flex-wrap:wrap}
+.signin .go{background:var(--ink);color:var(--bg);border:0;border-radius:8px;padding:10px 16px;font-family:var(--f-ui);font-size:15px;cursor:pointer}
+.signin .alt{background:transparent;color:var(--ink);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;font-family:var(--f-ui);font-size:15px;cursor:pointer}
+.signin .lnk{background:none;border:0;color:var(--accent);font-family:var(--f-ui);font-size:14px;cursor:pointer;padding:4px 0;justify-self:start}
+.sync{cursor:pointer;background:none;border:0;padding:4px 2px}
+.mylist .x{font-size:14px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+@media (max-width:960px){
+  .wrap{grid-template-columns:minmax(0,1fr)}
+  .notes-btn{display:inline-block}
+  .panel{position:fixed;left:0;right:0;bottom:0;top:auto;max-height:72vh;border-radius:14px 14px 0 0;z-index:40;transform:translateY(105%);transition:transform .22s ease;padding-bottom:calc(24px + env(safe-area-inset-bottom,0px));box-shadow:0 -8px 30px rgba(0,0,0,.18)}
+  .panel.open{transform:none}
+  .backdrop.open{display:block;position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:30}
+  .heb{font-size:24px}
+  .ctrls{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){ .panel{transition:none} }
+</style>
+</head>
+<body>
+
+
+<header class="bar">
+  <div class="bar-in">
+    <span class="brand">Ad Fontes</span>
+    <div class="ref"><select id="bookSel" aria-label="Book"></select><select id="chapSel" aria-label="Chapter"></select></div>
+    <div class="ctrls">
+      <div class="seg" role="group" aria-label="Units">
+        <button id="mChapter" aria-pressed="true">Chapter</button>
+        <button id="mPericope" aria-pressed="false">Pericope</button>
+      </div>
+      <button class="chip" id="tLit" aria-pressed="true">Literal</button>
+      <button class="chip" id="tBsb" aria-pressed="true">BSB</button>
+      <button class="chip" id="tLxx" aria-pressed="true">LXX</button>
+      <button class="chip notes-btn" id="openNotes">Chapter notes</button>
+      <button class="sync" id="sync" title="Sign in to sync bookmarks, notes and your place across devices">Sign in to sync</button>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="text" id="text"><div class="loading">Loading the text…</div></section>
+  <aside class="panel" id="panel" aria-live="polite"></aside>
+  <div class="backdrop" id="backdrop"></div>
+  <footer class="foot" id="foot">
+    <b>Sources.</b> Hebrew text, morphology, word glosses and lexicon: STEPBible.org TAHOT, TBESH and TEHMC, based on work at Tyndale House Cambridge (CC BY 4.0); Leningrad Codex. Greek: Rahlfs 1935 Septuagint with CATSS morphology, prepared by Eliran Wong (CC BY-NC-SA 4.0). English: Berean Standard Bible (public domain). In the literal glosses, &lt;angle brackets&gt; mark Hebrew elements English leaves untranslated and [square brackets] mark words English must supply. Occurrence counts are computed from the full tagged Hebrew Bible and Septuagint and use English verse numbers.
+    <b>Labels.</b> Study notes and LXX comparisons are written by Claude and carry a label and a confidence level; everything else comes from the datasets.
+  </footer>
+</main>
+
+<div class="signin" id="signin" hidden>
+  <form id="siForm" novalidate>
+    <h2>Sync your study</h2>
+    <p id="siMsg">Sign in with the same email and password you use for Ops Hub. Bookmarks, notes and your place then follow you between devices.</p>
+    <input id="siEmail" type="email" autocomplete="email" placeholder="Email">
+    <input id="siPass" type="password" autocomplete="current-password" placeholder="Password (at least 6 characters)">
+    <div class="err" id="siErr"></div>
+    <div class="btns"><button class="go" type="submit">Sign in</button><button class="alt" type="button" id="siUp">Create account</button><button class="alt" type="button" id="siClose">Not now</button></div>
+    <button class="lnk" type="button" id="siForgot">Forgot password?</button>
+  </form>
+</div>
+<script>
+window.Auth={email:null,_p:null,_r:null,ready(){if(!this._p)this._p=new Promise(r=>this._r=r);return this._p},resolve(v){this.ready();this._r(v)},signOut(){}};
+(function(){
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const BOOKS={Gen:'Gen',Exo:'Exod',Lev:'Lev',Num:'Num',Deu:'Deut',Jos:'Josh',Jdg:'Judg',Rut:'Ruth','1Sa':'1 Sam','2Sa':'2 Sam','1Ki':'1 Kgs','2Ki':'2 Kgs','1Ch':'1 Chr','2Ch':'2 Chr',Ezr:'Ezra',Neh:'Neh',Est:'Esth',Job:'Job',Psa:'Ps',Pro:'Prov',Ecc:'Eccl',Sng:'Song',Isa:'Isa',Jer:'Jer',Lam:'Lam',Ezk:'Ezek',Dan:'Dan',Hos:'Hos',Jol:'Joel',Amo:'Amos',Oba:'Obad',Jon:'Jonah',Mic:'Mic',Nam:'Nah',Hab:'Hab',Zep:'Zeph',Hag:'Hag',Zec:'Zech',Mal:'Mal',Deut:'Deut'};
+const bk=c=>BOOKS[c]||c;
+const TAGTXT={data:'Data',consensus:'Consensus',debated:'Debated'};
+const pill=(tag,conf)=>`<span class="pill ${esc(tag)}">${esc(TAGTXT[tag]||tag)}</span>`+(conf?`<span class="conf">confidence: ${esc(conf)}</span>`:'');
+
+// Grammar reference written for this reader (consensus descriptions, debates noted)
+const TERMS={
+ Qal:'The basic stem: simple action, usually active (\"he chose\"). Most verbs occur in Qal.',
+ Niphal:'Usually the passive or reflexive of Qal (\"be chosen\", \"be found\"), sometimes a stative or \"be proved X\" sense (נֶאֱמָן, \"proved reliable\").',
+ Piel:'Doubled middle letter. Traditionally called \"intensive\"; since E. Jenni (1968) many grammarians describe it as factitive or resultative (bringing about a state). Its function varies by verb and remains debated.',
+ Pual:'The passive of Piel.',
+ Hiphil:'Usually causative (\"cause to come\" = bring) or declarative/factitive. Also used for some simple actions with no Qal.',
+ Hophal:'The passive of Hiphil.',
+ Hithpael:'Usually reflexive or reciprocal (\"make oneself a son-in-law\" = intermarry); sometimes iterative.',
+ Perfect:'Suffix conjugation (qatal). Commonly presents an action as a whole or complete; often past in narrative. Whether Hebrew verb forms primarily mark tense or aspect is debated.',
+ Imperfect:'Prefix conjugation (yiqtol). Commonly future, habitual, or modal (commands, wishes, possibility). In law, \"you will…\" usually functions as \"you shall…\".',
+ 'Consecutive Perfect':'Weqatal: waw + perfect form continuing a future, habitual or instructional frame (\"and you shall…\").',
+ 'Consecutive Imperfect':'Wayyiqtol: the main narrative past tense (\"and he chose…\").',
+ Infinitive:'Verbal noun. The construct form works like an English infinitive or gerund after prepositions (\"to possess\"); the absolute form often stands before a finite verb of the same root to strengthen it (\"you must surely…\").',
+ Participle:'Verbal adjective: \"one who keeps\", \"keeping\". Often describes ongoing or characteristic action.',
+ 'Participle passive':'Qal passive participle: \"blessed\", \"stretched out\".',
+ Construct:'A noun bound to the following word (\"the hand of…\"). The relationship is a genitive, and its exact kind (possession, source, object, quality) is read from context.',
+ Absolute:'The free, unbound form of a noun or adjective.',
+ 'Paragogic Nun':'An extra final nun on some imperfects. Function debated: emphasis, contrast, or simply an older/stylistic form.',
+ Directional:'The ending ָה- meaning \"toward\" (שָׁמָּה, \"to there\").'
+};
+
+const store={get(k){try{return JSON.parse(localStorage.getItem('tm_'+k))}catch(e){return null}},set(k,v){try{localStorage.setItem('tm_'+k,JSON.stringify(v))}catch(e){}}};
+const S=Object.assign({lit:true,bsb:true,lxx:true,mode:'chapter',unit:0,book:'Deu',chap:'7'},store.get('state')||{});
+let INDEX=null,BOOK=null,CH=null,SEL=null;
+let localAt=(store.get('state')||{}).at||0, navigated=false;
+const prefs=()=>({lit:S.lit,bsb:S.bsb,lxx:S.lxx,mode:S.mode,unit:S.unit,book:S.book,chap:String(S.chap)});
+let lastPrefs=JSON.stringify(prefs());
+const save=()=>{const p=prefs(),j=JSON.stringify(p);if(j===lastPrefs)return;lastPrefs=j;localAt=Date.now();store.set('state',Object.assign({at:localAt},p));Sync.pushState(p,localAt)};
+
+/* ---------- account sync (db capability; falls back to this device) ---------- */
+const MARKS={};           // "Deu.7.6" -> {book,chap,v,bm,note,at}
+const Sync={db:null,uid:null,ref:null,marks:null,timer:null,pending:null,
+  status(t,cls){const el=$('#sync');el.textContent=t;el.className='sync'+(cls?' '+cls:'')},
+  async init(){
+    try{(store.get('marks')||[]).forEach(m=>MARKS[m.id]=m)}catch(e){}
+    this.status('Sign in to sync');
+    const {db,id:uid}=await Auth.ready();
+    if(!db||!uid){this.status('This device');return}
+    this.db=db;this.uid=uid;
+    this.ref=db.doc(`users/${uid}/app/reader`);
+    this.marks=this.ref.collection('marks');
+    this.status('Synced','on');
+    // upload marks made on this device before sync existed
+    const local=Object.values(MARKS);
+    this.marks.onSnapshot(snap=>{
+      const seen=new Set();
+      snap.docs.forEach(d=>{const x=d.data();seen.add(d.id);MARKS[d.id]=Object.assign({id:d.id},x)});
+      Object.keys(MARKS).forEach(k=>{if(!seen.has(k)&&!local.find(l=>l.id===k))delete MARKS[k]});
+      store.set('marks',Object.values(MARKS));
+      refreshMarks();
+    },e=>this.status('Sync paused','busy'));
+    for(const m of local){try{const d=await this.marks.doc(m.id).get();if(!d.exists)await this.marks.doc(m.id).set(strip(m))}catch(e){}}
+    await this.pullState();
+    document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')this.pullState()});
+  },
+  async pullState(){
+    if(!this.ref)return;
+    try{const d=await this.ref.get();if(!d.exists){this.pushState(prefs(),localAt||Date.now());return}
+      const r=d.data();
+      if((r.at||0)>localAt){const p=r.prefs||{};const chapChanged=p.book!==S.book||String(p.chap)!==String(S.chap);
+        Object.assign(S,p);localAt=r.at;lastPrefs=JSON.stringify(prefs());store.set('state',Object.assign({at:localAt},prefs()));
+        if(chapChanged){if(INDEX&&INDEX.books.find(b=>b.code===S.book)){$('#bookSel').value=S.book;loadBook()}}else if(CH)render();
+        if(r.verse&&!chapChanged)setTimeout(()=>{const el=document.getElementById('v'+r.verse);if(el)el.scrollIntoView({block:'start'})},60);
+      }
+    }catch(e){}
+  },
+  pushState(p,at){
+    if(!this.ref)return;
+    this.pending={prefs:p,at,verse:topVerse()};clearTimeout(this.timer);
+    this.timer=setTimeout(async()=>{const body=this.pending;this.pending=null;this.status('Saving…','busy');
+      try{await this.ref.set(body);this.status('Synced','on')}catch(e){this.status('Not saved','busy')}},900);
+  },
+  async saveMark(m){
+    const id=m.id;m.at=Date.now();
+    const empty=!m.bm&&!(m.note||'').trim();
+    if(empty)delete MARKS[id];else MARKS[id]=m;
+    store.set('marks',Object.values(MARKS));refreshMarks();
+    if(!this.marks)return;
+    this.status('Saving…','busy');
+    try{if(empty)await this.marks.doc(id).delete();else await this.marks.doc(id).set(strip(m));this.status('Synced','on')}
+    catch(e){this.status(e&&e.code==='quota_exceeded'?'Storage full':'Not saved','busy')}
+  }
+};
+const strip=m=>({book:m.book,chap:String(m.chap),v:m.v,bm:!!m.bm,note:String(m.note||'').slice(0,20000),at:m.at||Date.now()});
+function topVerse(){const vs=[...document.querySelectorAll('.verse')];const y=(document.querySelector('.bar')||{}).offsetHeight||0;const v=vs.find(el=>el.getBoundingClientRect().bottom>y+10);return v?+v.id.slice(1):1}
+let scrollT=null;window.addEventListener('scroll',()=>{clearTimeout(scrollT);scrollT=setTimeout(()=>{if(Sync.ref&&CH){localAt=Date.now();store.set('state',Object.assign({at:localAt},prefs()));Sync.pushState(prefs(),localAt)}},2500)},{passive:true});
+function refreshMarks(){
+  document.querySelectorAll('.verse').forEach(el=>{const v=+el.id.slice(1);const b=el.querySelector('button.vn');if(b)b.innerHTML=vnInner(v)});
+  const p=$('#panel');
+  if(SEL&&SEL.lang==='mine'){const ta=$('#myNote');if(!ta||document.activeElement!==ta)showMyNote(SEL.v,true)}
+  else if(!SEL&&p.querySelector('#myList'))p.querySelector('#myList').innerHTML=myListHTML();
+}
+const markId=v=>`${S.book}.${S.chap}.${v}`;
+function vnInner(v){const m=MARKS[markId(v)];return `<span>${v}</span>${m&&m.bm?'<span class="bm" aria-label="bookmarked"></span>':''}${m&&(m.note||'').trim()?'<span class="nt" aria-label="has your note"></span>':''}`}
+function myListHTML(){
+  const all=Object.values(MARKS).sort((a,b)=>(b.at||0)-(a.at||0));
+  if(!all.length)return `<p class="empty" style="font-size:14px">Tap a verse number to bookmark it or write your own note. They sync to your account across devices.</p>`;
+  return all.slice(0,40).map(m=>{const nm=(INDEX&&INDEX.books.find(b=>b.code===m.book)||{}).name||m.book;
+    return `<button data-mark="${esc(m.id)}"><span class="r">${m.bm?'★ ':''}${esc(nm)} ${esc(m.chap)}:${esc(m.v)}</span>${(m.note||'').trim()?`<span class="x">${esc(m.note.trim())}</span>`:''}</button>`}).join('');
+}
+function showMyNote(v,quiet){
+  SEL={lang:'mine',v};markSel();
+  const id=markId(v);const m=MARKS[id]||{id,book:S.book,chap:String(S.chap),v,bm:false,note:''};
+  const V=CH.verses.find(x=>x.v===v);
+  $('#panel').innerHTML=`<div class="ph"><span>${esc(BOOK.name)} ${esc(S.chap)}:${v} · your note</span><span><button data-back>Chapter notes</button> <button data-close>Close</button></span></div>
+  <p class="bsb" style="font-size:15px;color:var(--muted)">${esc(V?V.bsb:'')}</p>
+  <div class="mynote"><div class="row"><button class="chip" id="bmBtn" aria-pressed="${!!m.bm}">${m.bm?'Bookmarked':'Bookmark this verse'}</button><span class="tags" id="noteState">${Sync.ref?'Saves to your account as you type':'Saves on this device'}</span></div>
+  <label class="tags" for="myNote">Your note (private to you)</label>
+  <textarea id="myNote" placeholder="Observations, questions, cross-references…">${esc(m.note||'')}</textarea></div>`;
+  wirePanel();
+  $('#bmBtn').onclick=()=>{const cur=Object.assign({},MARKS[id]||m,{note:$('#myNote').value});cur.bm=!cur.bm;Sync.saveMark(cur);$('#bmBtn').setAttribute('aria-pressed',cur.bm);$('#bmBtn').textContent=cur.bm?'Bookmarked':'Bookmark this verse'};
+  let t=null;const ta=$('#myNote');
+  const commit=()=>{clearTimeout(t);const cur=Object.assign({},MARKS[id]||m);if((cur.note||'')===ta.value)return;cur.note=ta.value;Sync.saveMark(cur);$('#noteState').textContent='Saved'};
+  ta.oninput=()=>{clearTimeout(t);$('#noteState').textContent='Typing…';t=setTimeout(commit,1000)};
+  ta.onblur=commit;
+  if(!quiet)openSheet();
+}
+
+function translit(t){
+  if(!t)return'';
+  return t.split(/\s+/).map(wd=>wd.split('.').map(s=>/[A-Z]/.test(s)?'<b>'+esc(s.toLowerCase())+'</b>':esc(s.toLowerCase())).join('')).join(' ');
+}
+function parseMorph(str){
+  // "Function=Verb ; Stem=Hiphil (hence ...); Form=Imperfect (hence ...); Person=Third; ..."
+  const out=[],hence=[];
+  String(str||'').split(';').map(x=>x.trim()).filter(Boolean).forEach(p=>{
+    const m=p.match(/^(\w+)=\s*([^(]*?)\s*(\((?:hence\s*)?([^)]*)\))?\s*$/);
+    if(!m)return; const key=m[1],val=m[2].trim();
+    if(val)out.push({key,val}); if(m[4])hence.push(`${val}: ${m[4]}`);
+  });
+  return {out,hence};
+}
+function partChips(code){
+  const p=parseMorph(BOOK.morph[code]);
+  return `<div class="parse">${p.out.map(o=>{
+    const t=TERMS[o.val]?' term':'';
+    return `<span class="pp${t}" ${t?`data-term="${esc(o.val)}" tabindex="0" role="button"`:''} title="${esc(o.key)}">${esc(o.val)}</span>`}).join('')}</div>`+
+    (p.hence.length?`<div class="hence">${esc(p.hence.join(' · '))}</div>`:'')+`<div class="code">${esc(code)}</div>`;
+}
+
+async function boot(){
+  try{
+    INDEX=await (await fetch('index.json')).json();
+  }catch(e){$('#text').innerHTML='<p class="empty">The book index could not be loaded. Reload the page to try again.</p>';return}
+  const bs=$('#bookSel'); bs.innerHTML=INDEX.books.map(b=>`<option value="${esc(b.code)}">${esc(b.name)}</option>`).join('');
+  if(!INDEX.books.find(b=>b.code===S.book))S.book=INDEX.books[0].code;
+  bs.value=S.book; bs.onchange=()=>{S.book=bs.value;S.chap=null;S.unit=0;loadBook()};
+  $('#chapSel').onchange=e=>{S.chap=e.target.value;S.unit=0;loadChapter()};
+  [['#mChapter','chapter'],['#mPericope','pericope']].forEach(([id,m])=>$(id).onclick=()=>{S.mode=m;render()});
+  [['#tLit','lit'],['#tBsb','bsb'],['#tLxx','lxx']].forEach(([id,k])=>$(id).onclick=()=>{S[k]=!S[k];render()});
+  $('#openNotes').onclick=()=>{SEL=null;showChapterNotes();openSheet()};
+  $('#backdrop').onclick=closeSheet;
+  $('#sync').onclick=()=>{
+    if(!Auth.email){document.getElementById('signin').hidden=false;setTimeout(()=>document.getElementById('siEmail').focus(),50);return}
+    SEL=null;markSel();
+    $('#panel').innerHTML=`<div class="ph"><span>Account</span><span><button data-back>Chapter notes</button> <button data-close>Close</button></span></div><p>Signed in as <b>${esc(Auth.email)}</b>. Your bookmarks, notes and place sync across your devices.</p><button class="chip" id="soBtn">Sign out on this device</button>`;
+    wirePanel();$('#soBtn').onclick=()=>Auth.signOut();openSheet();
+  };
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSheet()});
+  await loadBook();
+  Sync.init();
+}
+async function loadBook(){
+  const b=INDEX.books.find(x=>x.code===S.book);
+  $('#text').innerHTML='<div class="loading">Loading the text…</div>';
+  try{BOOK=await (await fetch(b.file)).json()}catch(e){$('#text').innerHTML='<p class="empty">This book\'s data could not be loaded. Reload the page to try again.</p>';return}
+  const chs=Object.keys(BOOK.chapters).sort((a,b)=>a-b);
+  if(!chs.includes(String(S.chap)))S.chap=chs[0];
+  $('#chapSel').innerHTML=chs.map(c=>`<option value="${c}">${c}</option>`).join('');
+  $('#chapSel').value=S.chap; loadChapter();
+}
+function loadChapter(){CH=BOOK.chapters[S.chap];SEL=null;render();showChapterNotes();}
+
+function render(){
+  save();
+  $('#mChapter').setAttribute('aria-pressed',S.mode==='chapter');$('#mPericope').setAttribute('aria-pressed',S.mode==='pericope');
+  $('#tLit').setAttribute('aria-pressed',S.lit);$('#tBsb').setAttribute('aria-pressed',S.bsb);$('#tLxx').setAttribute('aria-pressed',S.lxx);
+  document.title=`${BOOK.name} ${S.chap} · Ad Fontes`;
+  const paras=CH.paragraphs||[];
+  let html='';
+  if(S.mode==='pericope'&&paras.length){
+    if(S.unit>=paras.length)S.unit=0;
+    html+=`<div class="units"><span class="lbl">Masoretic paragraphs</span>${paras.map((p,i)=>`<button class="chip" data-unit="${i}" aria-pressed="${i===S.unit}">${esc(p.label)}</button>`).join('')}</div><p class="unitnote">${esc(CH.paragraphNote||'')}</p>`;
+    const p=paras[S.unit];
+    html+=unitHead(p)+CH.verses.filter(v=>v.v>=p.start&&v.v<=p.end).map(verseHTML).join('');
+    html+=`<div class="units" style="margin-top:18px">${S.unit>0?`<button class="chip" data-unit="${S.unit-1}">← ${esc(paras[S.unit-1].label)}</button>`:''}${S.unit<paras.length-1?`<button class="chip" data-unit="${S.unit+1}">${esc(paras[S.unit+1].label)} →</button>`:''}</div>`;
+  }else{
+    html+=CH.verses.map(verseHTML).join('');
+  }
+  $('#text').innerHTML=html;
+  $('#text').querySelectorAll('[data-unit]').forEach(b=>b.onclick=()=>{S.unit=+b.dataset.unit;render();window.scrollTo({top:0})});
+  $('#text').querySelectorAll('.w').forEach(b=>b.onclick=()=>selectHeb(+b.dataset.v,+b.dataset.n,b));
+  $('#text').querySelectorAll('.gw').forEach(b=>b.onclick=()=>selectGrk(+b.dataset.v,+b.dataset.i,b));
+  $('#text').querySelectorAll('button.vn').forEach(b=>b.onclick=()=>showMyNote(+b.dataset.mine));
+  if(SEL)markSel();
+}
+function unitHead(p){return `<div class="unit-head">${esc(p.label)} · ends with <span class="mk">${esc(p.marker)}</span> ${esc(p.markerName)}</div>`}
+function verseHTML(V){
+  const notes=CH.wordNotes||{};
+  const words=V.he.map(w=>{
+    const has=notes[`${V.v}.${w.n}`]?' has-note':'';
+    const kq=w.ty.startsWith('Q')?'<span class="kq">Q</span>':'';
+    const inner=S.lit?`<span>${esc(w.h)}${kq}</span><span class="g">${esc(w.g)}</span>`:`${esc(w.h)}${kq}`;
+    return `<button class="w${has}" data-v="${V.v}" data-n="${w.n}" aria-label="${esc(w.t)} — ${esc(w.g)}">${inner}</button>`+(w.mk?`<span class="pmk" title="${w.mk==='ס'?'setumah (closed paragraph)':'petuchah (open paragraph)'}">${esc(w.mk)}</span>`:'');
+  }).join(S.lit?'':' ');
+  let h=`<article class="verse" id="v${V.v}"><button class="vn" data-mine="${V.v}" aria-label="Bookmark or note verse ${V.v}">${vnInner(V.v)}</button><div class="vbody"><div class="heb${S.lit?' inter':''}" lang="he">${words}</div>`;
+  if(S.bsb)h+=`<div class="bsb"><span class="lab">BSB</span>${esc(V.bsb)}</div>`;
+  if(S.lxx&&V.lxx.length){
+    h+=`<div class="lxx" lang="grc"><span class="lab">LXX</span>${V.lxx.map((g,i)=>`<button class="gw" data-v="${V.v}" data-i="${i}">${esc(g.g)}</button>`).join(' ')}</div>`;
+    const ln=(CH.lxxNotes||{})[V.v];
+    if(ln&&ln.length)h+=`<ul class="lxxn">${ln.map(n=>`<li>${n.t}<span class="conf">${esc(n.conf)}</span></li>`).join('')}</ul>`;
+  }
+  return h+'</div></article>';
+}
+function markSel(){
+  document.querySelectorAll('.sel').forEach(e=>e.classList.remove('sel'));
+  if(!SEL)return;
+  const q=SEL.lang==='he'?`.w[data-v="${SEL.v}"][data-n="${SEL.n}"]`:SEL.lang==='mine'?`button.vn[data-mine="${SEL.v}"]`:`.gw[data-v="${SEL.v}"][data-i="${SEL.i}"]`;
+  const el=document.querySelector(q); if(el)el.classList.add('sel');
+}
+
+/* ---------- panels ---------- */
+function showChapterNotes(){
+  const secs=CH.sections||[];
+  $('#panel').innerHTML=`<div class="ph"><span>${esc(BOOK.name)} ${esc(S.chap)} · chapter notes</span><button class="closer" data-close>Close</button></div>
+  <p class="empty" style="font-size:14px">Tap any Hebrew or Greek word for its grammar, lexicon entry and usage. Words with a dot have a study note.</p>
+  <details class="sec" open><summary><span>Your bookmarks &amp; notes</span></summary><div class="mylist" id="myList">${myListHTML()}</div></details>
+  <div class="legend">
+    <div>${pill('data')}<span>Read directly from the text or the datasets.</span></div>
+    <div>${pill('consensus')}<span>Broad agreement across scholarly traditions.</span></div>
+    <div>${pill('debated')}<span>A live disagreement; positions are listed, not judged.</span></div>
+  </div>
+  ${secs.map((s,i)=>`<details class="sec" ${i===0?'open':''}><summary><span>${esc(s.title)}</span><span class="meta">${pill(s.tag)}</span></summary><div class="body"><div class="conf" style="margin:0 0 8px">confidence: ${esc(s.conf)}</div>${s.body}</div></details>`).join('')}`;
+  wirePanel();
+}
+function wirePanel(){
+  $('#panel').querySelectorAll('[data-close]').forEach(b=>b.onclick=closeSheet);
+  $('#panel').querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>{SEL=null;markSel();showChapterNotes();$('#panel').scrollTop=0});
+  $('#panel').querySelectorAll('.pp.term').forEach(el=>{
+    const fn=()=>{const box=el.closest('.segrow').querySelector('.termbox');box.hidden=false;box.innerHTML=`<b>${esc(el.dataset.term)}.</b> ${esc(TERMS[el.dataset.term])}`};
+    el.onclick=fn; el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();fn()}};
+  });
+  $('#panel').querySelectorAll('[data-mark]').forEach(b=>b.onclick=async()=>{
+    const m=MARKS[b.dataset.mark];if(!m)return;
+    const go=()=>{const el=document.getElementById('v'+m.v);if(el)el.scrollIntoView({block:'center'});showMyNote(+m.v)};
+    if(m.book===S.book&&String(m.chap)===String(S.chap)){if(S.mode==='pericope'){const p=(CH.paragraphs||[]).findIndex(x=>m.v>=x.start&&m.v<=x.end);if(p>=0&&p!==S.unit){S.unit=p;render()}}go();return}
+    const b2=INDEX.books.find(x=>x.code===m.book);if(!b2)return;
+    S.book=m.book;S.chap=String(m.chap);S.unit=0;$('#bookSel').value=S.book;await loadBook();go();
+  });
+  $('#panel').querySelectorAll('[data-goto]').forEach(b=>b.onclick=()=>{
+    const v=b.dataset.goto; const p=(CH.paragraphs||[]).findIndex(x=>v>=x.start&&v<=x.end);
+    if(S.mode==='pericope'&&p>=0&&p!==S.unit){S.unit=p;render()}
+    closeSheet(); const el=document.getElementById('v'+v); if(el)el.scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'center'});
+  });
+}
+function distHTML(books,cur){
+  const max=Math.max(...books.map(b=>b[1]));
+  return `<div class="dist">${books.map(([b,n])=>`<span class="${b===cur?'cur':''}">${esc(bk(b))}</span><span class="b"><span style="width:${(n/max*100).toFixed(1)}%"></span></span><span class="num">${n}</span>`).join('')}</div>`;
+}
+function refsHTML(refs,curRef){
+  const curBook=BOOK.code,curChap=S.chap;
+  return `<div class="refs">${refs.map(r=>{
+    const [ref,tag]=r.split('|'); const m=ref.match(/^(\S+) (\d+):(\d+)$/); if(!m)return'';
+    const label=`${bk(m[1])} ${m[2]}:${m[3]}`;
+    const cls=tag?' class="other" title="Filed under '+esc(tag)+'"':'';
+    if(ref===curRef)return `<span class="here">${esc(label)}</span>`;
+    if(m[1]===curBook&&m[2]===String(curChap)&&!tag)return `<button data-goto="${m[3]}">${esc(label)}</button>`;
+    return `<span${cls}>${esc(label)}</span>`;
+  }).join('')}</div>`;
+}
+function selectHeb(v,n,el){
+  SEL={lang:'he',v,n}; markSel();
+  const V=CH.verses.find(x=>x.v===v), w=V.he.find(x=>x.n===n);
+  const L=BOOK.lex[w.k]||{}; const note=(CH.wordNotes||{})[`${v}.${n}`];
+  const curRef=`${BOOK.code} ${S.chap}:${v}`;
+  let h=`<div class="ph"><span>${esc(BOOK.name)} ${esc(S.chap)}:${v} · word ${n}</span><span><button data-back>Chapter notes</button> <button data-close>Close</button></span></div>
+  <div class="big-heb" lang="he">${esc(w.h)}</div>
+  <div class="translit">${translit(w.t)}</div>
+  <div class="gloss-line">STEPBible gloss: <b>${esc(w.g)}</b></div>`;
+  if(note)h+=`<div class="note"><div style="margin-bottom:6px">${pill(note.tag,note.conf)}</div><h4>${esc(note.title)}</h4>${note.body}</div>`;
+  h+=`<h3>Parts of the word</h3>`;
+  h+=w.segs.map(s=>{const sl=BOOK.lex[s.s]||{};return `<div class="segrow ${s.m?'seg-main':''}"><div class="seg-h" lang="he">${esc(s.h)||'·'}</div><div style="min-width:0"><div class="gloss-line"><b>${esc(s.gl||sl.gloss||'')}</b>${s.s?` <span class="code">${esc(s.s)}</span>`:''}</div>${partChips(s.c)}<div class="termbox hence" hidden></div></div></div>`}).join('');
+  if(w.ty&&w.ty!=='L'||w.mv||w.sv){
+    let vt='';
+    if(w.ty.startsWith('Q'))vt+=`<p><b>Ketiv/qere.</b> The vowels shown are the qere (the reading tradition). ${esc(w.mv)}</p>`;
+    else if(w.mv)vt+=`<p>${esc(w.mv)}</p>`;
+    if(w.sv)vt+=`<p>Spelling in other Masoretic editions: ${esc(w.sv)}</p>`;
+    if(vt)h+=`<div class="variant">${pill('data')} <b>Text variant</b>${vt}</div>`;
+  }
+  if(L.lemma){
+    h+=`<h3>Lexicon</h3><div class="big-heb" style="font-size:30px" lang="he">${esc(L.lemma)}</div><div class="translit">${translit(L.tr)} <span class="code">${esc(L.morph)} · ${esc(w.k)}</span></div>
+    <p class="gloss-line"><b>${esc(L.gloss)}</b></p>${L.defn?`<div class="defn">${L.defn}</div>`:''}<p class="tags" style="margin-top:6px">Brief lexicon: STEPBible TBESH (based on BDB and others).</p>`;
+  }
+  if(L.total){
+    const multi=Object.keys(L.tags||{}).length>1;
+    h+=`<h3>Usage across the Hebrew Bible ${pill('data')}</h3>
+    <div class="stats"><div class="stat"><div class="n">${L.total}</div><div class="l">all occurrences of ${esc(w.k.replace(/[A-Z]$/,''))}</div></div><div class="stat"><div class="n">${L.tagCount}</div><div class="l">tagged as this sense</div></div><div class="stat"><div class="n">${L.inBook}</div><div class="l">in ${esc(BOOK.name)}</div></div></div>`;
+    if(multi)h+=`<p class="tags">STEPBible splits this Strong's number into separate senses or homonyms: ${Object.entries(L.tags).map(([k,[c,g]])=>`<b>${esc(k)}</b> ${esc(g)} (${c})`).join(' · ')}. The split is a tagging decision; the Hebrew form can be identical.</p>`;
+    h+=`<details ${L.books.length<=12?'open':''}><summary>Distribution by book</summary>${distHTML(L.books,BOOK.code)}</details>`;
+    if(L.refs)h+=`<details ${L.refs.length<=40?'open':''}><summary>Every occurrence (${L.refs.length})</summary>${refsHTML(L.refs,curRef)}${multi?'<p class="tags">Dashed references are filed under another sense of the same Strong\'s number.</p>':''}</details>`;
+    else h+=`<p class="tags">Too frequent to list every occurrence (${L.total}).</p>`;
+  }
+  $('#panel').innerHTML=h; $('#panel').scrollTop=0; wirePanel(); openSheet();
+}
+function selectGrk(v,i){
+  SEL={lang:'grc',v,i}; markSel();
+  const V=CH.verses.find(x=>x.v===v), g=V.lxx[i]; const L=BOOK.lxxLex[g.k]||{};
+  const curRef=`${BOOK.lxxCode||BOOK.code} ${S.chap}:${v}`;
+  let h=`<div class="ph"><span>${esc(BOOK.name)} ${esc(S.chap)}:${v} · Septuagint</span><span><button data-back>Chapter notes</button> <button data-close>Close</button></span></div>
+  <div class="big-grk" lang="grc">${esc(g.g)}</div><div class="translit">${esc(g.tr)}</div>
+  <div class="gloss-line">Gloss: <b>${esc(g.gl)}</b></div>
+  <h3>Parsing ${pill('data')}</h3><div class="parse">${[g.pos,...String(g.parse||'').split(' ').filter(Boolean)].map(x=>`<span class="pp">${esc(x)}</span>`).join('')}</div><div class="code">${esc(g.code)} (CATSS)</div>
+  <h3>Lexical form</h3><div class="big-grk" style="font-size:26px" lang="grc">${esc(L.lemma||'')}</div><p class="gloss-line"><b>${esc(L.gloss||'')}</b></p>`;
+  if(L.total){
+    h+=`<h3>Usage across the Septuagint ${pill('data')}</h3><div class="stats"><div class="stat"><div class="n">${L.total}</div><div class="l">in the Septuagint (Rahlfs)</div></div><div class="stat"><div class="n">${L.inBook}</div><div class="l">in ${esc(BOOK.name)}</div></div><div class="stat"><div class="n">${V.lxx.filter(x=>x.k===g.k).length}</div><div class="l">in this verse</div></div></div>`;
+    if(L.refs)h+=`<details ${L.refs.length<=40?'open':''}><summary>Every occurrence (${L.refs.length})</summary><div class="refs">${L.refs.map(r=>r===curRef?`<span class="here">${esc(r)}</span>`:`<span>${esc(r)}</span>`).join('')}</div><p class="tags">Septuagint book names and verse numbers follow Rahlfs.</p></details>`;
+    else h+=`<p class="tags">Too frequent to list every occurrence.</p>`;
+  }
+  const ln=(CH.lxxNotes||{})[v];
+  if(ln&&ln.length)h+=`<h3>Differences from the Hebrew in this verse</h3><ul>${ln.map(n=>`<li>${n.t} <span class="conf">confidence: ${esc(n.conf)}</span></li>`).join('')}</ul><p class="tags">Comparisons written by Claude.</p>`;
+  $('#panel').innerHTML=h; $('#panel').scrollTop=0; wirePanel(); openSheet();
+}
+const mq=matchMedia('(max-width:960px)');
+function openSheet(){if(mq.matches){$('#panel').classList.add('open');$('#backdrop').classList.add('open')}}
+function closeSheet(){$('#panel').classList.remove('open');$('#backdrop').classList.remove('open')}
+boot();
+})();
+</script>
+<script src="config.js"></script>
+<script type="module">
+const V='10.12.2';
+const box=document.getElementById('signin'),err=document.getElementById('siErr'),msg=document.getElementById('siMsg');
+const MSG={'auth/invalid-credential':'That email and password don\u2019t match. Try again, or tap Forgot password.','auth/user-not-found':'No account with that email yet. Tap Create account.','auth/email-already-in-use':'That email already has an account. Tap Sign in instead.','auth/weak-password':'Use at least 6 characters for the password.','auth/invalid-email':'That email address doesn\u2019t look right.','auth/missing-password':'Type your password.','auth/network-request-failed':'No internet connection. Try again when you have signal.','auth/too-many-requests':'Too many tries. Wait a minute and try again.'};
+const say=e=>{err.textContent=MSG[e&&e.code]||('Something went wrong'+(e&&e.code?' ('+e.code+')':'')+'.')};
+document.getElementById('siClose').onclick=()=>{box.hidden=true};
+if(window.__MOCK_DB){Auth.email='test@example.com';Auth.resolve({db:window.__MOCK_DB,id:'u1'})}
+else if(window.OPS_CONFIG&&window.OPS_CONFIG.apiKey){
+  try{
+  const [{initializeApp},A,F]=await Promise.all([
+    import(`https://www.gstatic.com/firebasejs/${V}/firebase-app.js`),
+    import(`https://www.gstatic.com/firebasejs/${V}/firebase-auth.js`),
+    import(`https://www.gstatic.com/firebasejs/${V}/firebase-firestore.js`)]);
+  const app=initializeApp(window.OPS_CONFIG);
+  const auth=A.getAuth(app);
+  let fs;try{fs=F.initializeFirestore(app,{localCache:F.persistentLocalCache({tabManager:F.persistentMultipleTabManager()})})}catch(e){fs=F.getFirestore(app)}
+  const ws=s=>({id:s.id,exists:s.exists(),data:()=>s.data(),metadata:s.metadata});
+  const wq=s=>({docs:s.docs.map(ws),size:s.size,empty:s.empty,metadata:s.metadata});
+  const D=p=>{const r=F.doc(fs,p);return{path:p,id:r.id,get:async()=>ws(await F.getDoc(r)),set:d=>F.setDoc(r,d),delete:()=>F.deleteDoc(r),collection:c=>C(p+'/'+c),onSnapshot:(n,e)=>F.onSnapshot(r,s=>n(ws(s)),e)}};
+  const C=p=>{const r=F.collection(fs,p);return{path:p,doc:id=>D(p+'/'+id),get:async()=>wq(await F.getDocs(r)),onSnapshot:(n,e)=>F.onSnapshot(r,s=>n(wq(s)),e)}};
+  const db={doc:D,collection:C};
+  Auth.signOut=async()=>{try{await A.signOut(auth)}catch(e){}try{localStorage.removeItem('tm_marks')}catch(e){}location.reload()};
+  let started=false;
+  A.onAuthStateChanged(auth,u=>{if(u){Auth.email=u.email;box.hidden=true;if(!started){started=true;Auth.resolve({db,id:u.uid})}}});
+  const em=document.getElementById('siEmail'),pw=document.getElementById('siPass');
+  const busy=b=>box.querySelectorAll('button').forEach(x=>x.disabled=b);
+  document.getElementById('siForm').addEventListener('submit',async e=>{e.preventDefault();err.textContent='';busy(true);try{await A.signInWithEmailAndPassword(auth,em.value.trim(),pw.value)}catch(x){say(x)}busy(false)});
+  document.getElementById('siUp').onclick=async()=>{err.textContent='';busy(true);try{await A.createUserWithEmailAndPassword(auth,em.value.trim(),pw.value)}catch(x){say(x)}busy(false)};
+  document.getElementById('siForgot').onclick=async()=>{err.textContent='';const v=em.value.trim();if(!v){err.textContent='Type your email first, then tap Forgot password.';return}try{await A.sendPasswordResetEmail(auth,v);msg.textContent='Check your email for a link to set a new password, then come back and sign in.'}catch(x){say(x)}};
+  }catch(e){console.warn('sync unavailable',e)}
+}
+if('serviceWorker' in navigator&&location.protocol==='https:'){navigator.serviceWorker.register('sw.js').catch(()=>{})}
+</script>
+
+</body>
+</html>
