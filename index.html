@@ -219,25 +219,49 @@ button.vn:hover{text-decoration:underline}
   .ref{min-width:0;font-size:19px}
   .ref select{font-size:18px;max-width:9.5em}
   #sync{margin-left:auto;flex-shrink:0;font-size:11.5px}
-  /* controls live in the Display sheet */
-  .ctrls{display:none;position:fixed;left:0;right:0;bottom:calc(58px + env(safe-area-inset-bottom,0px));z-index:45;background:var(--surface);border-top:1px solid var(--rule);border-radius:14px 14px 0 0;padding:18px 16px 20px;box-shadow:0 -8px 30px rgba(0,0,0,.18);margin:0;gap:10px;align-items:center}
-  body.display-open .ctrls{display:flex}
-  body.display-open .bar{z-index:46}
-  .ctrls .notes-btn,.ctrls #guideBtn{display:none}
-  .ctrls .pick{max-width:none;flex:1 1 40%;padding:8px}
-  .ctrls .chip,.ctrls .seg button{padding:8px 12px;font-size:14px}
-  .ctrl-row{display:block;flex-basis:100%;order:-1}
-  .ctrl-lab{font-family:var(--f-ui);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-  /* bottom tab bar */
-  .tabbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--bg);border-top:1px solid var(--rule);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
-  .tabbar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;color:var(--muted);font-family:var(--f-ui);font-size:11px;padding:4px 0;cursor:pointer}
-  .tabbar svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-  .tabbar button[aria-current="true"]{color:var(--accent)}
-  .wrap{padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}
-  .panel{bottom:calc(58px + env(safe-area-inset-bottom,0px));padding-bottom:24px}
-  .foot{margin-bottom:10px}
+  .wrap{padding-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
+  #sync{display:none}
+  #menuBtn{margin-left:auto}
 }
-@media (prefers-reduced-motion:reduce){ .panel{transition:none} }
+/* menu */
+.menu-btn{flex-shrink:0;width:38px;height:38px;display:grid;place-items:center;background:transparent;border:1px solid var(--rule);border-radius:9px;cursor:pointer;color:var(--ink);padding:0}
+.menu-btn svg,.dx svg,.ditem svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.scrim{position:fixed;inset:0;z-index:70;background:rgba(0,0,0,.32);opacity:0;pointer-events:none;transition:opacity .25s ease}
+body.menu-open .scrim{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:71;width:min(88vw,370px);background:var(--surface);border-left:1px solid var(--rule);box-shadow:-12px 0 40px rgba(0,0,0,.2);transform:translateX(104%);transition:transform .28s cubic-bezier(.2,.8,.2,1);overflow-y:auto;overscroll-behavior:contain;padding:calc(10px + env(safe-area-inset-top,0px)) 16px calc(24px + env(safe-area-inset-bottom,0px));font-family:var(--f-ui)}
+body.menu-open .drawer{transform:none}
+body.menu-open{overflow:hidden}
+.dh{display:flex;align-items:center;justify-content:space-between;padding:4px 0 12px}
+.dh .brand{font-size:13px;color:var(--ink)}
+.dx{width:38px;height:38px;display:grid;place-items:center;background:transparent;border:0;border-radius:9px;cursor:pointer;color:var(--muted)}
+.dsec{border-top:1px solid var(--rule);padding:10px 0}
+.dsec h5{margin:4px 0 8px;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.ditem{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;background:transparent;border:0;border-radius:10px;padding:10px 8px;cursor:pointer;color:var(--ink)}
+.ditem:hover,.ditem:active{background:var(--panel)}
+.ditem svg{flex-shrink:0;margin-top:1px;color:var(--accent)}
+.ditem b{display:block;font-size:15.5px;font-weight:600}
+.ditem small{display:block;font-size:13px;color:var(--muted);line-height:1.3;margin-top:1px;overflow-wrap:anywhere}
+.drow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:6px 8px 10px;font-size:15px}
+.drawer .seg button{padding:7px 12px;font-size:14px}
+#readSec{display:none}
+.drawer .ctrls{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0;padding:0 8px}
+.drawer .ctrls .seg{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}
+.drawer .ctrls .chip{padding:9px 10px;font-size:14px}
+.drawer .ctrls #tLxx{grid-column:1/-1}
+.drawer .ctrls .pick{max-width:none;width:100%;padding:9px 8px;font-size:15px}
+.reqf{display:grid;gap:10px;margin:6px 0 14px}
+.reqf label{font-family:var(--f-ui);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.reqf .r2{display:grid;grid-template-columns:minmax(0,1fr) 6.5em;gap:8px}
+.reqf select,.reqf input,.reqf textarea{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:9px 10px;width:100%}
+.reqf textarea{min-height:70px;resize:vertical;font-family:var(--f-text)}
+.reqf .go{background:var(--ink);color:var(--bg);border:0;border-radius:8px;padding:11px 16px;font-family:var(--f-ui);font-size:15px;cursor:pointer}
+.reqf .alt{background:transparent;color:var(--ink);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;font-family:var(--f-ui);font-size:15px;cursor:pointer}
+.reqf .btns{display:flex;gap:8px;flex-wrap:wrap}
+.reqnote{font-size:14px;color:var(--muted)}
+.reqnote.ok{color:var(--t-data)}
+.prompt{font-family:var(--f-mono);font-size:12px;background:var(--panel);border-radius:6px;padding:8px 10px;white-space:pre-wrap;color:var(--ink)}
+@media (max-width:960px){ #readSec{display:block} }
+@media (prefers-reduced-motion:reduce){ .panel,.drawer,.scrim{transition:none} }
 </style>
 </head>
 <body>
@@ -257,27 +281,33 @@ button.vn:hover{text-decoration:underline}
       <select class="pick" id="tr1" aria-label="English translation"></select>
       <select class="pick" id="tr2" aria-label="Compare with a second translation"></select>
       <button class="chip" id="tLxx" aria-pressed="true">LXX</button>
-      <button class="chip notes-btn" id="openNotes">Chapter notes</button>
-      <button class="chip" id="guideBtn" aria-label="How to use this reader">Guide</button>
-      <button class="chip" id="themeBtn" aria-label="Light or dark appearance">Auto</button>
-      <div class="ctrl-row"><span class="ctrl-lab">Display</span></div>
     </div>
     <button class="sync" id="sync" title="Sign in to sync bookmarks, notes and your place across devices">Sign in to sync</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="drawer" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
   </div>
 </header>
 
-<nav class="tabbar" id="tabbar" aria-label="Reader sections">
-  <button data-tab="notes"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 15h10M4 20h7"/></svg>Notes</button>
-  <button data-tab="mine"><svg viewBox="0 0 24 24"><path d="M7 3h10v18l-5-4-5 4z"/></svg>Mine</button>
-  <button data-tab="display"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>Display</button>
-  <button data-tab="guide"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01"/></svg>Guide</button>
+<div class="scrim" id="scrim"></div>
+<nav class="drawer" id="drawer" aria-label="Menu" aria-hidden="true" inert>
+  <div class="dh"><span class="brand"><span class="mark" aria-hidden="true">א</span><span>Ad Fontes</span></span><button class="dx" id="drawerClose" aria-label="Close menu"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="dsec">
+    <button class="ditem" data-go="study"><svg viewBox="0 0 24 24"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM20 5.5A1.5 1.5 0 0 0 18.5 4H13v16h5.5a1.5 1.5 0 0 0 1.5-1.5z"/></svg><span><b>Chapter study</b><small>Background, grammar and scholarly notes for this chapter</small></span></button>
+    <button class="ditem" data-go="mine"><svg viewBox="0 0 24 24"><path d="M7 3h10v18l-5-4-5 4z"/></svg><span><b>My notes &amp; bookmarks</b><small>What you've written or saved</small></span></button>
+  </div>
+  <div class="dsec" id="readSec"><h5>Reading options</h5><div id="ctrlHome"></div></div>
+  <div class="dsec"><h5>Settings</h5>
+    <div class="drow"><span>Appearance</span><div class="seg" id="themeSeg" role="group" aria-label="Appearance"><button data-th="auto">Auto</button><button data-th="light">Light</button><button data-th="dark">Dark</button></div></div>
+    <button class="ditem" data-go="account"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-14.3 4.9M4 12a8 8 0 0 1 14.3-4.9M18 3v4.5h-4.5M6 21v-4.5h4.5"/></svg><span><b id="acctTitle">Sign in to sync</b><small id="acctSub">Keep notes, bookmarks and your place in step across devices</small></span></button>
+    <button class="ditem" data-go="guide"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01"/></svg><span><b>How to use Ad Fontes</b><small>What everything on the page means</small></span></button>
+    <button class="ditem" data-go="request"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span><b>Request a chapter</b><small>Ask Claude to add another chapter</small></span></button>
+  </div>
 </nav>
 <main class="wrap">
   <section class="text" id="text"><div class="loading">Loading the text…</div></section>
   <aside class="panel" id="panel" aria-live="polite"></aside>
   <div class="backdrop" id="backdrop"></div>
   <footer class="foot" id="foot">
-    <b>Sources.</b> Hebrew text, morphology, word glosses and lexicon: STEPBible.org TAHOT, TBESH and TEHMC, based on work at Tyndale House Cambridge (CC BY 4.0); Leningrad Codex. Greek: Rahlfs 1935 Septuagint with CATSS morphology, prepared by Eliran Wong (CC BY-NC-SA 4.0). English: Berean Standard Bible and other public-domain translations (via scrollmapper/bible_databases); see the Guide for the list. In the literal glosses, &lt;angle brackets&gt; mark Hebrew elements English leaves untranslated and [square brackets] mark words English must supply. Occurrence counts are computed from the full tagged Hebrew Bible and Septuagint and use English verse numbers.
+    <b>Sources.</b> Hebrew text, morphology, word glosses and lexicon: STEPBible.org TAHOT, TBESH and TEHMC, based on work at Tyndale House Cambridge (CC BY 4.0); Leningrad Codex. Greek: Rahlfs 1935 Septuagint with CATSS morphology, prepared by Eliran Wong (CC BY-NC-SA 4.0). English: Berean Standard Bible and other public-domain translations (via scrollmapper/bible_databases); see How to use (in the menu) for the list. In the literal glosses, &lt;angle brackets&gt; mark Hebrew elements English leaves untranslated and [square brackets] mark words English must supply. Occurrence counts are computed from the full tagged Hebrew Bible and Septuagint and use English verse numbers.
     <b>Labels.</b> Study notes and LXX comparisons are written by Claude and carry a label and a confidence level; everything else comes from the datasets.
   </footer>
 </main>
@@ -327,7 +357,7 @@ const TERMS={
 
 const store={get(k){try{return JSON.parse(localStorage.getItem('tm_'+k))}catch(e){return null}},set(k,v){try{localStorage.setItem('tm_'+k,JSON.stringify(v))}catch(e){}}};
 const S=Object.assign({lit:true,bsb:true,lxx:true,mode:'chapter',unit:0,book:'Deu',chap:'7',tr1:'BSB',tr2:'',theme:'auto'},store.get('state')||{});
-function applyTheme(){const r=document.documentElement;if(S.theme==='light'||S.theme==='dark')r.setAttribute('data-theme',S.theme);else r.removeAttribute('data-theme');const b=document.getElementById('themeBtn');if(b)b.textContent={auto:'Auto',light:'Light',dark:'Dark'}[S.theme]||'Auto'}
+function applyTheme(){const r=document.documentElement;if(S.theme==='light'||S.theme==='dark')r.setAttribute('data-theme',S.theme);else r.removeAttribute('data-theme');document.querySelectorAll('#themeSeg button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.th===(S.theme||'auto'))))}
 applyTheme();
 let INDEX=null,BOOK=null,CH=null,SEL=null;
 let localAt=(store.get('state')||{}).at||0, navigated=false;
@@ -338,7 +368,7 @@ const save=()=>{const p=prefs(),j=JSON.stringify(p);if(j===lastPrefs)return;last
 /* ---------- account sync (db capability; falls back to this device) ---------- */
 const MARKS={};           // "Deu.7.6" -> {book,chap,v,bm,note,at}
 const Sync={db:null,uid:null,ref:null,marks:null,timer:null,pending:null,
-  status(t,cls){const el=$('#sync');el.textContent=t;el.className='sync'+(cls?' '+cls:'')},
+  status(t,cls){const el=$('#sync');el.textContent=t;el.className='sync'+(cls?' '+cls:'');const a=$('#acctTitle'),b=$('#acctSub');if(a){a.textContent=Auth.email?'Account':'Sign in to sync';b.textContent=Auth.email?Auth.email+' · '+t:'Keep notes, bookmarks and your place in step across devices'}},
   async init(){
     try{(store.get('marks')||[]).forEach(m=>MARKS[m.id]=m)}catch(e){}
     this.status('Sign in to sync');
@@ -410,7 +440,7 @@ function showMyNote(v,quiet){
   SEL={lang:'mine',v};markSel();
   const id=markId(v);const m=MARKS[id]||{id,book:S.book,chap:String(S.chap),v,bm:false,note:''};
   const V=CH.verses.find(x=>x.v===v);
-  $('#panel').innerHTML=`<div class="ph"><span>${esc(BOOK.name)} ${esc(S.chap)}:${v} · your note</span><span><button data-back>Chapter notes</button> <button data-close>Close</button></span></div>
+  $('#panel').innerHTML=`<div class="ph"><span>${esc(BOOK.name)} ${esc(S.chap)}:${v} · your note</span><span><button data-back>Chapter study</button> <button data-close>Close</button></span></div>
   <p class="bsb" style="font-size:15px;color:var(--muted)">${esc(V?enText(V,S.tr1):'')}</p>
   <div class="mynote"><div class="row"><button class="chip" id="bmBtn" aria-pressed="${!!m.bm}">${m.bm?'Bookmarked':'Bookmark this verse'}</button><span class="tags" id="noteState">${Sync.ref?'Saves to your account as you type':'Saves on this device'}</span></div>
   <label class="tags" for="myNote">Your note (private to you)</label>
@@ -458,26 +488,17 @@ async function boot(){
   [['#tLit','lit'],['#tBsb','bsb'],['#tLxx','lxx']].forEach(([id,k])=>$(id).onclick=()=>{S[k]=!S[k];render()});
   $('#tr1').onchange=e=>{S.tr1=e.target.value;if(S.tr2===S.tr1)S.tr2='';render()};
   $('#tr2').onchange=e=>{S.tr2=e.target.value===S.tr1?'':e.target.value;render()};
-  $('#guideBtn').onclick=showGuide;
-  document.querySelectorAll('#tabbar button').forEach(b=>b.onclick=()=>{
-    const t=b.dataset.tab,open=b.getAttribute('aria-current')==='true';
-    closeDisplay();closeSheet();if(open){setTab('');return}
-    if(t==='notes'){SEL=null;showChapterNotes();openSheet()}
-    if(t==='mine')showMine();
-    if(t==='guide')showGuide();
-    if(t==='display'){document.body.classList.add('display-open');$('#backdrop').classList.add('open')}
-    setTab(t);
-  });
-  $('#themeBtn').onclick=()=>{S.theme={auto:'light',light:'dark',dark:'auto'}[S.theme]||'light';applyTheme();save()};
-  $('#openNotes').onclick=()=>{SEL=null;showChapterNotes();openSheet()};
+  wireMenu();
   $('#backdrop').onclick=closeSheet;
-  $('#sync').onclick=()=>{
+  $('#sync').onclick=()=>openAccount();
+  const openAccount=()=>{
     if(!Auth.email){document.getElementById('signin').hidden=false;setTimeout(()=>document.getElementById('siEmail').focus(),50);return}
     SEL=null;markSel();
-    $('#panel').innerHTML=`<div class="ph"><span>Account</span><span><button data-back>Chapter notes</button> <button data-close>Close</button></span></div><p>Signed in as <b>${esc(Auth.email)}</b>. Your bookmarks, notes and place sync across your devices.</p><button class="chip" id="soBtn">Sign out on this device</button>`;
+    $('#panel').innerHTML=`<div class="ph"><span>Account</span><span><button data-back>Chapter study</button> <button data-close>Close</button></span></div><p>Signed in as <b>${esc(Auth.email)}</b>. Your bookmarks, notes and place sync across your devices.</p><button class="chip" id="soBtn">Sign out on this device</button>`;
     wirePanel();$('#soBtn').onclick=()=>Auth.signOut();openSheet();
   };
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSheet()});
+  window.__openAccount=openAccount;
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(document.body.classList.contains('menu-open'))closeMenu();else closeSheet()}});
   await loadBook();
   Sync.init();
 }
@@ -552,13 +573,13 @@ function fillTr(){const L=(BOOK&&BOOK.translations)||[{code:'BSB',name:'Berean S
   $('#tr2').innerHTML='<option value="">Compare…</option>'+L.map(x=>`<option value="${esc(x.code)}">+ ${esc(trLabel(x.code))}</option>`).join('');$('#tr2').value=S.tr2||'';
   $('#tr1').disabled=$('#tr2').disabled=!S.bsb}
 function showGuide(){SEL=null;markSel();const L=(BOOK&&BOOK.translations)||[];
-  $('#panel').innerHTML=`<div class="ph"><span>Guide</span><span><button data-back>Chapter notes</button> <button data-close>Close</button></span></div><div class="guide">
+  $('#panel').innerHTML=`<div class="ph"><span>Guide</span><span><button data-back>Chapter study</button> <button data-close>Close</button></span></div><div class="guide">
   <p>Ad Fontes shows the Hebrew text first, with the evidence needed to read it closely. Everything comes from the text and open scholarly data; anything interpretive is labeled.</p>
   <h4>Reading the page</h4><ul><li><b>Hebrew line</b>: the Masoretic Text (Leningrad Codex), read right to left.</li><li><b>Literal</b>: a word-by-word gloss under each Hebrew word, in Hebrew order. &lt;angle brackets&gt; mark Hebrew elements English leaves out; [square brackets] mark words English must add.</li><li><b>English</b>: pick a translation, and optionally a second one to compare.</li><li><b>LXX</b>: the Septuagint, the ancient Greek translation, with notes where it differs from the Hebrew.</li><li><b>Chapter / Pericope</b>: read the whole chapter, or the paragraphs marked in the Hebrew manuscript itself (ס and פ).</li></ul>
-  <h4>Tapping</h4><ul><li><b>A Hebrew or Greek word</b>: its parts, full grammar, dictionary entry, and every place it occurs. Tap a grammar term like <i>Hiphil</i> for a plain explanation.</li><li><b>A word with a dot</b>: it also has a study note.</li><li><b>A verse number</b>: bookmark the verse or write your own private note.</li></ul>
+  <h4>Reading options</h4><p>On a phone or tablet they are in the menu; on a computer they are in the top bar.</p><h4>Tapping</h4><ul><li><b>A Hebrew or Greek word</b>: its parts, full grammar, dictionary entry, and every place it occurs. Tap a grammar term like <i>Hiphil</i> for a plain explanation.</li><li><b>A word with a dot</b>: it also has a study note.</li><li><b>A verse number</b>: bookmark the verse or write your own private note.</li></ul>
   <h4>The labels</h4><ul><li>${pill('data')} read directly from the text or the datasets.</li><li>${pill('consensus')} broad agreement across scholarly traditions.</li><li>${pill('debated')} a live disagreement; the positions are listed, not judged.</li><li><b>Confidence</b> (high, moderate, low) is shown on everything written for this reader.</li></ul>
-  <h4>Syncing</h4><p>Sign in with the button at the top to keep bookmarks, notes and your place in step between your phone and computer.</p>
-  <h4>More chapters</h4><p>Ask Claude, for example: <i>“Add Deuteronomy 8 to Ad Fontes.”</i> You'll get updated files to upload to GitHub, and the chapter appears in the chapter menu.</p>
+  <h4>Syncing</h4><p>Open the menu (☰) and tap Sign in to keep bookmarks, notes and your place in step between your phone and computer.</p>
+  <h4>The menu</h4><p>Everything except the text lives in the menu (☰, top right): Chapter study, My notes &amp; bookmarks, Reading options, Appearance, your account, this guide, and Request a chapter.</p><h4>More chapters</h4><p>Menu → <b>Request a chapter</b>. Pick the book and chapter, tap <b>Open Claude</b>, and paste the request into the new chat. Claude builds the chapter and publishes it; it appears in the chapter list after a reload.</p>
   <h4>English translations</h4><div class="trlist">${L.map(x=>`<div><b>${esc(trLabel(x.code))}</b>, ${esc(x.name)}. ${esc(x.note||'')}</div>`).join('')}</div>
   </div>`;wirePanel();$('#panel').scrollTop=0;openSheet()}
 function wireMarg(g){
@@ -566,10 +587,53 @@ function wireMarg(g){
   g.querySelectorAll('[data-mynote]').forEach(b=>b.onclick=()=>showMyNote(+b.dataset.mynote));
 }
 function showMine(){SEL=null;markSel();
-  $('#panel').innerHTML=`<div class="ph"><span>Your bookmarks &amp; notes</span><span><button data-back>Chapter notes</button> <button data-close>Close</button></span></div><div class="mylist" id="myList">${myListHTML()}</div>`;
+  $('#panel').innerHTML=`<div class="ph"><span>My notes &amp; bookmarks</span><span><button data-back>Chapter study</button> <button data-close>Close</button></span></div><div class="mylist" id="myList">${myListHTML()}</div>`;
   wirePanel();$('#panel').scrollTop=0;openSheet()}
-function setTab(t){document.querySelectorAll('#tabbar button').forEach(b=>b.setAttribute('aria-current',String(b.dataset.tab===t)))}
-function closeDisplay(){document.body.classList.remove('display-open')}
+function setTab(){}
+function closeDisplay(){}
+/* ---------- slide-in menu ---------- */
+function openMenu(){const d=$('#drawer');d.removeAttribute('inert');d.setAttribute('aria-hidden','false');document.body.classList.add('menu-open');$('#menuBtn').setAttribute('aria-expanded','true');setTimeout(()=>$('#drawerClose').focus({preventScroll:true}),60)}
+function closeMenu(){const d=$('#drawer');document.body.classList.remove('menu-open');d.setAttribute('aria-hidden','true');d.setAttribute('inert','');$('#menuBtn').setAttribute('aria-expanded','false')}
+function placeCtrls(){const c=document.querySelector('.ctrls');if(mq.matches){if(c.parentNode.id!=='ctrlHome')$('#ctrlHome').appendChild(c)}else if(c.parentNode.id==='ctrlHome')$('.bar-in').insertBefore(c,$('#sync'))}
+function wireMenu(){
+  $('#menuBtn').onclick=openMenu;$('#drawerClose').onclick=closeMenu;$('#scrim').onclick=closeMenu;
+  placeCtrls();mq.addEventListener&&mq.addEventListener('change',placeCtrls);
+  document.querySelectorAll('#themeSeg button').forEach(b=>b.onclick=()=>{S.theme=b.dataset.th;applyTheme();save()});applyTheme();
+  const go={study:()=>{SEL=null;markSel();showChapterNotes();$('#panel').scrollTop=0;openSheet()},mine:showMine,guide:showGuide,account:()=>window.__openAccount(),request:showRequest};
+  document.querySelectorAll('#drawer .ditem').forEach(b=>b.onclick=()=>{closeMenu();setTimeout(go[b.dataset.go],mq.matches?180:0)});
+  // swipe the menu closed
+  let x0=null;const d=$('#drawer');
+  d.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
+  d.addEventListener('touchmove',e=>{if(x0==null)return;const dx=Math.max(0,e.touches[0].clientX-x0);d.style.transition='none';d.style.transform=`translateX(${dx}px)`},{passive:true});
+  d.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;d.style.transition='';d.style.transform='';if(dx>70)closeMenu()});
+}
+/* ---------- request a chapter ---------- */
+const CANON=[['Genesis',50],['Exodus',40],['Leviticus',27],['Numbers',36],['Deuteronomy',34],['Joshua',24],['Judges',21],['Ruth',4],['1 Samuel',31],['2 Samuel',24],['1 Kings',22],['2 Kings',25],['1 Chronicles',29],['2 Chronicles',36],['Ezra',10],['Nehemiah',13],['Esther',10],['Job',42],['Psalms',150],['Proverbs',31],['Ecclesiastes',12],['Song of Songs',8],['Isaiah',66],['Jeremiah',52],['Lamentations',5],['Ezekiel',48],['Daniel',12],['Hosea',14],['Joel',3],['Amos',9],['Obadiah',1],['Jonah',4],['Micah',7],['Nahum',3],['Habakkuk',3],['Zephaniah',3],['Haggai',2],['Zechariah',14],['Malachi',4],
+ ['Matthew',28],['Mark',16],['Luke',24],['John',21],['Acts',28],['Romans',16],['1 Corinthians',16],['2 Corinthians',13],['Galatians',6],['Ephesians',6],['Philippians',4],['Colossians',4],['1 Thessalonians',5],['2 Thessalonians',3],['1 Timothy',6],['2 Timothy',4],['Titus',3],['Philemon',1],['Hebrews',13],['James',5],['1 Peter',5],['2 Peter',3],['1 John',5],['2 John',1],['3 John',1],['Jude',1],['Revelation',22]];
+const CLAUDE_URL='https://claude.ai/project/01a1210e-14f0-70f7-bc31-1322b1e139b7';
+function haveChapters(name){const b=INDEX&&INDEX.books.find(x=>x.name===name);if(!b)return [];if(BOOK&&BOOK.name===name)return Object.keys(BOOK.chapters).map(Number);return (b.chapters||[]).map(Number)}
+function showRequest(){SEL=null;markSel();
+  const cur=CANON.findIndex(c=>c[0]===(BOOK&&BOOK.name));let bi=cur<0?4:cur,ch=(+S.chap||0)+1;if(ch>CANON[bi][1]){bi=Math.min(bi+1,65);ch=1}
+  $('#panel').innerHTML=`<div class="ph"><span>Request a chapter</span><span><button data-back>Chapter study</button> <button data-close>Close</button></span></div>
+  <p>Pick a chapter, then tap <b>Open Claude</b>. The request is copied for you; paste it into the new chat in your Bible Study Guide project and send it. When Claude is done, reload Ad Fontes and the chapter is in the list.</p>
+  <div class="reqf"><div class="r2"><div><label for="rqB">Book</label><select id="rqB">${CANON.map((c,i)=>`<option value="${i}"${i===bi?' selected':''}>${esc(c[0])}</option>`).join('')}</select></div>
+  <div><label for="rqC">Chapter</label><select id="rqC"></select></div></div>
+  <div><label for="rqF">Anything to focus on (optional)</label><textarea id="rqF" placeholder="e.g. the covenant terms, or how the LXX handles verse 3"></textarea></div>
+  <div class="reqnote" id="rqHave"></div>
+  <div class="btns"><button class="go" id="rqGo">Open Claude</button><button class="alt" id="rqCopy">Copy request only</button></div>
+  <div class="reqnote" id="rqMsg"></div>
+  <details><summary>See the request</summary><div class="prompt" id="rqText"></div></details></div>`;
+  const fillC=()=>{const i=+$('#rqB').value,n=CANON[i][1],have=haveChapters(CANON[i][0]);const keep=+$('#rqC').value||ch;
+    $('#rqC').innerHTML=Array.from({length:n},(_,k)=>k+1).map(k=>`<option value="${k}"${k===Math.min(keep,n)?' selected':''}>${k}${have.includes(k)?' ✓':''}</option>`).join('');upd()};
+  const text=()=>{const i=+$('#rqB').value,b=CANON[i][0],c=$('#rqC').value,f=$('#rqF').value.trim();
+    return `Add ${b} ${c} to Ad Fontes (my Bible study reader: github.com/Tools4Life/ad-fontes, live at tools4life.github.io/ad-fontes).\nRead build-kit/README-FOR-CLAUDE.md in that repo first and follow its method and content rules, then push the new chapter to the main branch.`+(i>=39?`\nThis is a New Testament chapter: the reader is Hebrew Bible only so far, so set up the Greek NT text as the readme describes before building it.`:'')+(f?`\nFocus: ${f}`:'')};
+  const upd=()=>{const i=+$('#rqB').value,c=+$('#rqC').value;$('#rqText').textContent=text();
+    $('#rqHave').textContent=haveChapters(CANON[i][0]).includes(c)?'That chapter is already in Ad Fontes. ✓ marks the chapters you already have.':(i>=39?'New Testament chapters take longer the first time: the Greek text and its tools have to be set up once.':'');};
+  const copy=async()=>{const t=text();try{await navigator.clipboard.writeText(t);return true}catch(e){try{const a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();const ok=document.execCommand('copy');a.remove();return ok}catch(e2){return false}}};
+  $('#rqB').onchange=()=>{ch=1;$('#rqC').value='';fillC()};$('#rqC').onchange=upd;$('#rqF').oninput=upd;
+  $('#rqGo').onclick=()=>{const p=copy();window.open(CLAUDE_URL,'_blank','noopener');p.then(ok=>{$('#rqMsg').className='reqnote'+(ok?' ok':'');$('#rqMsg').textContent=ok?'Copied. In Claude, start a new chat in the project, paste, and send.':'Copying didn’t work here. Open “See the request” below and copy it by hand.'})};
+  $('#rqCopy').onclick=()=>copy().then(ok=>{$('#rqMsg').className='reqnote'+(ok?' ok':'');$('#rqMsg').textContent=ok?'Copied. Paste it into a chat with Claude.':'Copying didn’t work here. Open “See the request” below and copy it by hand.'});
+  fillC();wirePanel();$('#panel').scrollTop=0;openSheet()}
 function markSel(){
   document.querySelectorAll('.sel').forEach(e=>e.classList.remove('sel'));
   if(!SEL)return;
@@ -580,9 +644,9 @@ function markSel(){
 /* ---------- panels ---------- */
 function showChapterNotes(){
   const secs=CH.sections||[];
-  $('#panel').innerHTML=`<div class="ph"><span>${esc(BOOK.name)} ${esc(S.chap)} · chapter notes</span><button class="closer" data-close>Close</button></div>
+  $('#panel').innerHTML=`<div class="ph"><span>${esc(BOOK.name)} ${esc(S.chap)} · chapter study</span><button class="closer" data-close>Close</button></div>
   <p class="empty" style="font-size:14px">Tap any Hebrew or Greek word for its grammar, lexicon entry and usage. Words with a dot have a study note.</p>
-  <details class="sec" open><summary><span>Your bookmarks &amp; notes</span></summary><div class="mylist" id="myList">${myListHTML()}</div></details>
+  <details class="sec" open><summary><span>My notes &amp; bookmarks</span></summary><div class="mylist" id="myList">${myListHTML()}</div></details>
   <div class="legend">
     <div>${pill('data')}<span>Read directly from the text or the datasets.</span></div>
     <div>${pill('consensus')}<span>Broad agreement across scholarly traditions.</span></div>
@@ -631,7 +695,7 @@ function selectHeb(v,n,el){
   const V=CH.verses.find(x=>x.v===v), w=V.he.find(x=>x.n===n);
   const L=BOOK.lex[w.k]||{}; const note=(CH.wordNotes||{})[`${v}.${n}`];
   const curRef=`${BOOK.code} ${S.chap}:${v}`;
-  let h=`<div class="ph"><span>${esc(BOOK.name)} ${esc(S.chap)}:${v} · word ${n}</span><span><button data-back>Chapter notes</button> <button data-close>Close</button></span></div>
+  let h=`<div class="ph"><span>${esc(BOOK.name)} ${esc(S.chap)}:${v} · word ${n}</span><span><button data-back>Chapter study</button> <button data-close>Close</button></span></div>
   <div class="big-heb" lang="he">${esc(w.h)}</div>
   <div class="translit">${translit(w.t)}</div>
   <div class="gloss-line">STEPBible gloss: <b>${esc(w.g)}</b></div>`;
@@ -664,7 +728,7 @@ function selectGrk(v,i){
   SEL={lang:'grc',v,i}; markSel();
   const V=CH.verses.find(x=>x.v===v), g=V.lxx[i]; const L=BOOK.lxxLex[g.k]||{};
   const curRef=`${BOOK.lxxCode||BOOK.code} ${S.chap}:${v}`;
-  let h=`<div class="ph"><span>${esc(BOOK.name)} ${esc(S.chap)}:${v} · Septuagint</span><span><button data-back>Chapter notes</button> <button data-close>Close</button></span></div>
+  let h=`<div class="ph"><span>${esc(BOOK.name)} ${esc(S.chap)}:${v} · Septuagint</span><span><button data-back>Chapter study</button> <button data-close>Close</button></span></div>
   <div class="big-grk" lang="grc">${esc(g.g)}</div><div class="translit">${esc(g.tr)}</div>
   <div class="gloss-line">Gloss: <b>${esc(g.gl)}</b></div>
   <h3>Parsing ${pill('data')}</h3><div class="parse">${[g.pos,...String(g.parse||'').split(' ').filter(Boolean)].map(x=>`<span class="pp">${esc(x)}</span>`).join('')}</div><div class="code">${esc(g.code)} (CATSS)</div>
