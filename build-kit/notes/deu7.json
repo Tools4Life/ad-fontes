@@ -1,0 +1,626 @@
+{
+ "title": "Deuteronomy 7",
+ "paragraphs": [
+  {
+   "start": 1,
+   "end": 6,
+   "marker": "ס",
+   "markerName": "setumah (closed)",
+   "label": "7:1–6"
+  },
+  {
+   "start": 7,
+   "end": 11,
+   "marker": "פ",
+   "markerName": "petuchah (open)",
+   "label": "7:7–11"
+  },
+  {
+   "start": 12,
+   "end": 16,
+   "marker": "ס",
+   "markerName": "setumah (closed)",
+   "label": "7:12–16"
+  },
+  {
+   "start": 17,
+   "end": 26,
+   "marker": "פ",
+   "markerName": "petuchah (open)",
+   "label": "7:17–26"
+  }
+ ],
+ "paragraphNote": "Pericope units here are the Masoretic paragraph breaks marked in the Leningrad Codex itself (ס = setumah, a closed/minor break; פ = petuchah, an open/major break). They are the oldest division system in the Hebrew text, older than chapters (13th c.) and verse numbers, but they are still scribal, not authorial. The previous unit ends at 6:25 with a setumah, so 7:1 begins a fresh unit; 7:26 closes with a petuchah, so ch. 8 begins a new one.",
+ "sections": [
+  {
+   "id": "context",
+   "title": "Where this chapter sits",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p>Deuteronomy presents itself as speeches of Moses in the land of Moab before Israel crosses the Jordan (1:1–5). Chapters 5–11 are general exhortation that precedes the detailed statutes and judgments of chapters 12–26. Chapter 5 restates the Ten Words; chapter 6 gives the Shema (6:4–9) and warns against forgetting YHWH amid prosperity in the land (6:10–25). Chapter 7 applies the first commandment (no other gods, 5:7) to the nations already living in the land, and chapter 8 turns back to the wilderness as a lesson in dependence.</p><p><b>Reading divisions (data):</b> the Jewish annual Torah-reading cycle ends the portion <i>Va'etchanan</i> (3:23–7:11) at 7:11 and begins <i>Eikev</i> at 7:12, named for the word עֵקֶב in that verse.</p>"
+  },
+  {
+   "id": "structure",
+   "title": "Structure visible in the text",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>The four Masoretic paragraphs each have a recognizable shape:</p><ul><li><b>7:1–6</b> Commands (destroy, no covenant, no intermarriage, tear down cult objects), then a motive clause: <i>for</i> you are a holy people (v6).</li><li><b>7:7–11</b> The grounds of choosing (not numbers; YHWH's attachment and the oath to the fathers), a description of YHWH's character (faithful; repays those who hate him), and a call to keep the commandment.</li><li><b>7:12–16</b> Consequences of listening (עֵקֶב): love, blessing, fertility, health. It closes by returning to the commands: consume the peoples, do not serve their gods, it is a snare.</li><li><b>7:17–26</b> An anticipated objection (\"if you say in your heart\"), the answer (remember Egypt), how the removal will happen (hornet, little by little), and a final command about the images and their silver and gold.</li></ul><p><b>Framing words:</b> the verb חרם (\"devote/destroy\") opens the chapter (v2); the noun חֵרֶם closes it twice (v26). The root יקשׁ (\"snare\") appears at v16 (מוֹקֵשׁ) and again at v25 (תִּוָּקֵשׁ). Some commentators propose a concentric (chiastic) arrangement for the whole chapter; the proposals differ in detail and are not settled.</p>"
+  },
+  {
+   "id": "grammar",
+   "title": "Grammar features across the chapter",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p><b>Singular and plural \"you\".</b> Most of the chapter addresses Israel as \"you\" singular (2ms). Plural \"you\" (2mp) clusters in v4 (one form), v5 (five), v7 (four), v8 (three), v12 (three) and v25 (one). This alternation, called <i>Numeruswechsel</i>, runs through all of Deuteronomy. Explanations (debated): (a) it marks different literary layers (e.g., G. Minette de Tillesse, 1962); (b) it is a rhetorical shift between Israel as one body and Israel as many individuals; (c) it carries no special significance. The Septuagint often levels or changes the number (see the LXX notes).</p><p><b>Infinitive + finite verb of the same root.</b> This occurs at v2 (הַחֲרֵם תַּחֲרִים), v18 (זָכֹר תִּזְכֹּר) and twice at v26. The construction typically strengthens the verbal idea or marks certainty or obligation (\"you must surely…\"). Grammarians debate whether the force is emphasis, certainty, or modal nuance in each case.</p><p><b>Paragogic nun.</b> Four imperfects carry an extra final nun: תְּגַדֵּעוּן and תִּשְׂרְפוּן (v5), תִּשְׁמְעוּן (v12), and תִּשְׂרְפוּן (v25). Its function is debated: emphasis, contrast, or simply an archaic or stylistic form. Deuteronomy uses it often.</p><p><b>Weqatal chains.</b> Future promises and instructions are carried by \"consecutive perfect\" forms (e.g., v12–13: וְשָׁמַר … וַאֲהֵבְךָ וּבֵרַכְךָ וְהִרְבֶּךָ). The perfect form, prefixed with <i>waw</i>, continues a future or instructional frame. Whether Hebrew verb forms primarily encode tense or aspect is a long-running debate. The labels \"perfect\" and \"imperfect\" are conventional, not descriptions of time.</p>"
+  },
+  {
+   "id": "date",
+   "title": "Setting and date of composition",
+   "tag": "debated",
+   "conf": "high",
+   "body": "<p>The text names its own setting: Moses on the plains of Moab. When the book was written is a reconstruction, and the main positions are these:</p><ol><li><b>Mosaic authorship</b> (traditional Jewish and Christian view). The speeches are essentially Moses' own. Absolute dates depend on the Exodus date: mid-15th c. BCE (reading the 480 years of 1 Kgs 6:1 literally) or 13th c. BCE.</li><li><b>Late Judean monarchy.</b> W. M. L. de Wette (1805) identified the core of Deuteronomy with the \"book of the law\" found in the temple in Josiah's 18th year (2 Kgs 22:8; 622 BCE), because Josiah's reforms (2 Kgs 23) match Deuteronomy's demand for one place of worship (Deut 12). Some form of this view has been the majority critical position for the core (chs 12–26).</li><li><b>Northern roots.</b> Traditions originating in the northern kingdom (often linked to Levites or prophetic circles) and carried south after 722 BCE (A. Alt, G. von Rad, E. W. Nicholson, in varying forms).</li><li><b>Layered growth.</b> A monarchic core with exilic or post-exilic \"Deuteronomistic\" expansion. Chapter 7 is sometimes assigned to a later layer because its concern with separation from \"the peoples\" resembles Ezra–Nehemiah. Others keep it with the core.</li></ol>"
+  },
+  {
+   "id": "treaty",
+   "title": "Treaty background",
+   "tag": "debated",
+   "conf": "high",
+   "body": "<p><b>Consensus:</b> Deuteronomy shares form and vocabulary with ancient Near Eastern treaties between a great king and a subordinate. It has a historical prologue, stipulations, a demand for exclusive loyalty, blessings and curses, and witnesses. Chapter 7 uses vocabulary that functions in those treaties: \"love\" and \"hate\" for loyalty and disloyalty, \"keep the covenant,\" the oath to the fathers, and the treasured subordinate (סְגֻלָּה). See the word notes.</p><p><b>Debated — which treaty tradition, and so which date:</b></p><ul><li><b>Hittite vassal treaties</b> (14th–13th c. BCE) are argued to match the book's overall structure, supporting an early date (G. E. Mendenhall 1954; M. Kline 1963; K. A. Kitchen).</li><li><b>Neo-Assyrian loyalty oaths</b>, especially Esarhaddon's Succession Treaty (672 BCE), show close parallels to Deut 13 and the curses of Deut 28, supporting a 7th-c. date (M. Weinfeld 1972; H. U. Steymans 1995).</li></ul>"
+  },
+  {
+   "id": "herem",
+   "title": "חֵרֶם (ḥerem) in its ancient setting",
+   "tag": "debated",
+   "conf": "high",
+   "body": "<p><b>Outside the Bible (data):</b> the Mesha Stele (Moab, c. 840 BCE) uses the same root. King Mesha says he killed the 7,000 inhabitants of Nebo because he had \"devoted\" it (ḥrm) to his deity ʿAshtar-Kemosh. The practice and its vocabulary were shared with Israel's neighbors.</p><p><b>Inside the Bible (data):</b></p><ul><li>Lev 27:21, 28–29: ḥerem is something irrevocably given to YHWH, \"most holy,\" which cannot be sold or redeemed.</li><li>Num 21:2–3; Deut 2:34; 3:6: devotion of conquered cities.</li><li>Deut 13:12–17: an Israelite town that turns to other gods.</li><li>Deut 20:16–18: the cities of the land, \"so that they may not teach you\" their practices.</li><li>Josh 6–7: Jericho and Achan.</li><li>1 Sam 15: Amalek.</li></ul><p><b>Range of readings (not adjudicated):</b></p><ol><li><b>Literal.</b> A command for the total destruction of these populations.</li><li><b>Conventional hyperbole.</b> Ancient conquest accounts routinely claim total annihilation that did not occur (K. Lawson Younger, <i>Ancient Conquest Accounts</i>, 1990). Joshua 10:40 and 11:23 claim complete conquest, while Judges 1 reports many peoples remaining.</li><li><b>Retrospective ideology.</b> If the text was composed when these seven peoples no longer existed as distinct groups, the command functions as a mandate for religious separation rather than a military order (various, e.g., M. Weinfeld; R. D. Nelson; N. MacDonald).</li><li><b>Focus on worship.</b> The chapter's practical stipulations (vv3–5, 25–26) concern intermarriage and cult objects, which some take to be the operative core.</li></ol>"
+  },
+  {
+   "id": "tensions",
+   "title": "Tensions inside the chapter",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>These are observations of the text itself:</p><ul><li><b>v2 and v3:</b> v2 commands ḥerem against the seven nations, while v3 forbids intermarriage with them, which assumes they continue to exist.</li><li><b>v2 and v22:</b> v22 says YHWH will clear them away \"little by little\" and \"you will not be able to finish them quickly.\" v20 speaks of those \"who remain and who hide.\"</li><li><b>v1 and v7:</b> the nations are \"greater and mightier than you\" (v1); Israel is \"the fewest of all peoples\" (v7). This is consistent and seems intended.</li></ul><p><b>How readers relate v2 and v3 (not adjudicated):</b> (a) v3 anticipates incomplete obedience; (b) ḥerem language is rhetorical (see the ḥerem panel); (c) the verses come from different compositional layers; (d) v3 applies to people outside the immediate ḥerem.</p>"
+  },
+  {
+   "id": "intertext",
+   "title": "Connections to other passages",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p><b>Closest parallels</b> (shared vocabulary in a similar sequence):</p><ul><li><b>Exod 23:20–33.</b> Hornet (23:28); \"little by little\" (23:29–30, the only other occurrence of מְעַט מְעָט); \"lest the land become desolate\" (23:29); no covenant with them (23:32); \"a snare\" (23:33).</li><li><b>Exod 34:11–16.</b> No covenant (34:12); altars, pillars and Asherim (34:13, nearly identical to Deut 7:5); intermarriage leading to their gods (34:16).</li></ul><p>Most scholars hold that Deuteronomy reworks the Exodus material; the direction of dependence is debated.</p><p><b>Inside Deuteronomy:</b> 14:2 nearly repeats 7:6; 26:18–19; 12:3 (altars, pillars, Asherim, images); 20:16–18 (a list of six nations, without the Girgashites).</p><p><b>Later Hebrew Bible:</b> Josh 23:12–13 (intermarriage, snare); Judg 2:3 (snare); 1 Kgs 11:1–2 (Solomon's foreign wives, citing the prohibition); Ezra 9:1–2, 12 and Neh 13:23–27 (mixed marriages; Ezra 9:1's list of peoples echoes Deut 7:1 together with 23:3–8).</p><p><b>Greek New Testament (verbal links, not quotations):</b> Acts 13:19 (\"seven nations in the land of Canaan\"); Titus 2:14 λαὸν περιούσιον, the LXX phrase of Deut 7:6 (also Exod 19:5; Deut 14:2; 26:18).</p>"
+  },
+  {
+   "id": "lxx",
+   "title": "The Septuagint of this chapter",
+   "tag": "consensus",
+   "conf": "moderate",
+   "body": "<p>The Greek Pentateuch is generally dated to the 3rd c. BCE in Alexandria. Greek Deuteronomy usually tracks a Hebrew text close to the Masoretic Text. In this chapter the differences fall into three kinds:</p><ul><li><b>Number shifts:</b> singular and plural \"you\" changed.</li><li><b>Harmonizing additions:</b> v8 \"and with a high arm\"; v19 \"those great ones\"; v22 \"that the land not become desolate\" (from Exod 23:29).</li><li><b>Interpretive renderings:</b> v16 \"you shall eat <i>the spoils of</i> the nations\"; v21 \"you shall not be <i>wounded</i>\"; v24 \"from <i>that place</i>\" for \"from under the heavens\"; v23 \"destroy\" for \"confuse.\"</li></ul><p>Whether a given difference reflects a different Hebrew original (Vorlage) or the translator's choice has to be argued case by case. Each LXX note on the verses below is my own comparison and is labeled with a confidence level.</p><p><b>Edition:</b> the Greek shown is Rahlfs (1935) via the CATSS morphology. The standard critical edition is the Göttingen <i>Deuteronomium</i> (J. W. Wevers, 1977), which is not openly licensed and is not used here.</p>"
+  },
+  {
+   "id": "textcrit",
+   "title": "Text-critical notes",
+   "tag": "data",
+   "conf": "high",
+   "body": "<ul><li><b>v9, ketiv/qere:</b> the consonants written (ketiv) are מצותו, \"his commandment\" (singular). The Masoretic reading instruction (qere) is מִצְוֹתָיו, \"his commandments\" (plural). The LXX plural (τὰς ἐντολὰς) agrees with the qere.</li><li><b>v8, spelling:</b> STEPBible records that the Leningrad Codex writes וּמִשָּׁמְרוּ with a final shureq, while other major Masoretic editions write וּמִשָּׁמְרוֹ (holem). Both are read \"and because of his keeping.\"</li><li><b>Not included here:</b> Dead Sea Scrolls and Samaritan Pentateuch readings. These are not in the open datasets this page uses.</li></ul>"
+  }
+ ],
+ "words": {
+  "1.11": {
+   "title": "יָרַשׁ — take possession / dispossess",
+   "tag": "consensus",
+   "conf": "moderate",
+   "body": "<p><b>Qal</b> (here, לְרִשְׁתָּהּ): \"take possession of, inherit,\" with the land as object. <b>Hiphil</b> (v17, לְהוֹרִישָׁם): \"cause to lose possession,\" i.e., dispossess or drive out, with the peoples as object. The same root therefore describes both sides of the transfer.</p><p><b>Debated:</b> whether the Hiphil sometimes means \"destroy\" rather than \"drive out\" (argued by N. Lohfink, <i>TDOT</i> s.v. yāraš). At v17 the LXX renders it ἐξολεθρεῦσαι, \"utterly destroy.\"</p>"
+  },
+  "1.12": {
+   "title": "נָשַׁל — clear away",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>A rare verb with 7 occurrences. Its other uses are concrete:</p><ul><li>\"remove\" sandals (Exod 3:5; Josh 5:15)</li><li>an axe-head that \"slips off\" (Deut 19:5)</li><li>olives that \"drop\" (Deut 28:40)</li><li>\"drove out\" (2 Kgs 16:6, Piel)</li></ul><p>The usage points to removal or slipping off rather than killing. YHWH is the subject here and again at v22, where it is paired with \"little by little.\" The LXX uses ἐξαρεῖ, \"he will remove.\"</p>"
+  },
+  "1.13": {
+   "title": "גּוֹיִם and עַמִּים — nations and peoples",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p><b>Data:</b> the seven nations are גּוֹיִם (v1, v17, v22). Israel's choosing \"out of all the <i>peoples</i>\" uses עַמִּים (vv6, 7, 14, 16, 19). Israel itself is an עַם קָדוֹשׁ (v6).</p><p><b>Debated:</b> whether the words carry a distinction. One view: גּוֹי is a political or territorial nation, while עַם stresses kinship or community (E. A. Speiser 1960). Another view: the two overlap heavily and alternate for style (e.g., Exod 19:6 calls Israel a גּוֹי קָדוֹשׁ).</p>"
+  },
+  "1.16": {
+   "title": "The seven nations",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p><b>Data:</b> the lists of the land's peoples vary in number and order: ten in Gen 15:19–21, six in Exod 3:8 and Deut 20:17, and seven here and in Josh 3:10. The Girgashites appear only 7 times in the Hebrew Bible (Gen 10:16; 15:21; Deut 7:1; Josh 3:10; 24:11; 1 Chr 1:14; Neh 9:8).</p><p><b>Identifications (debated):</b></p><ul><li><b>Hittites:</b> the Anatolian Hittite empire (collapsed c. 1180 BCE), the later Neo-Hittite states of Syria, or a local group named after \"Heth\" (Gen 23).</li><li><b>Amorites:</b> related to Akkadian <i>Amurru</i>, \"the West/westerners.\"</li><li><b>Hivites:</b> sometimes linked to the Hurrians. The LXX renders \"Hivite\" as Χορραῖος (Horite/Hurrian) at Gen 34:2 and Josh 9:7.</li><li><b>Jebusites:</b> associated with pre-Israelite Jerusalem (Josh 15:63; 2 Sam 5:6).</li><li><b>Perizzites:</b> possibly \"rural dwellers\" (cf. פְּרָזִי, \"open/unwalled,\" Deut 3:5). That is etymology only; confidence low.</li></ul>"
+  },
+  "2.6": {
+   "title": "הַחֲרֵם תַּחֲרִים — devote to destruction",
+   "tag": "debated",
+   "conf": "high",
+   "body": "<p><b>Grammar (data):</b> a Hiphil infinitive absolute followed by a Hiphil imperfect 2ms of the same root. The imperfect is prescriptive (a command); the infinitive strengthens it: \"you must utterly…\"</p><p><b>Usage:</b> the Hiphil of חרם means to place something under ḥerem, removing it irrevocably from human use and assigning it to the deity. For persons this means death; for objects, destruction (Deut 7:25) or transfer to the sanctuary (Josh 6:19; Lev 27:28). Lev 27:28 calls ḥerem \"most holy to YHWH.\"</p><p><b>Translation range:</b> \"utterly destroy\" (KJV) conveys the outcome; \"devote to destruction\" (ESV, BSB) conveys the sacral dimension. Neither alone carries both.</p><p><b>Etymology (background only):</b> the root is cognate with Arabic <i>ḥarām</i>, \"forbidden; sacred.\"</p><p>See also the passage panel on ḥerem.</p>"
+  },
+  "2.10": {
+   "title": "כָּרַת בְּרִית — \"cut a covenant\"",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p><b>Usage:</b> the standard idiom for making or concluding a covenant or treaty. Its meaning is fixed by usage: \"make a treaty.\"</p><p><b>Origin of the idiom (debated, background only):</b> it is often linked to rites of cutting animals (Gen 15:9–17; Jer 34:18).</p><p><b>Context:</b> a treaty would have bound Israel to protect the other party, as with the Gibeonites (Josh 9:15–20). Forbidding a treaty therefore removes that protection. Exod 23:32 and 34:12, 15 have the same prohibition.</p>"
+  },
+  "2.14": {
+   "title": "תְחָנֵּם — show them favor",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>Qal imperfect 2ms of חנן, \"show favor, be gracious,\" with a 3mp suffix. This is the root of חֵן (\"favor, grace\"). The LXX uses ἐλεήσητε, \"have mercy\" (note: the LXX shifts to plural \"you\").</p>"
+  },
+  "3.2": {
+   "title": "תִתְחַתֵּן — intermarry",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>Hithpael of חתן. The Qal participle is \"father-in-law\" (Jethro, repeatedly in Exod 18); the noun is חָתָן, \"son-in-law/bridegroom.\" The Hithpael means \"make oneself related by marriage, form a marriage alliance.\"</p><p><b>Other uses</b> show an alliance between families or houses:</p><ul><li>Gen 34:9 (Shechem's people proposing alliance with Jacob's family)</li><li>Josh 23:12</li><li>1 Sam 18:21–27 (David becoming Saul's son-in-law)</li><li>1 Kgs 3:1 (Solomon with Pharaoh)</li><li>2 Chr 18:1 (Jehoshaphat with Ahab)</li><li>Ezra 9:14</li></ul><p>The text gives its own reason in v4: such ties would turn \"your son\" away to other gods.</p>"
+  },
+  "4.5": {
+   "title": "מֵאַחֲרַי — \"from (following) after me\"",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p><b>Data:</b> the first-person \"me\" appears in a speech where Moses otherwise refers to YHWH in the third person (\"the anger of YHWH,\" same verse). The LXX also has \"from me\" (ἀπ᾿ ἐμοῦ).</p><p><b>Readings:</b> (a) Moses voices YHWH's words directly, as in prophetic speech; (b) a textual or compositional seam.</p><p><b>Usage:</b> \"walk/follow after\" (הָלַךְ אַחֲרֵי) is the standard idiom for loyalty to a deity.</p>"
+  },
+  "4.9": {
+   "title": "וְחָרָה אַף — \"anger burns\"",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p>אַף is literally \"nose, nostril.\" The idiom \"the nose burns\" means \"become angry,\" and \"long of nostrils\" (אֶרֶךְ אַפַּיִם) means \"slow to anger\" (Exod 34:6).</p><p>The physical image is visible in the idiom, but the meaning in use is simply anger. This is a case where etymology explains the idiom without changing its sense.</p>"
+  },
+  "5.8": {
+   "title": "מַצֵּבוֹת — standing stones",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p>From נצב, \"stand.\" These are upright stones serving as cult markers, attested archaeologically across the Levant; the Judahite sanctuary at Arad is a well-known example.</p><p><b>Inside the Bible (data):</b> Jacob erects a מַצֵּבָה (Gen 28:18), and Moses sets up twelve (Exod 24:4). Deut 16:22 forbids them, and here they must be shattered.</p><p><b>Debated:</b> how to relate the approving and prohibiting texts — as legal or historical development, or as a distinction between legitimate and illegitimate use.</p>"
+  },
+  "5.10": {
+   "title": "אֲשֵׁירִים — Asherim",
+   "tag": "debated",
+   "conf": "high",
+   "body": "<p><b>Data:</b> the plural of אֲשֵׁרָה. The verb here is \"cut down\" (גדע), and Deut 16:21 speaks of \"planting\" an Asherah, \"any tree.\" In these texts it is a wooden cult object. Elsewhere the Bible also uses the name for a goddess (1 Kgs 18:19; 2 Kgs 23:4).</p><p><b>Outside the Bible:</b> the goddess Athirat at Ugarit. Inscriptions from Kuntillet ʿAjrud (c. 800 BCE) and Khirbet el-Qom mention \"YHWH … and his asherah.\" Whether that means a goddess or a cult symbol is debated.</p><p><b>LXX:</b> ἄλση, \"groves.\"</p>"
+  },
+  "5.11": {
+   "title": "Paragogic nun",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p>תְּגַדֵּעוּן and תִּשְׂרְפוּן end in an extra ן. This \"paragogic nun\" occurs on imperfects; Deuteronomy uses it often. Proposed functions: emphasis or contrast, an archaic or poetic form, or no difference in meaning. There is no consensus. This chapter has four examples (vv5, 12, 25).</p>"
+  },
+  "5.12": {
+   "title": "פְּסִילִים — carved images",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>From פסל, \"hew, carve.\" These are cult images of wood or stone, which could be overlaid with metal (see v25, \"the silver and gold on them\"). v25 specifies \"the carved images of their gods\"; the LXX already adds \"of their gods\" here.</p>"
+  },
+  "6.3": {
+   "title": "עַם קָדוֹשׁ — a holy people",
+   "tag": "consensus",
+   "conf": "moderate",
+   "body": "<p><b>Data:</b> קָדוֹשׁ means set apart or belonging to the sacred sphere. The exact phrase recurs in Deut 14:2, 21; 26:19; 28:9.</p><p><b>Observation:</b> Deuteronomy states holiness as a present status grounded in being chosen: \"you <i>are</i> a holy people… YHWH has chosen you.\" The Holiness Code frames it as a command: \"you shall be holy\" (Lev 19:2). Exod 19:6 has גּוֹי קָדוֹשׁ, \"holy nation,\" conditioned on keeping the covenant (19:5).</p><p>How these framings relate is a standard topic in Pentateuch scholarship.</p>"
+  },
+  "6.8": {
+   "title": "בָּחַר — choose",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>In Deuteronomy YHWH \"chooses\":</p><ul><li><b>Israel/the fathers' offspring:</b> 4:37; 7:6, 7; 10:15; 14:2</li><li><b>\"the place\" for his name:</b> 21 times, 12:5–31:11</li><li><b>the priests:</b> 18:5; 21:5</li><li><b>the king:</b> 17:15</li></ul><p>The human \"you\" is told to choose life in 30:19. Here the perfect (בָּחַר) presents the choosing as accomplished. v7 then gives its grounds.</p>"
+  },
+  "6.14": {
+   "title": "סְגֻלָּה — treasured possession",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p><b>Data:</b> 8 occurrences.</p><ul><li><b>Concrete sense:</b> a king's private treasure of silver and gold (Eccl 2:8; 1 Chr 29:3).</li><li><b>Applied to Israel or a people:</b> Exod 19:5; Deut 7:6; 14:2; 26:18; Ps 135:4; Mal 3:17.</li></ul><p><b>Cognates:</b> Akkadian <i>sikiltu</i>, \"private property set aside\" (M. Greenberg, <i>JAOS</i> 1951). Ugaritic <i>sglt</i> appears in a letter (RS 18.38) where the Hittite overlord calls the king of Ugarit his servant and his <i>sglt</i>, his \"treasured\" vassal. That gives the word a treaty setting (confidence: moderate-high).</p><p><b>LXX:</b> λαὸς περιούσιος, a \"special, beyond-the-ordinary\" people (from περίειμι, \"be over and above\"). Titus 2:14 reuses this phrase. The KJV \"peculiar\" carried the 1611 sense \"one's own particular property.\"</p>"
+  },
+  "7.5": {
+   "title": "חָשַׁק — set his heart on",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>This sense (STEPBible H2836A) occurs 8 times:</p><ul><li>Shechem's soul \"clings\" to Dinah (Gen 34:8)</li><li>a man \"desires\" a captive woman (Deut 21:11)</li><li>Solomon's \"desired\" building projects (1 Kgs 9:19; 2 Chr 8:6)</li><li>\"you have loved my soul from the pit\" (Isa 38:17)</li><li>\"because he has set his love on me\" (Ps 91:14)</li><li>YHWH and the fathers/Israel (Deut 7:7; 10:15)</li></ul><p>The usage is strongly affective: attachment and desire. A homonym or technical sense (H2836B, \"fastened, banded,\" Exod 27:17; 38:17, 28) is filed under the same Strong's number.</p><p><b>LXX:</b> προείλατο, \"preferred/chose.\" The affective sense is not carried into Greek here.</p>"
+  },
+  "7.12": {
+   "title": "הַמְעַט מִכָּל־הָעַמִּים — the fewest",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>Hebrew has no comparative or superlative word forms. It uses מִן (\"from\") for comparison: \"the few from all the peoples\" means \"fewer than all\" or \"the fewest of all.\" The same מִן also marks cause at the start of the verse (מֵרֻבְּכֶם, \"because of your being many\").</p>"
+  },
+  "8.2": {
+   "title": "מֵאַהֲבַת יְהוָה אֶתְכֶם — YHWH's love for you",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p><b>Grammar:</b> \"love\" is in construct with YHWH, and the object marker אֶת introduces \"you.\" This makes the relationship explicit: YHWH loves, Israel is loved. Here the syntax removes the ambiguity that bare construct (\"the love of X\") can have.</p><p><b>Logic of vv7–8:</b> \"not because you were many… but because of YHWH's love and his keeping of the oath.\" The text grounds the choosing in YHWH's attachment and prior commitment, not in a quality of Israel.</p>"
+  },
+  "8.5": {
+   "title": "Spelling difference",
+   "tag": "data",
+   "conf": "moderate",
+   "body": "<p>Leningrad writes וּמִשָּׁמְרוּ; other major Masoretic editions write וּמִשָּׁמְרוֹ. Both are understood as מִן + infinitive \"keeping\" + \"his\": \"because of his keeping (the oath).\"</p>"
+  },
+  "8.16": {
+   "title": "פָּדָה — ransom, redeem",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p><b>Usage:</b> to secure release, typically by payment or substitution. It is used of redeeming the firstborn (Exod 13:13, 15). In Deuteronomy it is always the Exodus: 7:8; 9:26; 13:5; 15:15; 21:8; 24:18.</p><p><b>Distinct from</b> גָּאַל, which is redemption by a kinsman (Lev 25; Ruth). The two overlap in poetry. \"From the house of slaves\" is a fixed formula (Exod 13:3, 14; 20:2; Deut 5:6; 6:12; 8:14; 13:5, 10; Josh 24:17; Judg 6:8; Jer 34:13; Mic 6:4).</p>"
+  },
+  "9.1": {
+   "title": "וְיָדַעְתָּ — \"and you shall know\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>A consecutive perfect 2ms following the preceding instruction, functioning as an instruction or result: \"so know / you are to know.\" \"Know\" (ידע) here is acknowledgment, not merely information. Deut 4:39 has the same form, followed by \"YHWH, he is God… there is no other.\"</p>"
+  },
+  "9.5": {
+   "title": "הוּא הָאֱלֹהִים — \"he is the God\"",
+   "tag": "debated",
+   "conf": "high",
+   "body": "<p><b>Data:</b> the definite article on אֱלֹהִים gives \"he is <i>the</i> God.\" The same phrase occurs at Deut 4:35, 39, the latter with \"there is no other.\"</p><p><b>Tagging note:</b> אֱלֹהִים is plural in form. STEPBible tags it \"God\" (H0430G) when referring to Israel's deity and \"gods\" (H0430J) otherwise, for example \"other gods\" in v4. The Hebrew form is the same in both; the split is a translation decision.</p><p><b>Range of readings for Deuteronomy's theology (not adjudicated):</b> (a) explicit monotheism (4:35, 39); (b) incomparability or exclusive worship of one god among others (6:14 \"other gods\"; 10:17 \"God of gods\"; 32:8–9); (c) development across the book's layers (e.g., N. MacDonald, <i>Deuteronomy and the Meaning of \"Monotheism\"</i>, 2003).</p>"
+  },
+  "9.8": {
+   "title": "הָאֵל הַנֶּאֱמָן — the faithful God",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>הַנֶּאֱמָן is a Niphal participle of אמן, \"be firm, reliable.\" The Niphal means \"proved reliable, established, trustworthy\"; compare 2 Sam 7:16, \"your house will be made sure.\" The same root gives אֱמוּנָה (faithfulness), אֱמֶת (truth/reliability) and אָמֵן (amen).</p><p>The rest of the verse defines the term: he keeps covenant and ḥesed \"to a thousand generations.\"</p>"
+  },
+  "9.11": {
+   "title": "הַבְּרִית וְהַחֶסֶד — the covenant and the ḥesed",
+   "tag": "debated",
+   "conf": "high",
+   "body": "<p><b>Data:</b> the formula \"keeps the covenant and the ḥesed\" recurs at Deut 7:9, 12; 1 Kgs 8:23; 2 Chr 6:14; Neh 1:5; 9:32; Dan 9:4.</p><p><b>Grammar (debated):</b> either two objects (\"the covenant and the ḥesed\") or a hendiadys, two nouns expressing one idea (\"covenant-loyalty, faithful covenant\").</p><p><b>חֶסֶד (debated):</b></p><ul><li>N. Glueck (1927): conduct owed within a relationship of mutual obligation.</li><li>K. D. Sakenfeld (1978): loyalty freely shown, often by the stronger party to one in need.</li><li>G. R. Clark (1993): further refinements.</li></ul><p><b>Translations:</b> \"mercy\" (KJV), \"steadfast love\" (RSV/ESV), \"loving devotion\" (BSB), \"loyalty, kindness.\" The LXX rendering ἔλεος (\"mercy\") is its standard equivalent. STEPBible files a separate homonym חֶסֶד II, \"shame,\" under the same Strong's number (Lev 20:17; Prov 14:34).</p>"
+  },
+  "9.12": {
+   "title": "\"those who love him\" — love as loyalty?",
+   "tag": "debated",
+   "conf": "high",
+   "body": "<p><b>Consensus that the usage exists:</b> W. L. Moran (\"The Ancient Near Eastern Background of the Love of God in Deuteronomy,\" <i>CBQ</i> 25, 1963) showed that \"love\" in the Amarna letters and treaties denotes loyalty between king and vassal, and \"hate\" denotes disloyalty. Deuteronomy pairs \"love\" with \"keep his commandments\" (here and Exod 20:6; Deut 5:10), and v10 sets \"those who hate him\" opposite.</p><p><b>Debated:</b> whether the political sense excludes affection. Some argue Deuteronomy's love language keeps an emotional dimension, especially when YHWH is the one who loves (v8, v13; cf. חָשַׁק v7). One proponent is Bill T. Arnold, who wrote on the love–fear pairing in Deut 5–11 (confidence: moderate on the citation details).</p>"
+  },
+  "9.14": {
+   "title": "Ketiv/qere",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>Written (ketiv): מצותו, \"his commandment.\" Read (qere): מִצְוֹתָיו, \"his commandments.\" The vowels printed in the text belong to the qere. Deut 5:10 has a similar ketiv/qere (written \"his commandment,\" read \"my commandments\"). The LXX here is plural.</p>"
+  },
+  "9.15": {
+   "title": "לְאֶלֶף דּוֹר — to a thousand generations",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p><b>Grammar:</b> numbers from eleven up often take a singular noun, so דּוֹר (\"generation\") is singular but counted: \"a thousand generations.\"</p><p><b>Comparison:</b> Exod 20:6 and Deut 5:10 have לַאֲלָפִים, \"to thousands.\" It is debated whether that means thousands of persons or of generations. Deut 7:9 makes \"generations\" explicit, as do Ps 105:8 and 1 Chr 16:15. Compare the \"third and fourth generation\" for those who hate (Exod 20:5; Deut 5:9).</p>"
+  },
+  "10.1": {
+   "title": "מְשַׁלֵּם — repaying (Piel)",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p>Piel participle of שׁלם: \"make whole, pay back, repay.\" The Qal means \"be whole, complete\" (cf. שָׁלוֹם).</p><p><b>About the Piel:</b> older grammars label it \"intensive.\" E. Jenni (1968) argued that for many verbs the Piel is factitive or resultative, bringing about a state. Here: \"make (it) complete,\" i.e., settle the account. Many grammarians now favor Jenni's analysis for verbs like this; others keep a wider range.</p>"
+  },
+  "10.4": {
+   "title": "אֶל־פָּנָיו — \"to his face\"",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p><b>Data:</b> \"those who hate him\" is plural, but \"to destroy <i>him</i>\" and \"the one who hates <i>him</i>\" are singular. This is a distributive singular: each one who hates him.</p><p><b>Grammatical ambiguity:</b> \"his face\" can refer to the hater (\"to his own face\") or to YHWH. Most take it as the hater.</p><p><b>Range of meanings:</b> (a) directly and personally, the hater himself rather than descendants, often read against \"visiting iniquity… to the third and fourth generation\" (Exod 20:5; Deut 5:9); (b) openly, without delay (\"he will not delay\"); (c) within the hater's lifetime. The LXX has κατὰ πρόσωπον, \"to the face.\"</p>"
+  },
+  "11.3": {
+   "title": "מִצְוָה, חֻקִּים, מִשְׁפָּטִים",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p><b>Data:</b> \"the commandment\" is singular and often refers to the whole body of stipulations in Deuteronomy (e.g., 6:1; 8:1). חֻקִּים are \"statutes\" (from חקק, \"inscribe, prescribe\" — background only). מִשְׁפָּטִים are \"judgments, rulings\" (from שׁפט, \"judge\").</p><p><b>Debated:</b> whether these name distinct categories (decrees vs. case law) or form a stock series meaning \"all the law.\" The LXX makes \"commandment\" plural and adds \"these.\"</p>"
+  },
+  "12.2": {
+   "title": "עֵקֶב — as a consequence of",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p><b>Usage (15 occurrences):</b></p><ul><li><b>As a conjunction</b> (\"because, as a result of\"): Gen 22:18 and 26:5 (\"because Abraham obeyed\"); Num 14:24; Deut 7:12; 8:20; 2 Sam 12:6, 10; Amos 4:12.</li><li><b>As a noun</b> (\"result, reward, end\"): Ps 19:11 (\"in keeping them is great reward\"); Prov 22:4.</li></ul><p><b>Etymology (background only):</b> it is commonly connected with עָקֵב, \"heel,\" i.e., \"on the heel of\" leading to \"following from.\" That explains the idiom but is not the meaning here.</p><p><b>LXX:</b> ἡνίκα ἄν, \"whenever.\" The Jewish reading portion <i>Eikev</i> takes its name from this word.</p>"
+  },
+  "13.9": {
+   "title": "Grain, new wine, fresh oil",
+   "tag": "consensus",
+   "conf": "moderate",
+   "body": "<p><b>Data:</b> דָּגָן, תִּירוֹשׁ, יִצְהָר is a recurring triad in Deuteronomy (11:14; 12:17; 14:23; 18:4; 28:51) for the staple produce of the land. תִּירוֹשׁ is fresh wine or must; יִצְהָר is fresh oil.</p><p><b>Background:</b> דָּגָן (\"grain\") is a homograph of Dagan, the Syrian deity known from Ebla, Mari and Ugarit. Whether the two are related is debated.</p>"
+  },
+  "13.12": {
+   "title": "שְׁגַר … וְעַשְׁתְּרֹת — increase and young",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p><b>Data:</b> שֶׁגֶר occurs 5 times (Exod 13:12; Deut 7:13; 28:4, 18, 51). עַשְׁתְּרֹת (\"young of the flock\") occurs 4 times, all in Deuteronomy and always paired with שֶׁגֶר.</p><p><b>Background:</b> both words match the names of deities: Shagar, attested at Ugarit and in the Deir ʿAlla plaster text (c. 800 BCE, which pairs <i>šgr</i> and <i>ʿštr</i>), and ʿAshtart/Astarte (Hebrew עַשְׁתֹּרֶת, 1 Kgs 11:5).</p><p><b>Explanations (debated):</b> (a) divine names faded into ordinary words for animal fertility; (b) deliberate use of the words stripped of divine meaning; (c) the divine names derive from the common nouns.</p><p><b>LXX:</b> flattens both to \"herds of your oxen and flocks of your sheep.\"</p>"
+  },
+  "14.8": {
+   "title": "עָקָר וַעֲקָרָה — sterile male, barren female",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>The morphology marks both genders: a masculine form and a feminine form. The promise explicitly covers both men and women, and then livestock. The feminine is the word used of Sarai, Rebekah and Rachel (Gen 11:30; 25:21; 29:31).</p>"
+  },
+  "15.7": {
+   "title": "מַדְוֵי מִצְרַיִם — diseases of Egypt",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>מַדְוֶה occurs only twice: here and Deut 28:60, where \"all the diseases of Egypt\" become a curse for disobedience. The reversal is deliberate in the book's structure: the same diseases are a promise of removal here and a threat in ch 28.</p><p>\"Which you knew\" points back to the Exodus (cf. Exod 15:26, \"the diseases I put on Egypt\").</p>"
+  },
+  "16.1": {
+   "title": "וְאָכַלְתָּ — \"you shall consume\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>Literally \"eat.\" With peoples as the object it is a metaphor for overcoming or destroying, as in Num 14:9 (\"they are our bread\") and Jer 10:25 (\"they have devoured Jacob\").</p><p><b>LXX:</b> \"you shall eat <i>the spoils of</i> the nations,\" which turns the metaphor into plunder.</p>"
+  },
+  "16.11": {
+   "title": "לֹא־תָחֹס עֵינְךָ — \"your eye shall not pity\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>An idiom in which the eye is the organ of pity or sparing. In Deuteronomy it accompanies stern laws: 13:8; 19:13, 21; 25:12. The verb חוס means \"pity, spare.\"</p>"
+  },
+  "16.19": {
+   "title": "מוֹקֵשׁ — snare",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>A bait or lure trap for birds (Amos 3:5), used figuratively for what leads someone to ruin. The warning that the peoples or their gods will be a \"snare\" recurs at Exod 23:33; 34:12; Josh 23:13; Judg 2:3 (and Judg 8:27, of Gideon's ephod).</p><p>The same root יקשׁ returns at v25: \"lest you be ensnared.\"</p>"
+  },
+  "17.10": {
+   "title": "לְהוֹרִישָׁם — to dispossess them",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p>Hiphil infinitive of ירשׁ: \"to drive them out of possession.\" See the note at v1, which gives the range: \"dispossess\" in most lexicons, with \"destroy\" argued for some contexts.</p><p><b>LXX:</b> ἐξολεθρεῦσαι, \"utterly destroy.\"</p>"
+  },
+  "18.4": {
+   "title": "זָכֹר תִּזְכֹּר — you must remember",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>Infinitive absolute + imperfect of the same root, the construction also seen in v2 and v26. Remembering is the answer to the fear voiced in v17. \"Remember\" is a key verb in Deuteronomy (5:15; 8:2, 18; 9:7, 27; 15:15; 16:3, 12; 24:9, 18, 22; 25:17; 32:7).</p>"
+  },
+  "19.1": {
+   "title": "הַמַּסֹּת — the trials",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p>From נסה, \"test, try.\" This sense occurs only in Deut 4:34; 7:19; 29:3, always paired with signs and wonders in Egypt.</p><p><b>Debated:</b> who is tested — Pharaoh and Egypt, or Israel (cf. Exod 15:25; 20:20) — or whether the word here means \"proofs, demonstrations.\" Translations range from \"temptations\" (KJV) to \"trials\" (ESV). The LXX uses πειρασμούς.</p>"
+  },
+  "19.10": {
+   "title": "יָד חֲזָקָה וּזְרֹעַ נְטוּיָה",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p><b>Data:</b> \"strong hand and outstretched arm\" is a fixed Exodus formula (Deut 4:34; 5:15; 26:8; cf. 7:8, \"strong hand\" alone).</p><p><b>Background (debated):</b> J. K. Hoffmeier (<i>Biblica</i> 67, 1986) argued that it echoes Egyptian royal epithets for Pharaoh's \"strong arm,\" so the phrase sets YHWH's arm against Pharaoh's.</p><p><b>LXX:</b> \"high arm\" (βραχίονα ὑψηλόν).</p>"
+  },
+  "20.3": {
+   "title": "הַצִּרְעָה — the hornet",
+   "tag": "debated",
+   "conf": "moderate",
+   "body": "<p><b>Data:</b> 3 occurrences (Exod 23:28; Deut 7:20; Josh 24:12). The singular is collective. In Exod 23:27–28 it stands beside \"I will send my terror before you.\"</p><p><b>Readings (not adjudicated):</b></p><ol><li>Literal stinging insects.</li><li>A figure for panic or terror sent by YHWH.</li><li>A symbol connected with Egypt: the bee was a hieroglyphic sign for the king of Lower Egypt (J. Garstang, 1931).</li><li>\"Discouragement\" from a proposed root צרע (L. Köhler; confidence low).</li></ol><p><b>LXX:</b> σφηκίας, \"wasps.\"</p>"
+  },
+  "21.2": {
+   "title": "תַעֲרֹץ — be terrified",
+   "tag": "data",
+   "conf": "moderate",
+   "body": "<p>ערץ means \"tremble, dread\" (and in the Hiphil, \"inspire dread\"). It occurs in Deuteronomy's war exhortations (1:29; 20:3; 31:6) and Josh 1:9.</p><p><b>LXX:</b> οὐ τρωθήσῃ, \"you shall not be wounded.\" Whether the translator understood a different word or meaning is uncertain (confidence: low).</p>"
+  },
+  "21.10": {
+   "title": "אֵל גָּדוֹל וְנוֹרָא — a great and awesome God",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>נוֹרָא is a Niphal participle of ירא, \"fear,\" with gerundive force: \"to-be-feared, awe-inspiring.\" The exact sequence אֵל גָּדוֹל וְנוֹרָא occurs here, Dan 9:4 and Neh 1:5 (cf. Deut 10:17 with \"mighty\" added).</p><p>The verse answers v17: the nations are \"great,\" but the God \"in your midst\" is great.</p><p><b>LXX:</b> \"great and mighty\" (κραταιός).</p>"
+  },
+  "22.8": {
+   "title": "מְעַט מְעָט — little by little",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>Repeating a word expresses distribution: \"a little at a time.\" The only other occurrence of this exact pair is Exod 23:30. That passage gives the same reason, adding \"lest the land become desolate\" (23:29), which the LXX imports into this verse.</p>"
+  },
+  "23.5": {
+   "title": "וְהָמָם מְהוּמָה — throw into confusion",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>Verb + noun of the same root (a cognate accusative): \"confuse them with great confusion.\" With YHWH as subject, הָמַם describes divinely caused panic in battle: Exod 14:24; 23:27; Josh 10:10; Judg 4:15; 1 Sam 7:10; Ps 18:14.</p><p><b>LXX:</b> \"destroy them with great destruction.\"</p>"
+  },
+  "24.4": {
+   "title": "\"make their name perish from under the heavens\"",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>\"Name\" stands for memory, lineage and continued identity. Compare Deut 9:14 and 25:19 (\"blot out the memory of Amalek from under heaven\"). Here the subject is \"you.\"</p><p><b>LXX:</b> \"their name will perish from <i>that place</i>,\" a localized and passive version.</p>"
+  },
+  "25.6": {
+   "title": "לֹא־תַחְמֹד — do not covet",
+   "tag": "debated",
+   "conf": "high",
+   "body": "<p><b>Data:</b> the verb of the last commandment (Exod 20:17; Deut 5:21). Here it is followed by \"and take it for yourself\" (וְלָקַחְתָּ). Josh 7:21 has the same pairing in the story of the ḥerem: Achan says \"I coveted them and took them.\"</p><p><b>Debated:</b> whether חמד denotes desire alone or desire that includes scheming to acquire. The sequence \"covet… take\" in both passages is cited by each side.</p>"
+  },
+  "25.16": {
+   "title": "תּוֹעֵבָה — abomination",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p>Something detestable or taboo. The construct \"abomination of YHWH\" means \"abhorrent to YHWH.\" There are 17 occurrences in Deuteronomy, covering:</p><ul><li>idolatry (7:25–26; 12:31; 13:14; 17:4; 20:18; 27:15; 32:16)</li><li>unclean food (14:3)</li><li>blemished sacrifices (17:1)</li><li>divination (18:9–12)</li><li>cross-dressing (22:5)</li><li>certain wages (23:18)</li><li>remarriage after divorce (24:4)</li><li>dishonest weights (25:16)</li></ul><p>Genesis and Exodus also speak of things that are \"an abomination to Egypt\" (Gen 43:32; 46:34). The LXX uses βδέλυγμα.</p>"
+  },
+  "26.7": {
+   "title": "חֵרֶם — a devoted thing",
+   "tag": "consensus",
+   "conf": "high",
+   "body": "<p>\"You will become ḥerem like it.\" Taking a devoted object transfers its status to the one who takes it. Joshua 7 narrates exactly this with Achan.</p><p><b>LXX and NT:</b> the LXX renders the noun ἀνάθημα / ἀνάθεμα. The New Testament ἀνάθεμα, \"accursed\" (Rom 9:3; 1 Cor 16:22; Gal 1:8–9), draws on this LXX usage. Classical ἀνάθημα meant a votive offering; the variant spelling ἀνάθεμα came to mean the accursed thing. Rahlfs prints ἀνάθημα here, and manuscripts vary (confidence: moderate).</p>"
+  },
+  "26.9": {
+   "title": "שַׁקֵּץ תְּשַׁקְּצֶנּוּ — utterly detest it",
+   "tag": "data",
+   "conf": "high",
+   "body": "<p><b>Grammar:</b> a Piel infinitive + Piel imperfect with an energic-nun suffix (-ennu, \"it\"). STEPBible codes the infinitives in this verse as <i>construct</i> (Vpcc). Most grammars classify an infinitive in this emphatic position as <i>absolute</i>. In the Piel the two forms are often identical, so the label is an analytical choice.</p><p><b>Root link:</b> the noun שִׁקּוּץ (\"detestable thing\") is used for foreign cult objects (1 Kgs 11:5, 7) and in Daniel's \"abomination that makes desolate\" (Dan 9:27; 11:31; 12:11), which the LXX renders βδέλυγμα.</p>"
+  }
+ },
+ "lxx": {
+  "1": [
+   {
+    "t": "Plural ὑμῶν (\"than you\" pl.) where MT has singular מִמֶּךָּ.",
+    "conf": "high"
+   },
+   {
+    "t": "\"Inherit\" (κληρονομῆσαι) for יָרַשׁ, and \"remove\" (ἐξαρεῖ) for נָשַׁל — standard equivalents.",
+    "conf": "high"
+   }
+  ],
+  "2": [
+   {
+    "t": "\"into your hands\" (εἰς τὰς χεῖράς σου) where MT has \"before you\" (לְפָנֶיךָ); same again in v23.",
+    "conf": "high"
+   },
+   {
+    "t": "ἀφανισμῷ ἀφανιεῖς (\"with obliteration you shall obliterate\") reproduces the Hebrew infinitive + finite verb with a Greek cognate dative. ἀφανίζω = make disappear, destroy; the sacral sense of ḥerem is not carried here (contrast v26 ἀνάθημα).",
+    "conf": "high"
+   },
+   {
+    "t": "Plural ἐλεήσητε (\"you pl. shall have mercy\") for singular תְחָנֵּם.",
+    "conf": "high"
+   }
+  ],
+  "3": [
+   {
+    "t": "Plural γαμβρεύσητε for singular תִתְחַתֵּן.",
+    "conf": "high"
+   }
+  ],
+  "4": [
+   {
+    "t": "Singular λατρεύσει (\"he will serve\") where MT has plural וְעָבְדוּ (\"they will serve\").",
+    "conf": "high"
+   }
+  ],
+  "5": [
+   {
+    "t": "Asherim rendered ἄλση (\"groves\").",
+    "conf": "high"
+   },
+   {
+    "t": "Adds \"of their gods\" to \"carved images\" (cf. MT v25).",
+    "conf": "high"
+   }
+  ],
+  "6": [
+   {
+    "t": "προείλατο (\"chose beforehand / preferred\") for בָּחַר; λαὸν περιούσιον for סְגֻלָּה; \"earth/land\" (γῆς) for אֲדָמָה.",
+    "conf": "high"
+   }
+  ],
+  "7": [
+   {
+    "t": "Both חָשַׁק (\"set his heart on\") and בָּחַר rendered as choosing (προείλατο … ἐξελέξατο); the affective verb is not reflected.",
+    "conf": "high"
+   }
+  ],
+  "8": [
+   {
+    "t": "Adds \"and with a high arm\" (καὶ ἐν βραχίονι ὑψηλῷ) after \"strong hand\" — harmonizing with the fuller formula (cf. v19).",
+    "conf": "high"
+   }
+  ],
+  "9": [
+   {
+    "t": "Plural \"commandments\" agrees with the qere, not the ketiv.",
+    "conf": "high"
+   },
+   {
+    "t": "ἔλεος (\"mercy\") for חֶסֶד — the regular LXX equivalent.",
+    "conf": "high"
+   }
+  ],
+  "10": [
+   {
+    "t": "MT's distributive singulars (\"to destroy him,\" \"the one who hates him\") are leveled to plural throughout.",
+    "conf": "high"
+   }
+  ],
+  "11": [
+   {
+    "t": "Plural \"commandments\" for MT singular \"the commandment\"; adds ταῦτα (\"these\").",
+    "conf": "high"
+   }
+  ],
+  "12": [
+   {
+    "t": "עֵקֶב (\"as a consequence of\") rendered temporally: ἡνίκα ἄν (\"whenever\"). Adds πάντα (\"all\") before \"these judgments\".",
+    "conf": "high"
+   },
+   {
+    "t": "δικαιώματα (a word the LXX often uses for חֻקִּים, \"statutes\") here renders מִשְׁפָּטִים (\"judgments\").",
+    "conf": "moderate"
+   }
+  ],
+  "13": [
+   {
+    "t": "שְׁגַר and עַשְׁתְּרֹת flattened to \"herds of your oxen\" and \"flocks of your sheep\".",
+    "conf": "high"
+   }
+  ],
+  "14": [
+   {
+    "t": "Plural ἐν ὑμῖν (\"among you\" pl.) for singular בְךָ.",
+    "conf": "high"
+   }
+  ],
+  "15": [
+   {
+    "t": "\"which you have seen and whatever you knew\" — a double rendering where MT has only \"which you knew.\"",
+    "conf": "high"
+   }
+  ],
+  "16": [
+   {
+    "t": "\"you shall eat <i>the spoils of</i> the nations\" where MT has \"you shall consume all the peoples\" — the LXX converts the metaphor into plunder. Whether this reflects a different Hebrew text or a translator's interpretation is uncertain.",
+    "conf": "moderate"
+   }
+  ],
+  "17": [
+   {
+    "t": "\"in your mind\" (διανοίᾳ) for \"in your heart\" (לְבָב) — a regular equivalence. \"Utterly destroy\" (ἐξολεθρεῦσαι) for Hiphil יָרַשׁ (\"dispossess\").",
+    "conf": "high"
+   }
+  ],
+  "19": [
+   {
+    "t": "Adds \"those great ones\" (τὰ μεγάλα ἐκεῖνα) after \"signs and wonders\".",
+    "conf": "high"
+   },
+   {
+    "t": "\"high arm\" (ὑψηλόν) for \"outstretched arm\" (נְטוּיָה).",
+    "conf": "high"
+   },
+   {
+    "t": "Second divine title reads \"the Lord <i>our</i> God\" (ἡμῶν) where MT has \"your God.\"",
+    "conf": "high"
+   }
+  ],
+  "21": [
+   {
+    "t": "\"You shall not be <i>wounded</i>\" (τρωθήσῃ) for \"you shall not be terrified\" (תַעֲרֹץ).",
+    "conf": "moderate"
+   },
+   {
+    "t": "\"great and <i>mighty</i>\" (κραταιός) for \"great and awesome\" (נוֹרָא).",
+    "conf": "high"
+   }
+  ],
+  "22": [
+   {
+    "t": "Adds \"lest the land become desolate\" — matching Exod 23:29.",
+    "conf": "high"
+   },
+   {
+    "t": "Doubled κατὰ μικρὸν μικρόν mirrors the Hebrew repetition.",
+    "conf": "high"
+   }
+  ],
+  "23": [
+   {
+    "t": "\"into your hands\" for \"before you\" (as in v2).",
+    "conf": "high"
+   },
+   {
+    "t": "\"destroy them with great destruction\" (ἀπολέσει … ἀπωλείᾳ) for \"throw them into great confusion\" (הָמַם מְהוּמָה).",
+    "conf": "high"
+   }
+  ],
+  "24": [
+   {
+    "t": "\"their name will perish <i>from that place</i>\" where MT has \"<i>you</i> will make their name perish <i>from under the heavens</i>\" — both the scope and the agent differ.",
+    "conf": "high"
+   },
+   {
+    "t": "Plural χεῖρας ὑμῶν (\"your [pl.] hands\") for singular \"your hand.\"",
+    "conf": "high"
+   }
+  ],
+  "25": [
+   {
+    "t": "\"from them\" (ἀπ᾿ αὐτῶν) for \"on them\" (עֲלֵיהֶם) — MT's \"on them\" more naturally suggests overlay on the images.",
+    "conf": "moderate"
+   }
+  ],
+  "26": [
+   {
+    "t": "ḥerem rendered ἀνάθημα; the double cognate constructions are reproduced (προσοχθίσματι προσοχθιεῖς … βδελύγματι βδελύξῃ).",
+    "conf": "high"
+   }
+  ]
+ }
+}

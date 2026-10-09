@@ -1,17 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="Ad Fontes">
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon-180.png">
-<link rel="icon" type="image/png" href="icon-192.png">
-<style>body{margin:0}[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}</style>
-<title>Ad Fontes</title>
+<title>Text &amp; Meaning</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=Noto+Serif+Hebrew:wght@400;500;700&display=swap">
@@ -174,18 +161,6 @@ button.vn:hover{text-decoration:underline}
 .mylist{display:grid;gap:6px;margin:4px 0 8px}
 .mylist button{text-align:left;background:var(--panel);border:0;border-radius:6px;padding:8px 10px;cursor:pointer;display:grid;gap:2px}
 .mylist .r{font-family:var(--f-ui);font-size:13px;font-weight:600;color:var(--accent)}
-.signin{position:fixed;inset:0;z-index:60;background:color-mix(in srgb,var(--bg) 92%,transparent);display:flex;align-items:center;justify-content:center;padding:24px 16px}
-.signin[hidden]{display:none}
-.signin form{width:100%;max-width:380px;background:var(--surface);border:1px solid var(--rule);border-radius:12px;padding:24px;display:grid;gap:12px}
-.signin h2{margin:0;font-family:var(--f-text);font-size:24px}
-.signin p{margin:0;color:var(--muted);font-size:15px}
-.signin input{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--rule);border-radius:8px;padding:11px 12px}
-.signin .err{color:var(--t-deb);font-family:var(--f-ui);font-size:14px;min-height:1.2em}
-.signin .btns{display:flex;gap:8px;flex-wrap:wrap}
-.signin .go{background:var(--ink);color:var(--bg);border:0;border-radius:8px;padding:10px 16px;font-family:var(--f-ui);font-size:15px;cursor:pointer}
-.signin .alt{background:transparent;color:var(--ink);border:1px solid var(--rule);border-radius:8px;padding:10px 16px;font-family:var(--f-ui);font-size:15px;cursor:pointer}
-.signin .lnk{background:none;border:0;color:var(--accent);font-family:var(--f-ui);font-size:14px;cursor:pointer;padding:4px 0;justify-self:start}
-.sync{cursor:pointer;background:none;border:0;padding:4px 2px}
 .mylist .x{font-size:14px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 
 @media (max-width:960px){
@@ -199,13 +174,10 @@ button.vn:hover{text-decoration:underline}
 }
 @media (prefers-reduced-motion:reduce){ .panel{transition:none} }
 </style>
-</head>
-<body>
-
 
 <header class="bar">
   <div class="bar-in">
-    <span class="brand">Ad Fontes</span>
+    <span class="brand">Text &amp; Meaning</span>
     <div class="ref"><select id="bookSel" aria-label="Book"></select><select id="chapSel" aria-label="Chapter"></select></div>
     <div class="ctrls">
       <div class="seg" role="group" aria-label="Units">
@@ -220,7 +192,7 @@ button.vn:hover{text-decoration:underline}
       <button class="chip notes-btn" id="openNotes">Chapter notes</button>
       <button class="chip" id="guideBtn" aria-label="How to use this reader">Guide</button>
       <button class="chip" id="themeBtn" aria-label="Light or dark appearance">Auto</button>
-      <button class="sync" id="sync" title="Sign in to sync bookmarks, notes and your place across devices">Sign in to sync</button>
+      <span class="sync" id="sync" title="Bookmarks, your notes and your place are saved to your claude.ai account">This device</span>
     </div>
   </div>
 </header>
@@ -235,19 +207,7 @@ button.vn:hover{text-decoration:underline}
   </footer>
 </main>
 
-<div class="signin" id="signin" hidden>
-  <form id="siForm" novalidate>
-    <h2>Sync your study</h2>
-    <p id="siMsg">Sign in with the same email and password you use for Ops Hub. Bookmarks, notes and your place then follow you between devices.</p>
-    <input id="siEmail" type="email" autocomplete="email" placeholder="Email">
-    <input id="siPass" type="password" autocomplete="current-password" placeholder="Password (at least 6 characters)">
-    <div class="err" id="siErr"></div>
-    <div class="btns"><button class="go" type="submit">Sign in</button><button class="alt" type="button" id="siUp">Create account</button><button class="alt" type="button" id="siClose">Not now</button></div>
-    <button class="lnk" type="button" id="siForgot">Forgot password?</button>
-  </form>
-</div>
 <script>
-window.Auth={email:null,_p:null,_r:null,ready(){if(!this._p)this._p=new Promise(r=>this._r=r);return this._p},resolve(v){this.ready();this._r(v)},signOut(){}};
 (function(){
 const $=s=>document.querySelector(s);
 const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -294,11 +254,12 @@ const Sync={db:null,uid:null,ref:null,marks:null,timer:null,pending:null,
   status(t,cls){const el=$('#sync');el.textContent=t;el.className='sync'+(cls?' '+cls:'')},
   async init(){
     try{(store.get('marks')||[]).forEach(m=>MARKS[m.id]=m)}catch(e){}
-    this.status('Sign in to sync');
-    const {db,id:uid}=await Auth.ready();
+    if(!window.claude||!window.claude.use){this.status('This device');return}
+    const [db,user]=await Promise.all([claude.use('db'),claude.use('user')]);
+    const uid=user?await user.id():null;
     if(!db||!uid){this.status('This device');return}
     this.db=db;this.uid=uid;
-    this.ref=db.doc(`users/${uid}/app/reader`);
+    this.ref=db.doc(`data/users/${uid}/reader`);
     this.marks=this.ref.collection('marks');
     this.status('Synced','on');
     // upload marks made on this device before sync existed
@@ -415,12 +376,6 @@ async function boot(){
   $('#themeBtn').onclick=()=>{S.theme={auto:'light',light:'dark',dark:'auto'}[S.theme]||'light';applyTheme();save()};
   $('#openNotes').onclick=()=>{SEL=null;showChapterNotes();openSheet()};
   $('#backdrop').onclick=closeSheet;
-  $('#sync').onclick=()=>{
-    if(!Auth.email){document.getElementById('signin').hidden=false;setTimeout(()=>document.getElementById('siEmail').focus(),50);return}
-    SEL=null;markSel();
-    $('#panel').innerHTML=`<div class="ph"><span>Account</span><span><button data-back>Chapter notes</button> <button data-close>Close</button></span></div><p>Signed in as <b>${esc(Auth.email)}</b>. Your bookmarks, notes and place sync across your devices.</p><button class="chip" id="soBtn">Sign out on this device</button>`;
-    wirePanel();$('#soBtn').onclick=()=>Auth.signOut();openSheet();
-  };
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSheet()});
   await loadBook();
   Sync.init();
@@ -440,7 +395,7 @@ function render(){
   save();
   $('#mChapter').setAttribute('aria-pressed',S.mode==='chapter');$('#mPericope').setAttribute('aria-pressed',S.mode==='pericope');
   $('#tLit').setAttribute('aria-pressed',S.lit);$('#tBsb').setAttribute('aria-pressed',S.bsb);$('#tLxx').setAttribute('aria-pressed',S.lxx);fillTr();applyTheme();
-  document.title=`${BOOK.name} ${S.chap} · Ad Fontes`;
+  document.title=`${BOOK.name} ${S.chap} · Text & Meaning`;
   const paras=CH.paragraphs||[];
   let html='';
   if(S.mode==='pericope'&&paras.length){
@@ -607,40 +562,3 @@ function closeSheet(){$('#panel').classList.remove('open');$('#backdrop').classL
 boot();
 })();
 </script>
-<script src="config.js"></script>
-<script type="module">
-const V='10.12.2';
-const box=document.getElementById('signin'),err=document.getElementById('siErr'),msg=document.getElementById('siMsg');
-const MSG={'auth/invalid-credential':'That email and password don\u2019t match. Try again, or tap Forgot password.','auth/user-not-found':'No account with that email yet. Tap Create account.','auth/email-already-in-use':'That email already has an account. Tap Sign in instead.','auth/weak-password':'Use at least 6 characters for the password.','auth/invalid-email':'That email address doesn\u2019t look right.','auth/missing-password':'Type your password.','auth/network-request-failed':'No internet connection. Try again when you have signal.','auth/too-many-requests':'Too many tries. Wait a minute and try again.'};
-const say=e=>{err.textContent=MSG[e&&e.code]||('Something went wrong'+(e&&e.code?' ('+e.code+')':'')+'.')};
-document.getElementById('siClose').onclick=()=>{box.hidden=true};
-if(window.__MOCK_DB){Auth.email='test@example.com';Auth.resolve({db:window.__MOCK_DB,id:'u1'})}
-else if(window.OPS_CONFIG&&window.OPS_CONFIG.apiKey){
-  try{
-  const [{initializeApp},A,F]=await Promise.all([
-    import(`https://www.gstatic.com/firebasejs/${V}/firebase-app.js`),
-    import(`https://www.gstatic.com/firebasejs/${V}/firebase-auth.js`),
-    import(`https://www.gstatic.com/firebasejs/${V}/firebase-firestore.js`)]);
-  const app=initializeApp(window.OPS_CONFIG);
-  const auth=A.getAuth(app);
-  let fs;try{fs=F.initializeFirestore(app,{localCache:F.persistentLocalCache({tabManager:F.persistentMultipleTabManager()})})}catch(e){fs=F.getFirestore(app)}
-  const ws=s=>({id:s.id,exists:s.exists(),data:()=>s.data(),metadata:s.metadata});
-  const wq=s=>({docs:s.docs.map(ws),size:s.size,empty:s.empty,metadata:s.metadata});
-  const D=p=>{const r=F.doc(fs,p);return{path:p,id:r.id,get:async()=>ws(await F.getDoc(r)),set:d=>F.setDoc(r,d),delete:()=>F.deleteDoc(r),collection:c=>C(p+'/'+c),onSnapshot:(n,e)=>F.onSnapshot(r,s=>n(ws(s)),e)}};
-  const C=p=>{const r=F.collection(fs,p);return{path:p,doc:id=>D(p+'/'+id),get:async()=>wq(await F.getDocs(r)),onSnapshot:(n,e)=>F.onSnapshot(r,s=>n(wq(s)),e)}};
-  const db={doc:D,collection:C};
-  Auth.signOut=async()=>{try{await A.signOut(auth)}catch(e){}try{localStorage.removeItem('tm_marks')}catch(e){}location.reload()};
-  let started=false;
-  A.onAuthStateChanged(auth,u=>{if(u){Auth.email=u.email;box.hidden=true;if(!started){started=true;Auth.resolve({db,id:u.uid})}}});
-  const em=document.getElementById('siEmail'),pw=document.getElementById('siPass');
-  const busy=b=>box.querySelectorAll('button').forEach(x=>x.disabled=b);
-  document.getElementById('siForm').addEventListener('submit',async e=>{e.preventDefault();err.textContent='';busy(true);try{await A.signInWithEmailAndPassword(auth,em.value.trim(),pw.value)}catch(x){say(x)}busy(false)});
-  document.getElementById('siUp').onclick=async()=>{err.textContent='';busy(true);try{await A.createUserWithEmailAndPassword(auth,em.value.trim(),pw.value)}catch(x){say(x)}busy(false)};
-  document.getElementById('siForgot').onclick=async()=>{err.textContent='';const v=em.value.trim();if(!v){err.textContent='Type your email first, then tap Forgot password.';return}try{await A.sendPasswordResetEmail(auth,v);msg.textContent='Check your email for a link to set a new password, then come back and sign in.'}catch(x){say(x)}};
-  }catch(e){console.warn('sync unavailable',e)}
-}
-if('serviceWorker' in navigator&&location.protocol==='https:'){navigator.serviceWorker.register('sw.js').catch(()=>{})}
-</script>
-
-</body>
-</html>
