@@ -55,6 +55,24 @@ a{color:var(--accent)}
 .chip{font-family:var(--f-ui);font-size:13px;border:1px solid var(--rule);background:transparent;border-radius:6px;padding:5px 10px;cursor:pointer;color:var(--muted)}
 .chip[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
 .notes-btn{display:none}
+:root{--brand-bg:#28468A;--brand-fg:#F6EFDE}
+.brand{display:inline-flex;align-items:center;gap:8px}
+.brand .mark{width:28px;height:28px;border-radius:7px;background:var(--brand-bg);color:var(--brand-fg);display:inline-grid;place-items:center;font-family:var(--f-heb);font-size:18px;font-weight:700;letter-spacing:0;line-height:1;box-shadow:inset 0 -3px 0 rgba(214,186,120,.85)}
+.ctrl-row{display:none}
+.tabbar{display:none}
+.marg{display:none}
+@media (min-width:1100px){
+  main.wrap{max-width:1500px;grid-template-columns:minmax(0,1fr) 380px}
+  .text .verse{grid-template-columns:210px 34px minmax(0,1fr);gap:4px 14px}
+  .marg{display:flex;flex-direction:column;gap:6px;padding-top:10px;border-right:1px solid var(--rule);padding-right:12px;min-width:0}
+  .mn{display:block;text-align:left;background:none;border:0;padding:0;cursor:pointer;font-family:var(--f-text);font-size:13.5px;line-height:1.35;color:var(--ink)}
+  .mn:hover{color:var(--accent)}
+  .mn .pill{font-size:9.5px;padding:1px 5px;margin-right:2px}
+  .mn.mine{color:var(--muted);border-left:2px solid var(--t-deb);padding-left:7px}
+  .mn.mine b{display:block;font-family:var(--f-ui);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--t-deb);font-weight:600}
+}
+.chapnav{display:flex;justify-content:space-between;gap:10px;margin:22px 0 4px}
+.chapnav button{font-family:var(--f-ui);font-size:14px;border:1px solid var(--rule);background:transparent;color:var(--accent);border-radius:8px;padding:9px 14px;cursor:pointer}
 .pick{font-family:var(--f-ui);font-size:13px;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:6px;padding:5px 6px;max-width:9.5em}
 .bsb + .bsb{border-top:1px dashed var(--rule);padding-top:6px}
 .guide h4{margin:16px 0 6px}
@@ -158,7 +176,7 @@ details summary{cursor:pointer;font-family:var(--f-ui);font-size:13px;color:var(
 .empty{color:var(--muted);font-size:15px}
 .backdrop{display:none}
 .ph [data-close]{display:none}
-@media (max-width:960px){.ph [data-close]{display:inline-block}}
+@media (max-width:960px){.ph [data-close]{display:inline-block}.mark{width:30px;height:30px}}
 .loading{padding:40px 0;color:var(--muted);font-family:var(--f-ui)}
 .sync{font-family:var(--f-ui);font-size:12px;color:var(--muted);display:inline-flex;align-items:center;gap:6px}
 .sync::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--rule)}
@@ -195,7 +213,28 @@ button.vn:hover{text-decoration:underline}
   .panel.open{transform:none}
   .backdrop.open{display:block;position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:30}
   .heb{font-size:24px}
-  .ctrls{margin-left:0}
+  /* one-line top bar */
+  .bar-in{flex-wrap:nowrap;gap:10px;padding:8px 16px}
+  .bname{display:none}
+  .ref{min-width:0;font-size:19px}
+  .ref select{font-size:18px;max-width:9.5em}
+  #sync{margin-left:auto;flex-shrink:0;font-size:11.5px}
+  /* controls live in the Display sheet */
+  .ctrls{display:none;position:fixed;left:0;right:0;bottom:calc(58px + env(safe-area-inset-bottom,0px));z-index:45;background:var(--surface);border-top:1px solid var(--rule);border-radius:14px 14px 0 0;padding:18px 16px 20px;box-shadow:0 -8px 30px rgba(0,0,0,.18);margin:0;gap:10px;align-items:center}
+  body.display-open .ctrls{display:flex}
+  .ctrls .notes-btn,.ctrls #guideBtn{display:none}
+  .ctrls .pick{max-width:none;flex:1 1 40%;padding:8px}
+  .ctrls .chip,.ctrls .seg button{padding:8px 12px;font-size:14px}
+  .ctrl-row{display:block;flex-basis:100%;order:-1}
+  .ctrl-lab{font-family:var(--f-ui);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  /* bottom tab bar */
+  .tabbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--bg);border-top:1px solid var(--rule);padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+  .tabbar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;color:var(--muted);font-family:var(--f-ui);font-size:11px;padding:4px 0;cursor:pointer}
+  .tabbar svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+  .tabbar button[aria-current="true"]{color:var(--accent)}
+  .wrap{padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}
+  .panel{bottom:calc(58px + env(safe-area-inset-bottom,0px));padding-bottom:24px}
+  .foot{margin-bottom:10px}
 }
 @media (prefers-reduced-motion:reduce){ .panel{transition:none} }
 </style>
@@ -205,7 +244,7 @@ button.vn:hover{text-decoration:underline}
 
 <header class="bar">
   <div class="bar-in">
-    <span class="brand">Ad Fontes</span>
+    <span class="brand"><span class="mark" aria-hidden="true">א</span><span class="bname">Ad Fontes</span></span>
     <div class="ref"><select id="bookSel" aria-label="Book"></select><select id="chapSel" aria-label="Chapter"></select></div>
     <div class="ctrls">
       <div class="seg" role="group" aria-label="Units">
@@ -220,11 +259,18 @@ button.vn:hover{text-decoration:underline}
       <button class="chip notes-btn" id="openNotes">Chapter notes</button>
       <button class="chip" id="guideBtn" aria-label="How to use this reader">Guide</button>
       <button class="chip" id="themeBtn" aria-label="Light or dark appearance">Auto</button>
-      <button class="sync" id="sync" title="Sign in to sync bookmarks, notes and your place across devices">Sign in to sync</button>
+      <div class="ctrl-row"><span class="ctrl-lab">Display</span></div>
     </div>
+    <button class="sync" id="sync" title="Sign in to sync bookmarks, notes and your place across devices">Sign in to sync</button>
   </div>
 </header>
 
+<nav class="tabbar" id="tabbar" aria-label="Reader sections">
+  <button data-tab="notes"><svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 15h10M4 20h7"/></svg>Notes</button>
+  <button data-tab="mine"><svg viewBox="0 0 24 24"><path d="M7 3h10v18l-5-4-5 4z"/></svg>Mine</button>
+  <button data-tab="display"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg>Display</button>
+  <button data-tab="guide"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01"/></svg>Guide</button>
+</nav>
 <main class="wrap">
   <section class="text" id="text"><div class="loading">Loading the text…</div></section>
   <aside class="panel" id="panel" aria-live="polite"></aside>
@@ -346,7 +392,7 @@ const strip=m=>({book:m.book,chap:String(m.chap),v:m.v,bm:!!m.bm,note:String(m.n
 function topVerse(){const vs=[...document.querySelectorAll('.verse')];const y=(document.querySelector('.bar')||{}).offsetHeight||0;const v=vs.find(el=>el.getBoundingClientRect().bottom>y+10);return v?+v.id.slice(1):1}
 let scrollT=null;window.addEventListener('scroll',()=>{clearTimeout(scrollT);scrollT=setTimeout(()=>{if(Sync.ref&&CH){localAt=Date.now();store.set('state',Object.assign({at:localAt},prefs()));Sync.pushState(prefs(),localAt)}},2500)},{passive:true});
 function refreshMarks(){
-  document.querySelectorAll('.verse').forEach(el=>{const v=+el.id.slice(1);const b=el.querySelector('button.vn');if(b)b.innerHTML=vnInner(v)});
+  document.querySelectorAll('.verse').forEach(el=>{const v=+el.id.slice(1);const b=el.querySelector('button.vn');if(b)b.innerHTML=vnInner(v);const g=el.querySelector('.marg');if(g){g.innerHTML=margInner(v);wireMarg(g)}});
   const p=$('#panel');
   if(SEL&&SEL.lang==='mine'){const ta=$('#myNote');if(!ta||document.activeElement!==ta)showMyNote(SEL.v,true)}
   else if(!SEL&&p.querySelector('#myList'))p.querySelector('#myList').innerHTML=myListHTML();
@@ -412,6 +458,15 @@ async function boot(){
   $('#tr1').onchange=e=>{S.tr1=e.target.value;if(S.tr2===S.tr1)S.tr2='';render()};
   $('#tr2').onchange=e=>{S.tr2=e.target.value===S.tr1?'':e.target.value;render()};
   $('#guideBtn').onclick=showGuide;
+  document.querySelectorAll('#tabbar button').forEach(b=>b.onclick=()=>{
+    const t=b.dataset.tab,open=b.getAttribute('aria-current')==='true';
+    closeDisplay();closeSheet();if(open){setTab('');return}
+    if(t==='notes'){SEL=null;showChapterNotes();openSheet()}
+    if(t==='mine')showMine();
+    if(t==='guide')showGuide();
+    if(t==='display'){document.body.classList.add('display-open');$('#backdrop').classList.add('open')}
+    setTab(t);
+  });
   $('#themeBtn').onclick=()=>{S.theme={auto:'light',light:'dark',dark:'auto'}[S.theme]||'light';applyTheme();save()};
   $('#openNotes').onclick=()=>{SEL=null;showChapterNotes();openSheet()};
   $('#backdrop').onclick=closeSheet;
@@ -451,15 +506,27 @@ function render(){
     html+=`<div class="units" style="margin-top:18px">${S.unit>0?`<button class="chip" data-unit="${S.unit-1}">← ${esc(paras[S.unit-1].label)}</button>`:''}${S.unit<paras.length-1?`<button class="chip" data-unit="${S.unit+1}">${esc(paras[S.unit+1].label)} →</button>`:''}</div>`;
   }else{
     html+=CH.verses.map(verseHTML).join('');
+    const chs=Object.keys(BOOK.chapters).map(Number).sort((a,b)=>a-b),i=chs.indexOf(+S.chap);
+    if(chs.length>1)html+=`<div class="chapnav">${i>0?`<button data-chap="${chs[i-1]}">← Chapter ${chs[i-1]}</button>`:'<span></span>'}${i<chs.length-1?`<button data-chap="${chs[i+1]}">Chapter ${chs[i+1]} →</button>`:''}</div>`;
   }
   $('#text').innerHTML=html;
+  $('#text').querySelectorAll('[data-chap]').forEach(b=>b.onclick=()=>{S.chap=b.dataset.chap;S.unit=0;$('#chapSel').value=S.chap;loadChapter();window.scrollTo({top:0})});
   $('#text').querySelectorAll('[data-unit]').forEach(b=>b.onclick=()=>{S.unit=+b.dataset.unit;render();window.scrollTo({top:0})});
   $('#text').querySelectorAll('.w').forEach(b=>b.onclick=()=>selectHeb(+b.dataset.v,+b.dataset.n,b));
   $('#text').querySelectorAll('.gw').forEach(b=>b.onclick=()=>selectGrk(+b.dataset.v,+b.dataset.i,b));
   $('#text').querySelectorAll('button.vn').forEach(b=>b.onclick=()=>showMyNote(+b.dataset.mine));
+  $('#text').querySelectorAll('.marg').forEach(wireMarg);
   if(SEL)markSel();
 }
 function unitHead(p){return `<div class="unit-head">${esc(p.label)} · ends with <span class="mk">${esc(p.marker)}</span> ${esc(p.markerName)}</div>`}
+function margInner(v){
+  const notes=CH.wordNotes||{};let h='';
+  Object.keys(notes).filter(k=>k.split('.')[0]===String(v)).sort((a,b)=>+a.split('.')[1]-+b.split('.')[1]).forEach(k=>{const n=notes[k];
+    h+=`<button class="mn" data-wn="${esc(k)}"><span class="pill ${esc(n.tag)}">${esc((TAGTXT[n.tag]||n.tag).slice(0,4))}</span> ${esc(n.title)}</button>`});
+  const m=MARKS[markId(v)];
+  if(m&&(m.note||'').trim())h+=`<button class="mn mine" data-mynote="${v}"><b>Your note</b> ${esc(m.note.trim().slice(0,140))}${m.note.trim().length>140?'…':''}</button>`;
+  return h;
+}
 function verseHTML(V){
   const notes=CH.wordNotes||{};
   const words=V.he.map(w=>{
@@ -468,7 +535,7 @@ function verseHTML(V){
     const inner=S.lit?`<span>${esc(w.h)}${kq}</span><span class="g">${esc(w.g)}</span>`:`${esc(w.h)}${kq}`;
     return `<button class="w${has}" data-v="${V.v}" data-n="${w.n}" aria-label="${esc(w.t)} — ${esc(w.g)}">${inner}</button>`+(w.mk?`<span class="pmk" title="${w.mk==='ס'?'setumah (closed paragraph)':'petuchah (open paragraph)'}">${esc(w.mk)}</span>`:'');
   }).join(S.lit?'':' ');
-  let h=`<article class="verse" id="v${V.v}"><button class="vn" data-mine="${V.v}" aria-label="Bookmark or note verse ${V.v}">${vnInner(V.v)}</button><div class="vbody"><div class="heb${S.lit?' inter':''}" lang="he">${words}</div>`;
+  let h=`<article class="verse" id="v${V.v}"><aside class="marg" aria-label="Notes for verse ${V.v}">${margInner(V.v)}</aside><button class="vn" data-mine="${V.v}" aria-label="Bookmark or note verse ${V.v}">${vnInner(V.v)}</button><div class="vbody"><div class="heb${S.lit?' inter':''}" lang="he">${words}</div>`;
   if(S.bsb){[S.tr1,S.tr2].filter(Boolean).filter((c,i,a)=>a.indexOf(c)===i).forEach(c=>{const x=enText(V,c);h+=`<div class="bsb"><span class="lab">${esc(trLabel(c))}</span>${x?esc(x):'<span class="tags">Not in this translation.</span>'}</div>`})}
   if(S.lxx&&V.lxx.length){
     h+=`<div class="lxx" lang="grc"><span class="lab">LXX</span>${V.lxx.map((g,i)=>`<button class="gw" data-v="${V.v}" data-i="${i}">${esc(g.g)}</button>`).join(' ')}</div>`;
@@ -493,6 +560,15 @@ function showGuide(){SEL=null;markSel();const L=(BOOK&&BOOK.translations)||[];
   <h4>More chapters</h4><p>Ask Claude, for example: <i>“Add Deuteronomy 8 to Ad Fontes.”</i> You'll get updated files to upload to GitHub, and the chapter appears in the chapter menu.</p>
   <h4>English translations</h4><div class="trlist">${L.map(x=>`<div><b>${esc(trLabel(x.code))}</b>, ${esc(x.name)}. ${esc(x.note||'')}</div>`).join('')}</div>
   </div>`;wirePanel();$('#panel').scrollTop=0;openSheet()}
+function wireMarg(g){
+  g.querySelectorAll('[data-wn]').forEach(b=>b.onclick=()=>{const [v,n]=b.dataset.wn.split('.').map(Number);const el=document.querySelector(`.w[data-v="${v}"][data-n="${n}"]`);selectHeb(v,n,el)});
+  g.querySelectorAll('[data-mynote]').forEach(b=>b.onclick=()=>showMyNote(+b.dataset.mynote));
+}
+function showMine(){SEL=null;markSel();
+  $('#panel').innerHTML=`<div class="ph"><span>Your bookmarks &amp; notes</span><span><button data-back>Chapter notes</button> <button data-close>Close</button></span></div><div class="mylist" id="myList">${myListHTML()}</div>`;
+  wirePanel();$('#panel').scrollTop=0;openSheet()}
+function setTab(t){document.querySelectorAll('#tabbar button').forEach(b=>b.setAttribute('aria-current',String(b.dataset.tab===t)))}
+function closeDisplay(){document.body.classList.remove('display-open')}
 function markSel(){
   document.querySelectorAll('.sel').forEach(e=>e.classList.remove('sel'));
   if(!SEL)return;
@@ -603,7 +679,7 @@ function selectGrk(v,i){
 }
 const mq=matchMedia('(max-width:960px)');
 function openSheet(){if(mq.matches){$('#panel').classList.add('open');$('#backdrop').classList.add('open')}}
-function closeSheet(){$('#panel').classList.remove('open');$('#backdrop').classList.remove('open')}
+function closeSheet(){$('#panel').classList.remove('open');$('#backdrop').classList.remove('open');closeDisplay();setTab('')}
 boot();
 })();
 </script>
