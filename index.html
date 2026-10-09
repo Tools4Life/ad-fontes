@@ -276,7 +276,7 @@ body.menu-open{overflow:hidden}
 .reqnote{font-size:14px;color:var(--muted)}
 .reqnote.ok{color:var(--t-data)}
 .prompt{font-family:var(--f-mono);font-size:12px;background:var(--panel);border-radius:6px;padding:8px 10px;white-space:pre-wrap;color:var(--ink)}
-@media (max-width:960px){ #readSec{display:block} }
+@media (max-width:960px){ #readSec{display:block} .panel::before{content:"";display:block;width:38px;height:4px;border-radius:2px;background:var(--rule);margin:-8px auto 12px} }
 @media (prefers-reduced-motion:reduce){ .panel,.drawer,.scrim{transition:none} }
 </style>
 </head>
@@ -340,6 +340,41 @@ body.menu-open{overflow:hidden}
     <button class="lnk" type="button" id="siForgot">Forgot password?</button>
   </form>
 </div>
+<script>
+/* swipe-to-close for sheets and menus (touch only). Won't close while typing or if you've changed a field. */
+window.swipeToClose=function(el,o){
+  if(!el)return;const T=o.move||el,dirOf=()=>typeof o.dir==='function'?o.dir():o.dir;
+  const fields=()=>[...el.querySelectorAll('input,textarea,select,[data-watch]')].filter(f=>!/^(button|submit|hidden|file)$/.test(f.type));
+  const val=f=>f.hasAttribute('data-watch')?f.textContent:f.type==='checkbox'||f.type==='radio'?String(f.checked):f.value;
+  let snap=new Map(),snapT=null;const takeSnap=()=>{clearTimeout(snapT);snapT=setTimeout(()=>{snap=new Map(fields().map(f=>[f,val(f)]))},80)};
+  new MutationObserver(takeSnap).observe(el,{attributes:true,attributeFilter:['class','open'],childList:true});takeSnap();
+  const dirty=()=>!o.saves&&fields().some(f=>snap.has(f)?snap.get(f)!==val(f):(!f.hasAttribute('data-watch')&&f.type!=='checkbox'&&f.type!=='radio'&&f.value!==''&&f.value!==f.defaultValue));
+  const blocked=(t,d)=>{for(let n=t;n&&n!==el.parentNode;n=n.parentNode){if(n.nodeType!==1)continue;
+      if(n.matches('input,textarea,select,[contenteditable="true"],.noswipe'))return true;
+      const cs=getComputedStyle(n);
+      if(d==='down'&&/(auto|scroll)/.test(cs.overflowY)&&n.scrollHeight>n.clientHeight+1&&n.scrollTop>0)return true;
+      if(d!=='down'&&/(auto|scroll)/.test(cs.overflowX)&&n.scrollWidth>n.clientWidth+2)return true;
+      if(n===el)break}return false};
+  let sx=null,sy=0,dx=0,dy=0,t0=0,decided=false,drag=false,d='down';
+  const reset=()=>{T.style.transition='';T.style.transform=''};
+  el.addEventListener('touchstart',e=>{sx=null;if(e.touches.length!==1||!o.isOpen())return;d=dirOf();if(!d||blocked(e.target,d))return;
+    sx=e.touches[0].clientX;sy=e.touches[0].clientY;dx=dy=0;t0=Date.now();decided=drag=false},{passive:true});
+  el.addEventListener('touchmove',e=>{if(sx==null)return;dx=e.touches[0].clientX-sx;dy=e.touches[0].clientY-sy;
+    if(!decided){if(Math.abs(dx)<8&&Math.abs(dy)<8)return;decided=true;
+      drag=d==='down'?dy>0&&Math.abs(dy)>Math.abs(dx)*1.2:(d==='left'?dx<0:dx>0)&&Math.abs(dx)>Math.abs(dy)*1.2;
+      if(!drag){sx=null;return}T.style.transition='none'}
+    if(e.cancelable)e.preventDefault();
+    const v=d==='down'?Math.max(0,dy):d==='left'?Math.min(0,dx):Math.max(0,dx);
+    T.style.transform=d==='down'?`translateY(${v}px)`:`translateX(${v}px)`},{passive:false});
+  const end=()=>{if(sx==null)return;sx=null;if(!drag)return;drag=false;
+    const dist=Math.abs(d==='down'?dy:dx),speed=dist/Math.max(1,Date.now()-t0);
+    const ae=document.activeElement,typing=ae&&el.contains(ae)&&ae.matches('input,textarea,select,[contenteditable="true"]');
+    T.style.transition='';
+    if(!typing&&!dirty()&&(dist>90||(dist>40&&speed>.5))){o.close();if(o.instant)reset();else requestAnimationFrame(()=>{T.style.transform=''})}
+    else reset()};
+  el.addEventListener('touchend',end);el.addEventListener('touchcancel',()=>{if(sx!=null){sx=null;drag=false;reset()}});
+};
+</script>
 <script>
 window.Auth={email:null,_p:null,_r:null,ready(){if(!this._p)this._p=new Promise(r=>this._r=r);return this._p},resolve(v){this.ready();this._r(v)},signOut(){}};
 (function(){
@@ -623,11 +658,9 @@ function wireMenu(){
   document.querySelectorAll('#themeSeg button').forEach(b=>b.onclick=()=>{S.theme=b.dataset.th;applyTheme();save()});applyTheme();
   const go={study:()=>{SEL=null;markSel();showChapterNotes();$('#panel').scrollTop=0;openSheet()},mine:showMine,guide:showGuide,export:exportNotes,account:()=>window.__openAccount(),request:showRequest};
   document.querySelectorAll('#drawer .ditem').forEach(b=>b.onclick=()=>{closeMenu();setTimeout(go[b.dataset.go],mq.matches?180:0)});
-  // swipe the menu closed
-  let x0=null;const d=$('#drawer');
-  d.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
-  d.addEventListener('touchmove',e=>{if(x0==null)return;const dx=Math.max(0,e.touches[0].clientX-x0);d.style.transition='none';d.style.transform=`translateX(${dx}px)`},{passive:true});
-  d.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;d.style.transition='';d.style.transform='';if(dx>70)closeMenu()});
+  // swipe the menu (to the right) and the study panel (down) closed
+  swipeToClose($('#drawer'),{dir:'right',isOpen:()=>document.body.classList.contains('menu-open'),close:closeMenu});
+  swipeToClose($('#panel'),{dir:'down',saves:true,isOpen:()=>mq.matches&&$('#panel').classList.contains('open'),close:closeSheet});
 }
 /* ---------- export my notes ---------- */
 async function exportNotes(){
