@@ -298,6 +298,7 @@ body.menu-open{overflow:hidden}
   <div class="dsec"><h5>Settings</h5>
     <div class="drow"><span>Appearance</span><div class="seg" id="themeSeg" role="group" aria-label="Appearance"><button data-th="auto">Auto</button><button data-th="light">Light</button><button data-th="dark">Dark</button></div></div>
     <button class="ditem" data-go="account"><svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 1-14.3 4.9M4 12a8 8 0 0 1 14.3-4.9M18 3v4.5h-4.5M6 21v-4.5h4.5"/></svg><span><b id="acctTitle">Sign in to sync</b><small id="acctSub">Keep notes, bookmarks and your place in step across devices</small></span></button>
+    <button class="ditem" data-go="export"><svg viewBox="0 0 24 24"><path d="M12 4v11M7.5 10.5 12 15l4.5-4.5M5 19h14"/></svg><span><b>Download my notes</b><small>Save a copy of your notes and bookmarks as a text file</small></span></button>
     <button class="ditem" data-go="guide"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01"/></svg><span><b>How to use Ad Fontes</b><small>What everything on the page means</small></span></button>
     <button class="ditem" data-go="request"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg><span><b>Request a chapter</b><small>Ask Claude to add another chapter</small></span></button>
   </div>
@@ -587,8 +588,8 @@ function wireMarg(g){
   g.querySelectorAll('[data-mynote]').forEach(b=>b.onclick=()=>showMyNote(+b.dataset.mynote));
 }
 function showMine(){SEL=null;markSel();
-  $('#panel').innerHTML=`<div class="ph"><span>My notes &amp; bookmarks</span><span><button data-back>Chapter study</button> <button data-close>Close</button></span></div><div class="mylist" id="myList">${myListHTML()}</div>`;
-  wirePanel();$('#panel').scrollTop=0;openSheet()}
+  $('#panel').innerHTML=`<div class="ph"><span>My notes &amp; bookmarks</span><span><button data-back>Chapter study</button> <button data-close>Close</button></span></div><div class="mylist" id="myList">${myListHTML()}</div><button class="chip" id="expBtn" style="margin-top:6px">Download my notes</button>`;
+  wirePanel();$('#expBtn').onclick=exportNotes;$('#panel').scrollTop=0;openSheet()}
 function setTab(){}
 function closeDisplay(){}
 /* ---------- slide-in menu ---------- */
@@ -599,13 +600,26 @@ function wireMenu(){
   $('#menuBtn').onclick=openMenu;$('#drawerClose').onclick=closeMenu;$('#scrim').onclick=closeMenu;
   placeCtrls();mq.addEventListener&&mq.addEventListener('change',placeCtrls);
   document.querySelectorAll('#themeSeg button').forEach(b=>b.onclick=()=>{S.theme=b.dataset.th;applyTheme();save()});applyTheme();
-  const go={study:()=>{SEL=null;markSel();showChapterNotes();$('#panel').scrollTop=0;openSheet()},mine:showMine,guide:showGuide,account:()=>window.__openAccount(),request:showRequest};
+  const go={study:()=>{SEL=null;markSel();showChapterNotes();$('#panel').scrollTop=0;openSheet()},mine:showMine,guide:showGuide,export:exportNotes,account:()=>window.__openAccount(),request:showRequest};
   document.querySelectorAll('#drawer .ditem').forEach(b=>b.onclick=()=>{closeMenu();setTimeout(go[b.dataset.go],mq.matches?180:0)});
   // swipe the menu closed
   let x0=null;const d=$('#drawer');
   d.addEventListener('touchstart',e=>{x0=e.touches[0].clientX},{passive:true});
   d.addEventListener('touchmove',e=>{if(x0==null)return;const dx=Math.max(0,e.touches[0].clientX-x0);d.style.transition='none';d.style.transform=`translateX(${dx}px)`},{passive:true});
   d.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;d.style.transition='';d.style.transform='';if(dx>70)closeMenu()});
+}
+/* ---------- export my notes ---------- */
+async function exportNotes(){
+  const name=c=>{const b=INDEX&&INDEX.books.find(x=>x.code===c);return b?b.name:c};
+  const order=c=>{const i=INDEX?INDEX.books.findIndex(x=>x.code===c):-1;return i<0?999:i};
+  const L=Object.values(MARKS).filter(m=>m&&(m.bm||(m.note||'').trim())).sort((a,b)=>order(a.book)-order(b.book)||(+a.chap)-(+b.chap)||(+a.v)-(+b.v));
+  const d=new Date(),day=d.toISOString().slice(0,10);
+  let t=`Ad Fontes: my notes and bookmarks\nSaved ${d.toLocaleString()}\n${L.length} verse${L.length===1?'':'s'}\n`;
+  L.forEach(m=>{t+=`\n${name(m.book)} ${m.chap}:${m.v}${m.bm?'  [bookmarked]':''}${m.at?'  (last changed '+new Date(m.at).toLocaleDateString()+')':''}\n`;if((m.note||'').trim())t+=m.note.trim()+'\n'});
+  t+=`\n---\nData (for restoring):\n${JSON.stringify(L)}\n`;
+  const fn=`ad-fontes-notes-${day}.txt`,file=new File([t],fn,{type:'text/plain'});
+  try{if(mq.matches&&navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:fn});return}}catch(e){if(e&&e.name==='AbortError')return}
+  const u=URL.createObjectURL(file),a=document.createElement('a');a.href=u;a.download=fn;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),4000);
 }
 /* ---------- request a chapter ---------- */
 const CANON=[['Genesis',50],['Exodus',40],['Leviticus',27],['Numbers',36],['Deuteronomy',34],['Joshua',24],['Judges',21],['Ruth',4],['1 Samuel',31],['2 Samuel',24],['1 Kings',22],['2 Kings',25],['1 Chronicles',29],['2 Chronicles',36],['Ezra',10],['Nehemiah',13],['Esther',10],['Job',42],['Psalms',150],['Proverbs',31],['Ecclesiastes',12],['Song of Songs',8],['Isaiah',66],['Jeremiah',52],['Lamentations',5],['Ezekiel',48],['Daniel',12],['Hosea',14],['Joel',3],['Amos',9],['Obadiah',1],['Jonah',4],['Micah',7],['Nahum',3],['Habakkuk',3],['Zephaniah',3],['Haggai',2],['Zechariah',14],['Malachi',4],
